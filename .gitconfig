@@ -1,0 +1,125 @@
+[user]
+	name = Niklas Baudy
+	email = niklas.baudy@vanniktech.de
+[alias]
+	a = add
+	aa = add --all
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
+	ap = add -p
+	b = branch
+	cach = commit --amend -C HEAD
+	cam = commit -a -m
+	cem = commit --amend -m
+	cm = commit -m
+	c = checkout
+	cp = cherry-pick
+	d = diff
+	dc = diff-tree --no-commit-id --name-status -r
+	ds = diff --staged
+	dsw = diff --staged -w
+	dswd = diff --staged --word-diff
+	dnc = diff --no-color
+	dw = diff -w
+	dwd = diff --word-diff
+	dcsv = diff --word-diff-regex="[^[:space:],]+"
+	f = fetch
+	fu = fetch upstream
+	fa = fetch --all
+	fgi = rm -r --cached .
+	m = merge
+	mum = merge upstream/master
+	mu1 = merge upstream/1.x
+	mu2 = merge upstream/2.x
+	noc = rev-list HEAD --count
+	l = log
+	lc = log --graph --pretty=format:\"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --date=relative
+	lch = rev-parse HEAD
+	lo = log --oneline
+	ls = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+	lodg = log --oneline --decorate --graph
+	ph = push
+	phf = push -f
+	pho = push origin
+	phoa = push origin --all
+	phou = push origin -u
+	phom = push origin master
+	phoum = push origin -u master
+	phomt = push origin master --tags
+	s = status
+	si = status --ignored
+	st = stash
+	sta = stash apply
+	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+	r = reset
+	ra = remote add
+	rao = remote add origin
+	rau = remote add upstream
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbi = rebase -i
+	rbm = rebase master
+	rbih1 = rebase -i HEAD~1
+	rbih2 = rebase -i HEAD~2
+	rbih3 = rebase -i HEAD~3
+	rbih4 = rebase -i HEAD~4
+	rbih5 = rebase -i HEAD~5
+	rbiom = rebase -i origin/master
+	rbs = rebase --skip
+	rh = reset --hard
+	rha = reset HEAD .
+	rhom = reset --hard origin/master
+	rro = remote remove origin
+	rru = remote remove upstream
+	rpo = remote prune origin
+	rpu = remote prune upstream
+	rs = reset --soft
+  t = tag
+	trm = ls-tree -r master --name-only
+	unwatch = update-index --assume-unchanged
+	watch = update-index --no-assume-unchanged
+	up = pull --rebase --autostash
+[core]
+	autocrlf = input
+	ignorecase = false
+	excludesfile = ~/.gitignore_global
+	attributesfile = ~/.gitattributes_global
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "branch"]
+	current = red
+	local = yellow
+	remote = green
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+[rebase]
+	autostash = true
+	autosquash = true
+[stash]
+	showPatch = true
+[push]
+	default = matching
+[pager]
+	diff = diff-so-fancy | less --tabs=2 -RFX
+	show = diff-so-fancy | less --tabs=2 -RFX
+[interactive]
+	diffFilter = diff-so-fancy | less --tabs=2 -RFX
+[diff]
+	compactionHeuristic = true
+[rerere]
+	enabled = true
+[diff "jar"]
+	textconv = jar2txt

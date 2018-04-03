@@ -1,0 +1,5 @@
+.DS_Store
+.gradletasknamecache
+t
+local.properties
+*.sublime-workspace

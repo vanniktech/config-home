@@ -1,0 +1,11 @@
+--ignore-dir=build
+--ignore-dir=idea
+--ignore-dir=.idea
+--ignore-dir=buck-out
+--ignore-file=is:R.java
+--ignore-file=is:R2.java
+--ignore-file=ext:iml
+--ignore-file=ext:ai
+
+--type-add=kotlin=.kt,.kts
+--type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle,properties

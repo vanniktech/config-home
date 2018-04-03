@@ -1,0 +1,155 @@
+#!/bin/bash
+
+red=`tput setaf 1`
+green=`tput setaf 2`
+orange=`tput setaf 9`
+reset=`tput sgr0`
+
+tools=${1:-cfpdg}
+types=${2:-vc}
+
+# Diffings
+
+checkStyleDiff() {
+  diffy "$HOME/.prefs/code_quality_tools/checkstyle.xml" "$1/code_quality_tools/checkstyle.xml" $2 "CheckStyle" $3
+}
+
+pmdDiff() {
+  diffy "$HOME/.prefs/code_quality_tools/pmd.xml" "$1/code_quality_tools/pmd.xml" $2 "PMD" $3
+}
+
+findbugsDiff() {
+  diffy "$HOME/.prefs/code_quality_tools/findbugs-filter.xml" "$1/code_quality_tools/findbugs-filter.xml" $2 "Findbugs" $3
+}
+
+detektDiff() {
+  diffy "$HOME/.prefs/code_quality_tools/detekt.yml" "$1/code_quality_tools/detekt.yml" $2 "Detekt" $3
+}
+
+ktlintDiff() {
+  diffy "$HOME/.prefs/code_quality_tools/.editorconfig" "$1/.editorconfig" $2 "ktlint" $3
+}
+
+diffy() {
+  if [[ $types == *"c"* ]]; then
+    if [[ $5 == 0 ]]; then
+      # Successful use of the tool.
+      output=$(diff $1 $2)
+
+      exitCode=$?
+
+      if [[ $exitCode == 0 ]]; then
+        echo "    ${orange}[$4] ${green}$3 ✓${reset}"
+      else
+        echo "    ${orange}[$4] ${red}$3 ✘ ${reset} - $2"
+
+        echo "    $output"
+      fi
+    fi
+  fi
+}
+
+# Versions
+
+checkGradleVersion() {
+  if [[ $types == *"v"* ]]; then
+    path="$1/build.gradle"
+    wantedVersion="4.5"
+    version=$(cat $path | ack gradleVersion | sed -e "s/gradleVersion =//" | awk '{$1=$1};1' | cut -c 2- | rev | cut -c 2- | rev)
+
+    if [ "$version" == $wantedVersion ]; then
+      echo "    ${orange}[Gradle Version] ${green}$wantedVersion ✓${reset} - $path"
+    else
+      echo "    ${orange}[Gradle Version] ${red}$wantedVersion ✘${reset} - $path"
+    fi
+  fi
+}
+
+checkCheckstyleVersion() {
+  checkVersion "checkstyle" $1 "8.7"
+}
+
+checkPmdVersion() {
+  checkVersion "pmd" $1 "6.0.1"
+}
+
+checkDetektVersion() {
+  checkVersion "detekt" $1 "1.0.0.RC6-2"
+}
+
+checkktlintVersion() {
+  checkVersion "ktlint" $1 "0.19.0"
+}
+
+checkVersion() {
+  if [[ $types == *"v"* ]]; then
+    regexp="$1(.*\n)(.*\n)"
+    path="$2/build.gradle"
+    version=$(pcregrep -Mi $regexp $path | ack toolVersion | tail -c $((${#3} + 2)) | cut -c 1-${#3})
+    enabled=$(pcregrep -Mi $regexp $path | ack enabled | tail -c 6)
+
+    if [ "$enabled" == "false" ]; then
+      echo "    ${orange}[$1 Version] ${green}Disabled ✓${reset} - $path"
+      return 1
+    elif [ "$version" == "$3" ]; then
+      echo "    ${orange}[$1 Version] ${green}$3 ✓${reset} - $path"
+      return 0
+    else
+      echo "    ${orange}[$1 Version] ${red}$3 ✘${reset} - $path"
+      return 0
+    fi
+  fi
+}
+
+declare -a PROJECTS
+
+PROJECTS[0]=$HOME/dev/GitHub/espresso-utils
+PROJECTS[1]=$HOME/dev/GitHub/Emoji
+PROJECTS[2]=$HOME/dev/GitHub/TextBuilder
+PROJECTS[3]=$HOME/dev/GitHub/lint-rules
+PROJECTS[4]=$HOME/dev/GitHub/SparseBuilders
+PROJECTS[5]=$HOME/dev/GitHub/RxPermission
+PROJECTS[6]=$HOME/dev/GitHub/OnActivityResult
+PROJECTS[7]=$HOME/dev/GitHub/junit-rules
+PROJECTS[8]=$HOME/dev/chess-clock
+PROJECTS[9]=$HOME/dev/stocks-diary-reader
+PROJECTS[10]=$HOME/dev/GitHub/gradle-android-apk-size-plugin
+PROJECTS[11]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
+
+# PROJECTS[12]=$HOME/dev/GitHub/gradle-android-javadoc-plugin/build.gradle
+# PROJECTS[13]=$HOME/dev/GitHub/gradle-android-junit-jacoco-plugin/build.gradle
+# PROJECTS[14]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin/build.gradle
+
+for i in ${PROJECTS[@]}; do
+  projectName=${i##*/}
+
+  if [[ $tools == *"g"* ]]; then
+    checkGradleVersion $i
+  fi
+
+  if [[ $tools == *"c"* ]]; then
+    checkCheckstyleVersion $i
+    checkStyleDiff $i $projectName $?
+  fi
+
+  if [[ $tools == *"p"* ]]; then
+    checkPmdVersion $i
+    pmdDiff $i $projectName $?
+  fi
+
+  if [[ $tools == *"f"* ]]; then
+    findbugsDiff $i $projectName
+  fi
+
+  if [[ $tools == *"d"* ]]; then
+    checkDetektVersion $i
+    detektDiff $i $projectName $?
+  fi
+
+  if [[ $tools == *"k"* ]]; then
+    checkktlintVersion $i
+    ktlintDiff $i $projectName $?
+  fi
+done
+
+exit 0;
