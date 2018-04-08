@@ -12,7 +12,7 @@
 	cem = commit --amend -m
 	cm = commit -m
 	c = checkout
-	cp = cherry-pick
+	cp = checkout -p
 	d = diff
 	dc = diff-tree --no-commit-id --name-status -r
 	ds = diff --staged
