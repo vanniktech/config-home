@@ -194,7 +194,7 @@ pb() {
 }
 
 phf() {
-  g push -f origin $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+  g phf origin $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
 }
 
 pnb() {
