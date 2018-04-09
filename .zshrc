@@ -275,12 +275,22 @@ alias ci="find . -name '*.png' -and -not -name '*.9.png' -exec pngquant --skip-i
 alias et="chmod +x t && ./t"
 
 # Android.
-takeandroidscreenshot() {
+androidtakescreenshot() {
   filePath="/sdcard/$(date +%s).png"
 
   adb shell screencap -p $filePath
   adb pull $filePath
   adb shell rm $filePath
+}
+
+androidoverdraw() {
+  isShown=$(adb shell getprop debug.hwui.overdraw)
+
+  if [[ "$isShown" == 'show' ]]; then
+    adb shell setprop debug.hwui.overdraw false
+  else
+    adb shell setprop debug.hwui.overdraw show
+  fi
 }
 
 # We always want to start at the home directory.
