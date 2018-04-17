@@ -274,6 +274,9 @@ alias ci="find . -name '*.png' -and -not -name '*.9.png' -exec pngquant --skip-i
 # T my favorite.
 alias et="chmod +x t && ./t"
 
+# Print Library Version from gradle.properties.
+alias lv="ack VERSION_NAME gradle.properties | sed -En \"s/VERSION_NAME=//p\""
+
 # Android.
 androidtakescreenshot() {
   filePath="/sdcard/$(date +%s).png"
