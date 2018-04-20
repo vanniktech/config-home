@@ -204,16 +204,15 @@ pnb() {
   lastCommitMessage=`git log -n 1 --pretty=format:'%s'`
 
   # Let's try to get a possible ticket by a convention of AB-0123456789:
-  result=$(echo $lastCommitMessage | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}')
+  jiraTicketNumber=$(echo $lastCommitMessage | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}')
 
   # Remove the :
-  cleanResult=${result/:/}
+  jiraTicket=${jiraTicketNumber/:/}
 
-  if [ ! "$cleanResult" ];then
-    title=$lastCommitMessage
+  if [ ! "$jiraTicket" ];then
+    title=$(printf "$lastCommitMessage\n\n$1")
   else
-    # This is the only way. https://github.com/github/hub/issues/909
-    title=$(printf "$lastCommitMessage\n\nhttps://moovel.atlassian.net/browse/$cleanResult")
+    title=$(printf "$lastCommitMessage\n\nhttps://moovel.atlassian.net/browse/$jiraTicket\n\n$1")
   fi
 
   hub pull-request -m $title -F -
