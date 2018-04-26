@@ -223,7 +223,7 @@ cpp() {
   green=`tput setaf 2`
   reset=`tput sgr0`
 
-  for i in $PWD/**; do
+  for i in */; do
     cd $i
 
     isGitDirectory=$(find . -maxdepth 1 -type d -name ".git" | wc -l)
