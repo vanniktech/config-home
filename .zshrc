@@ -189,17 +189,21 @@ dab() {
   git branch | grep -v '*' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | xargs git branch -D
 }
 
+function git_current_branch {
+  echo $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+}
+
 pb() {
-  g pho $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+  g pho $(git_current_branch)
 }
 
 phf() {
-  g phf origin $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+  g phf origin $(git_current_branch)
 }
 
 pnb() {
   # Push the current branch.
-  g phou $(git branch | sed -n '/\* /s///p' | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g")
+  g phou $(git_current_branch)
 
   lastCommitMessage=`git log -n 1 --pretty=format:'%s'`
 
