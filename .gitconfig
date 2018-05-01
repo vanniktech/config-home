@@ -34,6 +34,7 @@
 	l = log
 	lc = log --graph --pretty=format:\"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --date=relative
 	lch = rev-parse HEAD
+	lm = "!me=$(git config --get user.name); git log --oneline --author \"$me\""
 	lo = log --oneline
 	ls = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 	lodg = log --oneline --decorate --graph
