@@ -246,6 +246,11 @@ cpp() {
 
 alias od="g dw --no-color > t && subl t"
 
+# Speedread the current content of the clipboard.
+function speedread-clipboard {
+  pbpaste | speedread -w 500
+}
+
 # Gradle.
 alias gw="gradle"
 alias gws="gradle --stop"
