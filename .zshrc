@@ -113,34 +113,31 @@ if [[ "$unamestr" == 'Linux' ]]; then
   . /etc/profile.d/z.sh
 
   alias gts3="cd $HOME/.config/sublime-text-3"
-  alias xclip="xclip -selection c"
-  alias open="command xdg-open" # Command to open in parallel and don't have any logs.
-
-  # Copy last command from Terminal into the clipboard.
-  alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | xclip"
-
   alias browser="google-chrome --profile-directory=\"Profile 1\""
   alias sysclean="sudo apt-get update && sudo apt-get auto-remove && sudo apt-get auto-clean"
 
+  # Emulate Mac commands.
+  alias pbcopy="xclip -selection c"
+  alias pbpaste="xclip -o"
+  alias open="command xdg-open" # Command to open in parallel and don't have any logs.
+  alias xargs="xargs --no-run-if-empty"
+
+  # Pidcat alias since we need to install this one manually.
   alias pidcat="python $HOME/.pidcat/pidcat.py"
 
   # Always execute this to cancel correctly.
   stty intr ^j
-
-  # Alias xargs to simulate Mac behavior - to not run if empty.
-  alias xargs="xargs --no-run-if-empty"
 elif [[ "$unamestr" == 'Darwin' ]]; then
   # Init z file.
   . /usr/local/etc/profile.d/z.sh
 
   alias gts3="cd $HOME/Library/Application\ Support/Sublime\ Text\ 3/"
-
-  # Copy last command from Terminal into the clipboard.
-  alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
-
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
   alias sysclean="brew cleanup"
 fi
+
+# Copy last command from Terminal into the clipboard.
+alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 alias clean="find ~/.gradle -type f -atime +30 -delete && find ~/.gradle -mindepth 1 -type d -empty -delete && sysclean"
 
