@@ -5,7 +5,7 @@ set -euo pipefail
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Brew some craft packages.
-brew install z ffmpeg ack diff-so-fancy git hub gnu-sed imagemick gradle less pidcat thefuck youtube-dl htop
+brew install z ffmpeg ack diff-so-fancy git hub gnu-sed imagemick gradle less pidcat thefuck youtube-dl htop go-jira
 
 # Phraseapp.
 brew tap phrase/brewed
