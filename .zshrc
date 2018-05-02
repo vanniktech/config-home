@@ -167,6 +167,7 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 f() { find . -type f -name $1 -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*" }
 fd() { find . -type d -name $1 -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*" }
 fs() { subl $(f $1) }
+as() { ack -l $1 | xargs subl }
 fsod() { f $1 | sed "s/$1//" | xargs open }
 frm() { rm -rf $(f $1) }
 
