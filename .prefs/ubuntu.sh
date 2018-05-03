@@ -17,6 +17,9 @@ sudo add-apt-repository ppa:cpick/hub
 sudo apt-get update
 sudo apt-get install hub
 
+# Go-Jira
+wget -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.17/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
+
 # Ack.
 sudo apt-get install ack-grep
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
