@@ -120,6 +120,7 @@
 	diffFilter = diff-so-fancy | less --tabs=2 -RFX
 [diff]
 	compactionHeuristic = true
+	colorMoved = dimmed_zebra
 [rerere]
 	enabled = true
 [diff "jar"]
