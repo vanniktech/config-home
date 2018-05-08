@@ -1,9 +1,10 @@
 #!/bin/bash
 
-red=`tput setaf 1`
-green=`tput setaf 2`
-orange=`tput setaf 9`
-reset=`tput sgr0`
+diffColor=`tput setaf 1`
+sameColor=`tput setaf 2`
+nameColor=`tput setaf 5`
+disabledColor=`tput setaf 8`
+resetColor=`tput sgr0`
 
 tools=${1:-cfpdg}
 types=${2:-vc}
@@ -39,9 +40,9 @@ diffy() {
       exitCode=$?
 
       if [[ $exitCode == 0 ]]; then
-        echo "    ${orange}[$4] ${green}$3 ✓${reset}"
+        echo "    $nameColor[$4] $sameColor$3 ✓$resetColor"
       else
-        echo "    ${orange}[$4] ${red}$3 ✘ ${reset} - $2"
+        echo "    $nameColor[$4] $diffColor$3 ✘ $resetColor - $2"
 
         echo "    $output"
       fi
@@ -58,9 +59,9 @@ checkGradleVersion() {
     version=$(cat $path | ack gradleVersion | sed -e "s/gradleVersion =//" | awk '{$1=$1};1' | cut -c 2- | rev | cut -c 2- | rev)
 
     if [ "$version" == $wantedVersion ]; then
-      echo "    ${orange}[Gradle Version] ${green}$wantedVersion ✓${reset} - $path"
+      echo "    $nameColor[Gradle Version] $sameColor$wantedVersion ✓$resetColor - $path"
     else
-      echo "    ${orange}[Gradle Version] ${red}$wantedVersion ✘${reset} - $path"
+      echo "    $nameColor[Gradle Version] $diffColor$wantedVersion ✘$resetColor - $path"
     fi
   fi
 }
@@ -88,14 +89,14 @@ checkVersion() {
     version=$(pcregrep -Mi $regexp $path | ack toolVersion | tail -c $((${#3} + 2)) | cut -c 1-${#3})
     enabled=$(pcregrep -Mi $regexp $path | ack enabled | tail -c 6)
 
-    if [ "$enabled" == "false" ]; then
-      echo "    ${orange}[$1 Version] ${green}Disabled ✓${reset} - $path"
+    if [ "$enabled" == "false" -o "$version" == "" ]; then
+      echo "    $nameColor[$1 Version] ${disabledColor}Disabled ✓$resetColor - $path"
       return 1
     elif [ "$version" == "$3" ]; then
-      echo "    ${orange}[$1 Version] ${green}$3 ✓${reset} - $path"
+      echo "    $nameColor[$1 Version] $sameColor$3 ✓$resetColor - $path"
       return 0
     else
-      echo "    ${orange}[$1 Version] ${red}$3 ✘${reset} - $path"
+      echo "    $nameColor[$1 Version] $diffColor$3 ✘$resetColor - $path"
       return 0
     fi
   fi
