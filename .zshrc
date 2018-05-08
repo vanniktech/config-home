@@ -220,6 +220,10 @@ pnb() {
   hub pull-request -m $title -F -
 }
 
+# Jira.
+alias j=jira
+eval "$(jira --completion-script-zsh)"
+
 # Clear pull prune.
 cpp() {
   green=`tput setaf 2`
