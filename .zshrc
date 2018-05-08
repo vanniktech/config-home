@@ -224,6 +224,11 @@ pnb() {
 alias j=jira
 eval "$(jira --completion-script-zsh)"
 
+# Put commit message from the given branch if it's named after a ticket into the clipboard. e.g. AP-123
+function cm {
+  jira view $(git_current_branch) --field=summary,issue | head -n 2 | sed 's/issue: //' | sed 's/summary://' | paste -s -d":" | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' | tr -d "\n" | pbcopy
+}
+
 # Clear pull prune.
 cpp() {
   green=`tput setaf 2`
