@@ -230,26 +230,37 @@ function cm {
 }
 
 # Clear pull prune.
-cpp() {
+function cpp {
   green=`tput setaf 2`
   reset=`tput sgr0`
 
   for i in */; do
     cd $i
 
-    isGitDirectory=$(find . -maxdepth 1 -type d -name ".git" | wc -l)
+    is_git_directory=$(find . -maxdepth 1 -type d -name ".git" | wc -l)
 
-    if [ $isGitDirectory -gt 0 ] ; then
+    if [ $is_git_directory -gt 0 ] ; then
       echo "${green}Clear Pull Pruning $i${reset}"
 
       git checkout master
-      git up
-      git remote prune origin
 
+      number_of_upstreams=$(git remote | ack -c upstream)
+
+      if [ $number_of_upstreams -gt 0 ] ; then
+        # We are in a fork.
+        git fa
+        git mum
+        pb
+      else
+        # Normal repository that we have access too.
+        git up
+      fi
+
+      git remote prune origin
       dmb
     fi
 
-    cd - # Go to previous directory.
+    cd ~- # Go to previous directory without echoing.
   done
 }
 
