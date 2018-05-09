@@ -226,7 +226,7 @@ eval "$(jira --completion-script-zsh)"
 
 # Put commit message from the given branch if it's named after a ticket into the clipboard. e.g. AP-123
 function cm {
-  jira view $(git_current_branch) --field=summary,issue | head -n 2 | sed 's/issue: //' | sed 's/summary://' | paste -s -d":" | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' | tr -d "\n" | pbcopy
+  jira view $(git_current_branch) --field=summary,issue | head -n 2 | sed 's/issue: //' | sed 's/summary://' | awk 'NR%2{printf "%s:",$0;next;}1' | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' | tr -d "\n" | pbcopy
 }
 
 # Clear pull prune.
