@@ -55,7 +55,7 @@ diffy() {
 checkGradleVersion() {
   if [[ $types == *"v"* ]]; then
     path="$1/build.gradle"
-    wantedVersion="4.5"
+    wantedVersion="4.7"
     version=$(cat $path | ack gradleVersion | sed -e "s/gradleVersion =//" | awk '{$1=$1};1' | cut -c 2- | rev | cut -c 2- | rev)
 
     if [ "$version" == $wantedVersion ]; then
