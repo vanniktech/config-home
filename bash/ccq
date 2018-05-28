@@ -104,22 +104,22 @@ checkVersion() {
 
 declare -a PROJECTS
 
-PROJECTS[0]=$HOME/dev/GitHub/espresso-utils
-PROJECTS[1]=$HOME/dev/GitHub/Emoji
-PROJECTS[2]=$HOME/dev/GitHub/TextBuilder
-PROJECTS[3]=$HOME/dev/GitHub/lint-rules
-PROJECTS[4]=$HOME/dev/GitHub/SparseBuilders
-PROJECTS[5]=$HOME/dev/GitHub/RxPermission
-PROJECTS[6]=$HOME/dev/GitHub/OnActivityResult
+PROJECTS[0]=$HOME/dev/GitHub/OnActivityResult
+PROJECTS[1]=$HOME/dev/GitHub/espresso-utils
+PROJECTS[2]=$HOME/dev/GitHub/Emoji
+PROJECTS[3]=$HOME/dev/GitHub/TextBuilder
+PROJECTS[4]=$HOME/dev/GitHub/lint-rules
+PROJECTS[5]=$HOME/dev/GitHub/SparseBuilders
+PROJECTS[6]=$HOME/dev/GitHub/RxPermission
 PROJECTS[7]=$HOME/dev/GitHub/junit-rules
-PROJECTS[8]=$HOME/dev/chess-clock
-PROJECTS[9]=$HOME/dev/stocks-diary-reader
-PROJECTS[10]=$HOME/dev/GitHub/gradle-android-apk-size-plugin
-PROJECTS[11]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
-
-# PROJECTS[12]=$HOME/dev/GitHub/gradle-android-javadoc-plugin/build.gradle
-# PROJECTS[13]=$HOME/dev/GitHub/gradle-android-junit-jacoco-plugin/build.gradle
-# PROJECTS[14]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin/build.gradle
+PROJECTS[8]=$HOME/dev/GitHub/gradle-android-apk-size-plugin
+PROJECTS[9]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
+PROJECTS[10]=$HOME/dev/GitHub/gradle-android-javadoc-plugin
+PROJECTS[11]=$HOME/dev/GitHub/gradle-android-javadoc-plugin
+PROJECTS[12]=$HOME/dev/GitHub/gradle-maven-publish-plugin
+PROJECTS[13]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin
+PROJECTS[14]=$HOME/dev/vanniktech
+PROJECTS[15]=$HOME/dev/stocks-diary-reader
 
 for i in ${PROJECTS[@]}; do
   projectName=${i##*/}
