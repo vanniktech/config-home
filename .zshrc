@@ -322,5 +322,15 @@ androidoverdraw() {
   fi
 }
 
+function androidtoggletouches() {
+  local show_touches=$(adb shell settings get system show_touches)
+
+  if [[ "$show_touches" == 1 ]]; then
+    adb shell settings put system show_touches 0
+  else
+    adb shell settings put system show_touches 1
+  fi
+}
+
 # We always want to start at the home directory.
 cd
