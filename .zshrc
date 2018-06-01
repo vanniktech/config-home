@@ -199,22 +199,22 @@ phf() {
   g phf origin $(git_current_branch)
 }
 
-pnb() {
+function pnb() {
   # Push the current branch.
   g phou $(git_current_branch)
 
-  lastCommitMessage=`git log -n 1 --pretty=format:'%s'`
+  local last_commit_message=`git log -n 1 --pretty=format:'%s'`
 
   # Let's try to get a possible ticket by a convention of AB-0123456789:
-  jiraTicketNumber=$(echo $lastCommitMessage | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}')
+  local jira_ticket_number=$(echo $last_commit_message | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}')
 
   # Remove the :
-  jiraTicket=${jiraTicketNumber/:/}
+  local jira_ticket=${jira_ticket_number/:/}
 
-  if [ ! "$jiraTicket" ];then
-    title=$(printf "$lastCommitMessage\n\n$1")
+  if [ ! "$jira_ticket" ];then
+    title=$(printf "$last_commit_message\n\n$1")
   else
-    title=$(printf "$lastCommitMessage\n\nhttps://moovel.atlassian.net/browse/$jiraTicket\n\n$1")
+    title=$(printf "$last_commit_message\n\nhttps://moovel.atlassian.net/browse/$jira_ticket\n\n$1")
   fi
 
   hub pull-request -m $title -F -
