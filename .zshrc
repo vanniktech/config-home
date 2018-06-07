@@ -168,6 +168,11 @@ as() { ack -l $1 | xargs subl }
 fsod() { f $1 | sed "s/$1//" | xargs open }
 frm() { rm -rf $(f $1) }
 
+# Nuke empty directories
+function ned {
+  find . -mindepth 1 -type d -empty -delete
+}
+
 # Git things.
 o() {
   remote="${$(git config --get remote.origin.url)}"
