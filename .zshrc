@@ -309,18 +309,18 @@ alias et="chmod +x t && ./t"
 alias lv="ack VERSION_NAME gradle.properties | sed -En \"s/VERSION_NAME=//p\""
 
 # Android.
-androidtakescreenshot() {
-  filePath="/sdcard/$(date +%s).png"
+function androidtakescreenshot() {
+  local file_path="/sdcard/$(date +%s).png"
 
-  adb shell screencap -p $filePath
-  adb pull $filePath
-  adb shell rm $filePath
+  adb shell screencap -p $file_path
+  adb pull $file_path
+  adb shell rm $file_path
 }
 
-androidoverdraw() {
-  isShown=$(adb shell getprop debug.hwui.overdraw)
+function androidoverdraw() {
+  local is_shown=$(adb shell getprop debug.hwui.overdraw)
 
-  if [[ "$isShown" == 'show' ]]; then
+  if [[ "$is_shown" == "show" ]]; then
     adb shell setprop debug.hwui.overdraw false
   else
     adb shell setprop debug.hwui.overdraw show
@@ -334,6 +334,16 @@ function androidtoggletouches() {
     adb shell settings put system show_touches 0
   else
     adb shell settings put system show_touches 1
+  fi
+}
+
+function androidlayoutbounds() {
+  local is_shown=$(adb shell getprop debug.layout)
+
+  if [[ "$is_shown" == "true" ]]; then
+    adb shell setprop debug.layout hidden
+  else
+    adb shell setprop debug.layout true
   fi
 }
 
