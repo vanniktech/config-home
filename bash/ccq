@@ -55,7 +55,7 @@ diffy() {
 checkGradleVersion() {
   if [[ $types == *"v"* ]]; then
     path="$1/build.gradle"
-    wantedVersion="4.7"
+    wantedVersion="4.8"
     version=$(cat $path | ack gradleVersion | sed -e "s/gradleVersion =//" | awk '{$1=$1};1' | cut -c 2- | rev | cut -c 2- | rev)
 
     if [ "$version" == $wantedVersion ]; then
@@ -113,13 +113,14 @@ PROJECTS[5]=$HOME/dev/GitHub/SparseBuilders
 PROJECTS[6]=$HOME/dev/GitHub/RxPermission
 PROJECTS[7]=$HOME/dev/GitHub/junit-rules
 PROJECTS[8]=$HOME/dev/GitHub/gradle-android-apk-size-plugin
-PROJECTS[9]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
-PROJECTS[10]=$HOME/dev/GitHub/gradle-android-javadoc-plugin
-PROJECTS[11]=$HOME/dev/GitHub/gradle-android-javadoc-plugin
-PROJECTS[12]=$HOME/dev/GitHub/gradle-maven-publish-plugin
-PROJECTS[13]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin
-PROJECTS[14]=$HOME/dev/vanniktech
-PROJECTS[15]=$HOME/dev/stocks-diary-reader
+PROJECTS[9]=$HOME/dev/GitHub/gradle-android-javadoc-plugin
+PROJECTS[10]=$HOME/dev/GitHub/gradle-android-junit-jacoco-plugin
+PROJECTS[11]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin
+PROJECTS[12]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
+PROJECTS[13]=$HOME/dev/GitHub/gradle-maven-publish-plugin
+PROJECTS[14]=$HOME/dev/GitHub/RxRiddles
+PROJECTS[15]=$HOME/dev/vanniktech
+PROJECTS[16]=$HOME/dev/stocks-diary-reader
 
 for i in ${PROJECTS[@]}; do
   projectName=${i##*/}
