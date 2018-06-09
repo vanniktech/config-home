@@ -119,7 +119,7 @@ if [[ "$unamestr" == 'Linux' ]]; then
   # Emulate Mac commands.
   alias pbcopy="xclip -selection c"
   alias pbpaste="xclip -o"
-  alias open="command xdg-open" # Command to open in parallel and don't have any logs.
+  alias open="command xdg-open" # Command to open in parallel and do not have any logs.
   alias xargs="xargs --no-run-if-empty"
 
   # Pidcat alias since we need to install this one manually.
@@ -139,7 +139,24 @@ fi
 # Copy last command from Terminal into the clipboard.
 alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
-alias clean="find ~/.gradle -type f -atime +30 -delete && find ~/.gradle -mindepth 1 -type d -empty -delete && sysclean"
+function clean {
+  local current_gradle_version=$(gw --version | grep Gradle | awk '{print $2}')
+
+  echo "\033[0;32mNuking daemons other than $current_gradle_version\033[0m"
+  find ~/.gradle/daemon -maxdepth 1 | tail -n+2 | grep -v $current_gradle_version | xargs rm -rv
+
+  echo "\033[0;32mNuking caches other than $current_gradle_version\033[0m"
+  find ~/.gradle/caches -maxdepth 1 | tail -n+2 | ack "[\d\.]{3,5}" | grep -v $current_gradle_version | xargs rm -rv
+
+  echo "\033[0;32mNuking all files in ~/.gradle that have not been accessed in the last 30 days\033[0m"
+  find ~/.gradle -type f -atime +30 -delete
+
+  echo "\033[0;32mNuking all empty directories in ~/.gradle/\033[0m"
+  find ~/.gradle -mindepth 1 -type d -empty -delete
+
+  echo "\033[0;32mSystem dependent clean up\033[0m"
+  sysclean
+}
 
 eval $(thefuck --alias)
 
