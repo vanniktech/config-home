@@ -145,6 +145,9 @@ function clean {
   echo "\033[0;32mNuking daemons other than $current_gradle_version\033[0m"
   find ~/.gradle/daemon -maxdepth 1 | tail -n+2 | grep -v $current_gradle_version | xargs rm -rv
 
+  echo "\033[0;32mNuking notifications other than $current_gradle_version\033[0m"
+  find ~/.gradle/notifications -maxdepth 1 | tail -n+2 | grep -v $current_gradle_version | xargs rm -rv
+
   echo "\033[0;32mNuking caches other than $current_gradle_version\033[0m"
   find ~/.gradle/caches -maxdepth 1 | tail -n+2 | ack "[\d\.]{3,5}" | grep -v $current_gradle_version | xargs rm -rv
 
