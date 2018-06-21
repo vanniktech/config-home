@@ -157,6 +157,12 @@ function clean {
   echo "\033[0;32mNuking all empty directories in ~/.gradle/\033[0m"
   find ~/.gradle -mindepth 1 -type d -empty -delete
 
+  echo "\033[0;32mNuking all files in ~/.m2 that have not been accessed in the last 30 days\033[0m"
+  find ~/.m2 -type f -atime +30 -delete
+
+  echo "\033[0;32mNuking all empty directories in ~/.m2/\033[0m"
+  find ~/.m2 -mindepth 1 -type d -empty -delete
+
   echo "\033[0;32mSystem dependent clean up\033[0m"
   sysclean
 }
