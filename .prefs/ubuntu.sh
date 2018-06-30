@@ -9,6 +9,9 @@ sudo apt upgrade gradle
 # Git.
 sudo apt-get install git
 
+# Tree.
+sudo apt-get install tree
+
 # htop.
 sudo apt-get install htop
 
