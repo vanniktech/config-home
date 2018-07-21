@@ -83,6 +83,9 @@ sudo curl https://raw.githubusercontent.com/rupa/z/master/z.sh -o /etc/profile.d
 # Preload (Daemon that monitors the applications you use on your computer. Learns what you use and put things in memory.)
 sudo apt-get install preload
 
+# MP3 Handler for sox.
+sudo apt-get install libsox-fmt-mp3
+
 # Speedtest.
 sudo apt-get install speedtest-cli
 
