@@ -343,6 +343,11 @@ function androidtakescreenshot() {
   adb shell rm $file_path
 }
 
+# https://stackoverflow.com/a/50618460/1979703
+function androidrefreshview() {
+  adb shell service call activity 1599295570 > nul
+}
+
 function androidoverdraw() {
   local is_shown=$(adb shell getprop debug.hwui.overdraw)
 
@@ -351,6 +356,8 @@ function androidoverdraw() {
   else
     adb shell setprop debug.hwui.overdraw show
   fi
+
+  androidrefreshview
 }
 
 function androidtoggletouches() {
@@ -361,6 +368,8 @@ function androidtoggletouches() {
   else
     adb shell settings put system show_touches 1
   fi
+
+  androidrefreshview
 }
 
 function androidlayoutbounds() {
@@ -371,6 +380,8 @@ function androidlayoutbounds() {
   else
     adb shell setprop debug.layout true
   fi
+
+  androidrefreshview
 }
 
 # We always want to start at the home directory.
