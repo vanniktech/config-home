@@ -384,5 +384,8 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+# Disable insert key.
+xmodmap -e 'keycode 118='
+
 # We always want to start at the home directory.
 cd
