@@ -1,3 +1,6 @@
+[com/canonical/indicator/messages]
+applications=['org.gnome.Calendar.desktop']
+
 [com/ubuntu/user-interface/desktop]
 scaling-factor=uint32 1
 
