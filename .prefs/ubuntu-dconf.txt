@@ -91,7 +91,10 @@ clock-show-date=true
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio']
+application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio', 'google-chrome']
+
+[org/gnome/desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
 
 [org/gnome/desktop/notifications/application/gnome-tweak-tool]
 application-id='gnome-tweak-tool.desktop'
