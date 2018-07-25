@@ -127,6 +127,9 @@ if [[ "$unamestr" == 'Linux' ]]; then
 
   # Always execute this to cancel correctly.
   stty intr ^j
+
+  # Disable insert key.
+  xmodmap -e 'keycode 118='
 elif [[ "$unamestr" == 'Darwin' ]]; then
   # Init z file.
   . /usr/local/etc/profile.d/z.sh
@@ -383,9 +386,6 @@ function androidlayoutbounds() {
 
   androidrefreshview
 }
-
-# Disable insert key.
-xmodmap -e 'keycode 118='
 
 # We always want to start at the home directory.
 cd
