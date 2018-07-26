@@ -292,6 +292,9 @@ function cpp {
 
       git remote prune origin
       dmb
+
+      # Go to the previous branch.
+      git checkout -
     fi
 
     cd ~- # Go to previous directory without echoing.
