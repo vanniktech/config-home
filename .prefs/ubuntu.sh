@@ -21,10 +21,10 @@ sudo apt-get update
 sudo apt-get install hub
 
 # Go-Jira
-wget -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.17/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
+wget -q -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.17/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
 
 # Phraseapp.
-wget -O phraseapp https://github.com/phrase/phraseapp-client/releases/download/1.7.4/phraseapp_linux_amd64 && chmod +x phraseapp && sudo mv phraseapp /usr/local/bin/
+wget -q -O phraseapp https://github.com/phrase/phraseapp-client/releases/download/1.7.4/phraseapp_linux_amd64 && chmod +x phraseapp && sudo mv phraseapp /usr/local/bin/
 
 # Ack.
 sudo apt-get install ack-grep
@@ -46,7 +46,7 @@ sudo apt-get install openjdk-8-jdk
 sudo apt-get install vlc
 
 # Youtube dl.
-sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo wget -q https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 sudo ln /usr/local/bin/youtube-dl /usr/bin/youtube-dl
 sudo youtube-dl -U
