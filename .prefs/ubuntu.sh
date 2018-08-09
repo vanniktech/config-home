@@ -21,7 +21,7 @@ sudo apt-get update
 sudo apt-get install hub
 
 # Go-Jira
-wget -q -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.17/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
+wget -q -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.20/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
 
 # Phraseapp.
 wget -q -O phraseapp https://github.com/phrase/phraseapp-client/releases/download/1.7.4/phraseapp_linux_amd64 && chmod +x phraseapp && sudo mv phraseapp /usr/local/bin/
