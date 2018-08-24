@@ -374,7 +374,7 @@ function androidoverdraw() {
   androidrefreshview
 }
 
-function androidtoggletouches() {
+function androidtouches() {
   local show_touches=$(adb shell settings get system show_touches)
 
   if [[ "$show_touches" == 1 ]]; then
