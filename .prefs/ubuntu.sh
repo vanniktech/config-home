@@ -30,6 +30,9 @@ wget -q -O phraseapp https://github.com/phrase/phraseapp-client/releases/downloa
 sudo apt-get install ack-grep
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
+# bat. https://github.com/sharkdp/bat
+wget -q -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat.deb && rm bat.deb
+
 # pcregrep for grepping multilines.
 sudo apt-get install pcregrep
 

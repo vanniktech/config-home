@@ -17,6 +17,9 @@ brew install phraseapp
 # dot for magic images.
 brew install graphviz
 
+# bat. https://github.com/sharkdp/bat
+brew install bat
+
 # Disable shadow while screenshotting.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
 killall SystemUIServer

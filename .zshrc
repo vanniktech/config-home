@@ -398,5 +398,8 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+# Others.
+alias cat=bat
+
 # We always want to start at the home directory.
 cd
