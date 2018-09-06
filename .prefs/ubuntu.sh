@@ -92,6 +92,9 @@ sudo apt-get install libsox-fmt-mp3
 # Speedtest.
 sudo apt-get install speedtest-cli
 
+# Diff-so-fancy.
+wget -q -O diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin/
+
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
 dconf reset -f "/org/gnome/deja-dup/"
