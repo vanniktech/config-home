@@ -166,6 +166,9 @@ function clean {
   echo "\033[0;32mNuking all empty directories in ~/.m2/\033[0m"
   find ~/.m2 -mindepth 1 -type d -empty -delete
 
+  echo "\033[0;32mClean up gem\033[0m"
+  sudo gem cleanup
+
   echo "\033[0;32mSystem dependent clean up\033[0m"
   sysclean
 }
