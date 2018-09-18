@@ -271,6 +271,7 @@ function cm {
     | awk 'NR%2{printf "%s:",$0;next;}1' \
     | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' \
     | sed 's/\[Android\] //' \
+    | sed 's/\Android: //' \
     | tr -d "\n" | pbcopy
 }
 
