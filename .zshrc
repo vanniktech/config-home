@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gradle sudo zsh-autosuggestions speedread)
+plugins=(sudo zsh-autosuggestions speedread)
 
 source $ZSH/oh-my-zsh.sh
 
