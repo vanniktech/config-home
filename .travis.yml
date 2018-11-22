@@ -1,0 +1,21 @@
+language: shell
+
+install: true
+
+script:
+  - shellcheck -e SC1090,SC1091 .zshrc
+  - shellcheck .prefs/mac.sh
+  - shellcheck .prefs/ubuntu.sh
+  - shellcheck .prefs/unix.sh
+  - shellcheck bash/ccq
+  - shellcheck bash/jar2txt
+  - shellcheck bash/update_root_gradle
+
+branches:
+  except:
+    - gh-pages
+
+notifications:
+  email: false
+
+sudo: false

@@ -8,6 +8,7 @@
 !.zshrc
 !.gitignore_global
 !.gitattributes_global
+!.travis.yml
 
 # And those folders.
 !/.prefs/
