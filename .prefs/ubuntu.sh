@@ -92,6 +92,9 @@ sudo apt-get install libsox-fmt-mp3
 # Speedtest.
 sudo apt-get install speedtest-cli
 
+# Shellcheck. https://github.com/koalaman/shellcheck
+sudo apt-get install shellcheck
+
 # Diff-so-fancy.
 wget -q -O diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin/
 
@@ -122,7 +125,7 @@ sudo sysctl -p --system
 sudo apt-get install lib64stdc++6:i386 mesa-utils
 sudo apt-get install mesa-utils
 
-cd "$ANDROID_HOME/emulator/lib64" || exit
+cd "$ANDROID_HOME/emulator/lib64"
 mv libstdc++/ libstdc++.bak
 ln -s /usr/lib64/libstdc++.so.6 libstdc++
 cd -
