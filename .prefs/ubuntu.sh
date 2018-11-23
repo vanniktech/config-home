@@ -125,7 +125,7 @@ sudo sysctl -p --system
 sudo apt-get install lib64stdc++6:i386 mesa-utils
 sudo apt-get install mesa-utils
 
-cd "$ANDROID_HOME/emulator/lib64"
+cd "$ANDROID_HOME/emulator/lib64" || exit
 mv libstdc++/ libstdc++.bak
 ln -s /usr/lib64/libstdc++.so.6 libstdc++
 cd -
