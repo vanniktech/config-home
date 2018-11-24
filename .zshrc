@@ -208,7 +208,7 @@ function fd {
 }
 
 function fs {
-  subl "$(f "$1")"
+  f "$1" | xargs subl
 }
 
 function as {
@@ -216,7 +216,7 @@ function as {
 }
 
 function frm {
-  rm -rf "$(f "$1")"
+  f "$1" | xargs rm -rf
 }
 
 # Nuke empty directories
