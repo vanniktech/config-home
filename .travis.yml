@@ -17,5 +17,3 @@ branches:
 
 notifications:
   email: false
-
-sudo: false
