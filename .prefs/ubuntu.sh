@@ -124,6 +124,10 @@ echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p --system
 
 # Ubuntu and Android Emulators.
+sudo apt install qemu-kvm
+sudo adduser $(whoami) kvm
+sudo chown $(whoami) /dev/kvm
+
 # https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
 sudo apt-get install lib64stdc++6:i386 mesa-utils
 sudo apt-get install mesa-utils
