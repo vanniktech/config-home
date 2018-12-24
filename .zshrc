@@ -426,6 +426,29 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+function backup() {
+  local computer_name
+  computer_name=${$(hostname)/.fritz.box/}
+
+  # Delete possibly old backup.
+  rm -rf $computer_name
+
+  # Create folder named according to the computer.
+  mkdir $computer_name
+
+  # Start moving everything that's precious.
+  cp "$HOME/.gradle/gradle.properties" "$computer_name"
+  cp "$HOME/.zprofile" "$computer_name"
+  cp -a "$HOME/.ssh" "$computer_name"
+  cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
+
+  # For the time being I can't open source this - https://github.com/Netflix-Skunkworks/go-jira/issues/172
+  cp -a "$HOME/.jira.d" "$computer_name"
+
+  # Get all keystore files.
+  find . -maxdepth 4 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} $computer_name \; 2>/dev/null # Ignore any kind of errors.
+}
+
 # Others.
 alias cat=bat
 
