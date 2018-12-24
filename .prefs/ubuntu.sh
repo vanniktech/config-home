@@ -8,14 +8,15 @@ sudo apt upgrade gradle
 
 # Git.
 sudo apt-get install git
+curl -L https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
 
 # Tree.
 sudo apt-get install tree
 
-# htop.
+# Htop.
 sudo apt-get install htop
 
-# Hub.
+# Hub for GitHub.
 sudo add-apt-repository ppa:cpick/hub
 sudo apt-get update
 sudo apt-get install hub
@@ -30,13 +31,41 @@ wget -q -O phraseapp https://github.com/phrase/phraseapp-client/releases/downloa
 sudo apt-get install ack-grep
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
-# bat. https://github.com/sharkdp/bat
+# Bat.
 wget -q -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat.deb && rm bat.deb
 
-# Git standup.
-curl -L https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
+# Youtube-dl.
+sudo wget -q https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo ln /usr/local/bin/youtube-dl /usr/bin/youtube-dl
+sudo youtube-dl -U
 
-# pcregrep for grepping multilines.
+# Images.
+sudo apt-get install imagemagick
+
+# Count Lines of Code.
+sudo apt-get install cloc
+
+# Z.
+sudo curl https://raw.githubusercontent.com/rupa/z/master/z.sh -o /etc/profile.d/z.sh
+
+# Speedtest.
+sudo apt-get install speedtest-cli
+
+# Shellcheck.
+sudo apt-get install shellcheck
+
+# Diff-so-fancy.
+wget -q -O diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin/
+
+# Pidcat.
+git clone git@github.com:JakeWharton/pidcat.git ~/.pidcat
+
+###
+ # From this point downwards it's OS specific things.
+###
+
+# Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
 # Remove crap.
@@ -51,23 +80,11 @@ sudo apt-get install openjdk-8-jdk
 # Music.
 sudo apt-get install vlc
 
-# Youtube dl.
-sudo wget -q https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
-sudo ln /usr/local/bin/youtube-dl /usr/bin/youtube-dl
-sudo youtube-dl -U
-
 # Filezilla.
 sudo apt-get install filezilla
 
-# Images.
-sudo apt-get install imagemagick
-
-# xclip (Copy paste).
+# Xclip (Copy paste).
 sudo apt-get install xclip
-
-# Count Lines of Code.
-sudo apt-get install cloc
 
 # Sublime 3.
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -80,23 +97,11 @@ sudo apt-get install sublime-text
 sudo rm -rf ~/.config/sublime-text-3/
 git clone git@github.com:vanniktech/config-sublime3.git ~/.config/sublime-text-3
 
-# z.
-sudo curl https://raw.githubusercontent.com/rupa/z/master/z.sh -o /etc/profile.d/z.sh
-
 # Preload (Daemon that monitors the applications you use on your computer. Learns what you use and put things in memory.)
 sudo apt-get install preload
 
 # MP3 Handler for sox.
 sudo apt-get install libsox-fmt-mp3
-
-# Speedtest.
-sudo apt-get install speedtest-cli
-
-# Shellcheck. https://github.com/koalaman/shellcheck
-sudo apt-get install shellcheck
-
-# Diff-so-fancy.
-wget -q -O diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin/
 
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
@@ -113,19 +118,16 @@ dconf load / < .prefs/ubuntu-dconf.txt
 # Exporting dconf preferences.
 # dconf dump / > .prefs/ubuntu-dconf.txt
 
-# Travis.
-sudo gem install travis
-
 # Android Studio fixes.
 echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p --system
 
-# Ubuntu and Android Emulators.
+# Simulator (Ubuntu 18.04 and kvm).
 sudo apt install qemu-kvm
 sudo adduser "$(whoami)" kvm
 sudo chown "$(whoami)" /dev/kvm
 
-# https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
+# Https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
 sudo apt-get install lib64stdc++6:i386 mesa-utils
 sudo apt-get install mesa-utils
 
@@ -133,9 +135,6 @@ cd "$ANDROID_HOME/emulator/lib64" || exit
 mv libstdc++/ libstdc++.bak
 ln -s /usr/lib64/libstdc++.so.6 libstdc++
 cd -
-
-# Pidcat.
-git clone git@github.com:JakeWharton/pidcat.git ~/.pidcat
 
 # Cleaning up.
 sudo apt-get update

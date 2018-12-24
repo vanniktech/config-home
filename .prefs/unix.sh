@@ -7,5 +7,8 @@ git clone https://github.com/pasky/speedread.git "$ZSH_CUSTOM/plugins/speedread"
 # AutoSuggestions.
 git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
 
-# Fastlane
+# Fastlane.
 sudo gem install fastlane
+
+# Travis.
+sudo gem install travis
