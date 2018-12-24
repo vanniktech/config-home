@@ -23,3 +23,6 @@ brew install bat
 # Disable shadow while screenshotting.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
 killall SystemUIServer
+
+# Shellcheck. https://github.com/koalaman/shellcheck
+brew install shellcheck

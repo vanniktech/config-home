@@ -17,8 +17,8 @@ PROJECTS[8]=$HOME/dev/GitHub/gradle-android-apk-size-plugin
 # PROJECTS[10]=$HOME/dev/GitHub/gradle-android-junit-jacoco-plugin/build.gradle
 # PROJECTS[11]=$HOME/dev/GitHub/gradle-code-quality-tools-plugin/build.gradle
 
-for i in ${PROJECTS[@]}; do
-  cd $i
+for i in "${PROJECTS[@]}"; do
+  cd "$i" || exit
 
   git checkout master
   git up
