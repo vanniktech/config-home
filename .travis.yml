@@ -1,5 +1,9 @@
 language: shell
 
+os:
+  - linux
+  - osx
+
 install: true
 
 script:
