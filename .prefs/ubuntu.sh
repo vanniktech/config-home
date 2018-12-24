@@ -57,9 +57,6 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 sudo ln /usr/local/bin/youtube-dl /usr/bin/youtube-dl
 sudo youtube-dl -U
 
-# The fuck.
-sudo pip3 install thefuck
-
 # Filezilla.
 sudo apt-get install filezilla
 
