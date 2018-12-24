@@ -179,8 +179,6 @@ function clean {
   sysclean
 }
 
-eval "$(thefuck --alias)"
-
 # https://github.com/robbyrussell/oh-my-zsh/issues/433
 alias rake='noglob rake'
 
