@@ -10,6 +10,9 @@ brew install z ffmpeg ack diff-so-fancy git hub gnu-sed imagemick gradle less pi
 # Poppler which brings pdfseparate (pdfseparate sample.pdf sample-%d.pdf)
 brew install poppler
 
+# Git standup.
+brew install git-standup
+
 # Phraseapp.
 brew tap phrase/brewed
 brew install phraseapp
