@@ -6,7 +6,6 @@ os:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck        ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew upgrade shellcheck || true; fi # Ignore errors when being on latest version.
 
 install: true
 
