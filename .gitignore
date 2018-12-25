@@ -9,6 +9,7 @@
 !.gitignore_global
 !.gitattributes_global
 !.travis.yml
+!.vimrc
 
 # And those folders.
 !/.prefs/
