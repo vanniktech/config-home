@@ -55,7 +55,7 @@ diffy() {
 checkGradleVersion() {
   if [[ $types == *"v"* ]]; then
     path="$1/build.gradle"
-    wantedVersion="4.8"
+    wantedVersion="5.0"
     version=$(ack gradleVersion "$path" | sed -e "s/gradleVersion =//" | awk '{$1=$1};1' | cut -c 2- | rev | cut -c 2- | rev)
 
     if [ "$version" == $wantedVersion ]; then
@@ -75,11 +75,11 @@ checkPmdVersion() {
 }
 
 checkDetektVersion() {
-  checkVersion "detekt" "$1" "1.0.0.RC8"
+  checkVersion "detekt" "$1" "1.0.0.RC12"
 }
 
 checkktlintVersion() {
-  checkVersion "ktlint" "$1" "0.24.0"
+  checkVersion "ktlint" "$1" "0.29.0"
 }
 
 checkVersion() {
@@ -121,7 +121,6 @@ PROJECTS[13]=$HOME/dev/GitHub/gradle-maven-publish-plugin
 PROJECTS[14]=$HOME/dev/GitHub/RxRiddles
 PROJECTS[15]=$HOME/dev/GitHub/RxBilling
 PROJECTS[16]=$HOME/dev/vanniktech
-PROJECTS[17]=$HOME/dev/stocks-diary-reader
 
 for i in "${PROJECTS[@]}"; do
   projectName=${i##*/}
