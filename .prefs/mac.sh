@@ -89,4 +89,9 @@ brew cleanup
 
 # Disable shadow when taking a screenshot.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
+
+# Disable sound effects. For example when taking a screenshot.
+defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
+
+# Restart the service in order to propagate changes.
 killall SystemUIServer
