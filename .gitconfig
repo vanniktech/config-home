@@ -117,7 +117,7 @@
 	diff = diff-so-fancy | less --tabs=2 -RFX
 	show = diff-so-fancy | less --tabs=2 -RFX
 [interactive]
-	diffFilter = diff-so-fancy | less --tabs=2 -RFX
+	# diffFilter = diff-so-fancy | less --tabs=2 -RFX # This unfortunately broke with recent Git versions. https://github.com/so-fancy/diff-so-fancy/issues/296
 [diff]
 	compactionHeuristic = true
 	colorMoved = dimmed_zebra
