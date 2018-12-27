@@ -9,6 +9,9 @@ fi
 # Update brew to get the latest juice.
 brew update
 
+# Install any updates before so it won't conflicts with installs.
+brew upgrade
+
 # Gradle.
 brew install gradle
 
