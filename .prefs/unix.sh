@@ -20,6 +20,9 @@ sudo gem install travis
 # Clean up.
 sudo gem cleanup
 
+# Souncloud Music Downloader.
+pip3 install scdl
+
 # Vim syntax highlighting.
 rm -rf "$HOME/.vim/pack/default/start/vim-polyglot"
 mkdir -p "$HOME/.vim/pack/default/start/"
