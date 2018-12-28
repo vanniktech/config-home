@@ -1,5 +1,8 @@
 [com/canonical/indicator/messages]
-applications=['org.gnome.Calendar.desktop']
+applications=['thunderbird.desktop']
+
+[com/ubuntu/update-notifier]
+release-check-time=uint32 1545902321
 
 [com/ubuntu/user-interface/desktop]
 scaling-factor=uint32 1
@@ -11,6 +14,9 @@ use-same-proxy=false
 area-screenshot='<Primary><Shift>dollar'
 window-screenshot='<Primary><Shift>numbersign'
 
+[org/gnome/settings-daemon/plugins/xsettings]
+hinting='slight'
+
 [org/gnome/settings-daemon/peripherals/keyboard]
 numlock-state='on'
 
@@ -20,12 +26,12 @@ locate-pointer=false
 
 [org/gnome/shell]
 app-picker-view=uint32 1
-favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'jetbrains-studio.desktop', 'org.gnome.Terminal.desktop', 'slack.desktop', 'sublime_text.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'jetbrains-studio.desktop', 'org.gnome.Terminal.desktop', 'slack.desktop', 'thunderbird.desktop', 'sublime_text.desktop']
 enable-hot-corners=false
 
 [org/gnome/baobab/ui]
-window-state=128
-window-size=(960, 600)
+window-state=87168
+window-size=(1459, 982)
 
 [org/gnome/nautilus/preferences]
 search-view='icon-view'
@@ -36,7 +42,8 @@ thumbnail-limit=uint64 4092
 use-experimental-views=false
 
 [org/gnome/nautilus/window-state]
-geometry='1262x889+36+32'
+sidebar-width=146
+geometry='1247x1373+36+32'
 maximized=false
 
 [org/gnome/nautilus/compression]
@@ -71,6 +78,9 @@ sidebar-width=200
 window-height=480
 window-width=600
 
+[org/gnome/evince/default]
+window-ratio=(2.9611944553326444, 2.3736888434944459)
+
 [org/gnome/evolution-data-server]
 network-monitor-gio-name=''
 migrated=true
@@ -91,25 +101,31 @@ clock-show-date=true
 toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio', 'google-chrome']
-
-[org/gnome/desktop/notifications/application/google-chrome]
-application-id='google-chrome.desktop'
-
-[org/gnome/desktop/notifications/application/gnome-tweak-tool]
-application-id='gnome-tweak-tool.desktop'
-
-[org/gnome/desktop/notifications/application/jetbrains-studio]
-application-id='jetbrains-studio.desktop'
-
-[org/gnome/desktop/notifications/application/slack]
-application-id='slack.desktop'
+application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio', 'google-chrome', 'thunderbird']
 
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
 
+[org/gnome/desktop/notifications/application/google-chrome]
+application-id='google-chrome.desktop'
+
+[org/gnome/desktop/notifications/application/jetbrains-studio]
+application-id='jetbrains-studio.desktop'
+
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-tweak-tool]
+application-id='gnome-tweak-tool.desktop'
+
+[org/gnome/desktop/notifications/application/rhythmbox]
+application-id='rhythmbox.desktop'
+
+[org/gnome/desktop/notifications/application/thunderbird]
+application-id='thunderbird.desktop'
+
+[org/gnome/desktop/notifications/application/slack]
+application-id='slack.desktop'
 
 [org/gnome/desktop/media-handling]
 automount-open=false
@@ -135,8 +151,8 @@ speed=1.0
 [org/gnome/desktop/calendar]
 show-weekdate=true
 
-[org/gnome/desktop/session]
-idle-delay=uint32 3600
+[org/gnome/desktop/search-providers]
+sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [org/gnome/desktop/wm/preferences]
 button-layout=':appmenu,minimize,maximize,close'
@@ -152,8 +168,8 @@ close=['<Primary>q']
 toggle-shaded=['<Control><Alt>s']
 switch-to-workspace-1=['<Super>Home']
 switch-applications=['<Primary>Tab']
-panel-run-dialog=['disabled']
 raise=['disabled']
+switch-to-workspace-3=['disabled']
 switch-to-workspace-2=['disabled']
 switch-to-workspace-10=['disabled']
 switch-to-workspace-11=['disabled']
@@ -162,16 +178,18 @@ maximize-vertically=['disabled']
 show-desktop=['<Control><Super>d']
 switch-applications-backward=['<Primary><Shift>Tab']
 switch-to-workspace-6=['disabled']
-switch-to-workspace-3=['disabled']
+switch-to-workspace-7=['disabled']
 switch-group-backward=['<Primary><Shift>grave']
 switch-group=['<Primary>grave']
-switch-to-workspace-7=['disabled']
 switch-to-workspace-12=['disabled']
 switch-to-workspace-4=['disabled']
 maximize-horizontally=['disabled']
 minimize=['<Primary>h']
 switch-to-workspace-9=['disabled']
 switch-to-workspace-8=['disabled']
+
+[org/gnome/desktop/session]
+idle-delay=uint32 3600
 
 [org/gnome/desktop/background]
 show-desktop-icons=true
@@ -229,12 +247,12 @@ audible-bell=true
 schema-version=uint32 3
 
 [org/gnome/software]
-check-timestamp=int64 1522424906
+check-timestamp=int64 1545974323
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
 sidebar-width=148
-window-position=(702, 315)
+window-position=(858, 318)
 show-size-column=true
 show-hidden=false
 window-size=(910, 790)
@@ -317,7 +335,7 @@ run-command-9=['disabled']
 
 [apps/update-manager]
 first-run=false
-launch-time=int64 1521723414
+launch-time=int64 1545902324
 window-height=400
 show-details=true
 window-width=454

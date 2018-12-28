@@ -105,6 +105,7 @@ sudo apt-get install libsox-fmt-mp3
 
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
+dconf reset -f "/org/gnome/rhythmbox/"
 dconf reset -f "/org/gnome/deja-dup/"
 dconf reset -f "/org/gnome/orca/"
 dconf reset -f "/com/canonical/indicator/"
@@ -114,9 +115,9 @@ dconf reset -f "/org/gnome/settings-daemon/plugins/housekeeping/"
 dconf reset -f "/org/gnome/settings-daemon/plugins/xsettings/"
 
 # Importing dconf preferences.
-dconf load / < .prefs/ubuntu-dconf.txt
+dconf load / < "$HOME/.prefs/ubuntu-dconf.txt"
 # Exporting dconf preferences.
-# dconf dump / > .prefs/ubuntu-dconf.txt
+# dconf dump / > "$HOME/.prefs/ubuntu-dconf.txt"
 
 # Android Studio fixes.
 echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
