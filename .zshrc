@@ -285,12 +285,13 @@ function cm {
   jira view "$(git_current_branch | cut -f1 -d"/")" --field=summary,issue \
     | head -n 2 \
     | sed 's/issue: //' \
-    | sed 's/summary://' \
-    | awk 'NR%2{printf "%s:",$0;next;}1' \
-    | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' \
+    | sed 's/summary: //' \
     | sed 's/\[Android\] //' \
     | sed 's/\Android: //' \
-    | tr -d "\\n" | pbcopy
+    | awk 'NR%2{printf "%s: ",$0;next;} {printf "%s%s",toupper(substr($0, 0, 1)),substr($0, 2);next}' \
+    | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' \
+    | tr -d "\\n" \
+    | pbcopy
 }
 
 # Clear pull prune.
