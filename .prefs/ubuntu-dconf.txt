@@ -160,33 +160,17 @@ resize-with-right-button=false
 
 [org/gnome/desktop/wm/keybindings]
 maximize=['<Control><Super>Up']
-switch-to-workspace-5=['disabled']
-toggle-maximized=['<Control><Alt>KP_5']
 unmaximize=['<Control><Super>Down']
-lower=['disabled']
 close=['<Primary>q']
-toggle-shaded=['<Control><Alt>s']
-switch-to-workspace-1=['<Super>Home']
 switch-applications=['<Primary>Tab']
-raise=['disabled']
-switch-to-workspace-3=['disabled']
-switch-to-workspace-2=['disabled']
-switch-to-workspace-10=['disabled']
-switch-to-workspace-11=['disabled']
-activate-window-menu=['<Alt>space']
+panel-run-dialog=['disabled']
 maximize-vertically=['disabled']
 show-desktop=['<Control><Super>d']
 switch-applications-backward=['<Primary><Shift>Tab']
-switch-to-workspace-6=['disabled']
-switch-to-workspace-7=['disabled']
 switch-group-backward=['<Primary><Shift>grave']
 switch-group=['<Primary>grave']
-switch-to-workspace-12=['disabled']
-switch-to-workspace-4=['disabled']
 maximize-horizontally=['disabled']
 minimize=['<Primary>h']
-switch-to-workspace-9=['disabled']
-switch-to-workspace-8=['disabled']
 
 [org/gnome/desktop/session]
 idle-delay=uint32 3600
@@ -248,6 +232,7 @@ schema-version=uint32 3
 
 [org/gnome/software]
 check-timestamp=int64 1545974323
+install-timestamp=int64 1536492346
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
