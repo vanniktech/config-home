@@ -1,10 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-# Gradle.
-sudo add-apt-repository ppa:cwchien/gradle
-sudo apt-get update
-sudo apt upgrade gradle
+# Gradle
+sudo rm -rf /opt/gradle/
+sudo mkdir -p /opt/gradle/
+wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.0-all.zip
+sudo unzip -q -d /opt/gradle gradle.zip
+rm gradle.zip
 
 # Git.
 sudo apt-get install git
