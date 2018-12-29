@@ -17,5 +17,10 @@
 !bash/
 !bash/**
 
+# Google Drive configuration.
+!.gdfuse/
+!.gdfuse/default
+!.gdfuse/default/config
+
 # Ignore so we won't commit these in the allowed dirctories.
 .DS_Store
