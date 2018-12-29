@@ -65,6 +65,16 @@ git clone git@github.com:JakeWharton/pidcat.git ~/.pidcat
  # From this point downwards it's OS specific things.
 ###
 
+# Google Drive.
+sudo add-apt-repository ppa:alessandro-strada/ppa -y
+sudo apt-get update
+sudo apt-get install google-drive-ocamlfuse
+
+# Cryptomator.
+sudo add-apt-repository ppa:sebastian-stenzel/cryptomator -y
+sudo apt-get update
+sudo apt-get install cryptomator
+
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
