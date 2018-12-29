@@ -10,7 +10,7 @@ rm gradle.zip
 
 # Git.
 sudo apt-get install git
-curl -L https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
+curl https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
 
 # Tree.
 sudo apt-get install tree
@@ -19,15 +19,17 @@ sudo apt-get install tree
 sudo apt-get install htop
 
 # Hub for GitHub.
-sudo add-apt-repository ppa:cpick/hub
+sudo add-apt-repository ppa:cpick/hub -y
 sudo apt-get update
 sudo apt-get install hub
 
 # Go-Jira
-wget -q -O jira https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.20/jira-linux-386 && chmod +x jira && sudo mv jira /usr/local/bin/
+sudo wget -q https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.20/jira-linux-386 -O /usr/local/bin/jira
+sudo chmod +x /usr/local/bin/jira
 
 # Phraseapp.
-wget -q -O phraseapp https://github.com/phrase/phraseapp-client/releases/download/1.7.4/phraseapp_linux_amd64 && chmod +x phraseapp && sudo mv phraseapp /usr/local/bin/
+sudo wget -q https://github.com/phrase/phraseapp-client/releases/download/1.12.4/phraseapp_linux_amd64 -O /usr/local/bin/phraseapp
+sudo chmod +x /usr/local/bin/phraseapp
 
 # Ack.
 sudo apt-get install ack-grep
@@ -38,9 +40,7 @@ wget -q -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0
 
 # Youtube-dl.
 sudo wget -q https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
-sudo ln /usr/local/bin/youtube-dl /usr/bin/youtube-dl
-sudo youtube-dl -U
+sudo chmod +x /usr/local/bin/youtube-dl
 
 # Images.
 sudo apt-get install imagemagick
@@ -49,7 +49,7 @@ sudo apt-get install imagemagick
 sudo apt-get install cloc
 
 # Z.
-sudo curl https://raw.githubusercontent.com/rupa/z/master/z.sh -o /etc/profile.d/z.sh
+sudo wget -q https://raw.githubusercontent.com/rupa/z/master/z.sh -O /etc/profile.d/z.sh
 
 # Speedtest.
 sudo apt-get install speedtest-cli
@@ -58,10 +58,12 @@ sudo apt-get install speedtest-cli
 sudo apt-get install shellcheck
 
 # Diff-so-fancy.
-wget -q -O diff-so-fancy https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy && chmod +x diff-so-fancy && sudo mv diff-so-fancy /usr/local/bin/
+wget -q https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
+chmod +x /usr/local/bin/diff-so-fancy
 
 # Pidcat.
-git clone git@github.com:JakeWharton/pidcat.git ~/.pidcat
+rm -rf "$HOME/.pidcat"
+git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 
 ###
  # From this point downwards it's OS specific things.
@@ -85,7 +87,7 @@ sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-comm
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
 # Java.
-sudo add-apt-repository ppa:openjdk-r/ppa
+sudo add-apt-repository ppa:openjdk-r/ppa -y
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk
 
@@ -106,11 +108,8 @@ sudo apt-get update
 sudo apt-get install sublime-text
 
 # Clone Sublime settings.
-sudo rm -rf ~/.config/sublime-text-3/
-git clone git@github.com:vanniktech/config-sublime3.git ~/.config/sublime-text-3
-
-# Preload (Daemon that monitors the applications you use on your computer. Learns what you use and put things in memory.)
-sudo apt-get install preload
+rm -rf "$HOME/.config/sublime-text-3/"
+git clone git@github.com:vanniktech/config-sublime3.git "$HOME/.config/sublime-text-3"
 
 # MP3 Handler for sox.
 sudo apt-get install libsox-fmt-mp3
@@ -132,7 +131,7 @@ dconf load / < "$HOME/.prefs/ubuntu-dconf.txt"
 # dconf dump / > "$HOME/.prefs/ubuntu-dconf.txt"
 
 # Android Studio fixes.
-echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
+grep -q -F 'fs.inotify.max_user_watches = 524288' /etc/sysctl.conf || echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p --system
 
 # Simulator (Ubuntu 18.04 and kvm).
@@ -140,10 +139,10 @@ sudo apt install qemu-kvm
 sudo adduser "$(whoami)" kvm
 sudo chown "$(whoami)" /dev/kvm
 
-# Https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
+# Install missing dependencies - https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
 sudo apt-get install lib64stdc++6:i386 mesa-utils
-sudo apt-get install mesa-utils
 
+# Fix some internals
 cd "$ANDROID_HOME/emulator/lib64" || exit
 mv libstdc++/ libstdc++.bak
 ln -s /usr/lib64/libstdc++.so.6 libstdc++
@@ -151,5 +150,5 @@ cd -
 
 # Cleaning up.
 sudo apt-get update
-sudo apt-get autoremove
-sudo apt-get autoclean
+sudo apt-get autoremove --purge
+sudo apt-get autoclea
