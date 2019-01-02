@@ -69,6 +69,11 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
  # From this point downwards it's OS specific things.
 ###
 
+# Thunderbird.
+sudo add-apt-repository ppa:mozillateam/ppa -y
+sudo apt-get update
+sudo apt-get install thunderbird
+
 # Google Drive.
 sudo add-apt-repository ppa:alessandro-strada/ppa -y
 sudo apt-get update
