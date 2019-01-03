@@ -30,7 +30,7 @@ locate-pointer=false
 
 [org/gnome/shell]
 app-picker-view=uint32 1
-favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'jetbrains-studio.desktop', 'org.gnome.Terminal.desktop', 'slack.desktop', 'thunderbird.desktop', 'sublime_text.desktop']
+favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'jetbrains-studio.desktop', 'sublime_text.desktop', 'org.gnome.Terminal.desktop', 'slack_slack.desktop', 'thunderbird.desktop']
 enable-hot-corners=false
 
 [org/gnome/baobab/ui]
@@ -46,8 +46,8 @@ thumbnail-limit=uint64 4092
 use-experimental-views=false
 
 [org/gnome/nautilus/window-state]
-sidebar-width=146
-geometry='1247x1373+36+32'
+sidebar-width=176
+geometry='1247x1372+1419+69'
 maximized=false
 
 [org/gnome/nautilus/compression]
@@ -60,6 +60,10 @@ trash-icon-visible=true
 [org/gnome/nautilus/list-view]
 default-visible-columns=['name', 'size', 'type', 'date_modified', 'date_accessed']
 default-column-order=['name', 'size', 'type', 'date_modified', 'date_accessed', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_modified_with_time', 'recency']
+
+[org/gnome/power-manager]
+info-history-type='charge'
+info-stats-type='discharge-accuracy'
 
 [org/gnome/file-roller/listing]
 sort-method='name'
@@ -83,7 +87,7 @@ window-height=480
 window-width=600
 
 [org/gnome/evince/default]
-window-ratio=(2.9611944553326444, 2.3736888434944459)
+window-ratio=(4.1879733098596272, 1.6296665835204125)
 
 [org/gnome/evolution-data-server]
 network-monitor-gio-name=''
@@ -96,16 +100,13 @@ document-font-name='Sans 9'
 show-battery-percentage=false
 gtk-im-module='gtk-im-context-simple'
 clock-show-seconds=true
-cursor-theme='DMZ-White'
-icon-theme='ubuntu-mono-dark'
+toolkit-accessibility=false
 monospace-font-name='Ubuntu Mono 11'
 enable-animations=true
-gtk-theme='Ambiance'
 clock-show-date=true
-toolkit-accessibility=false
 
 [org/gnome/desktop/notifications]
-application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio', 'google-chrome', 'thunderbird']
+application-children=['org-gnome-nautilus', 'gnome-tweak-tool', 'org-gnome-software', 'slack', 'jetbrains-studio', 'google-chrome', 'thunderbird', 'sublime-text', 'eog', 'slack-slack']
 
 [org/gnome/desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
@@ -113,23 +114,32 @@ application-id='org.gnome.Nautilus.desktop'
 [org/gnome/desktop/notifications/application/google-chrome]
 application-id='google-chrome.desktop'
 
+[org/gnome/desktop/notifications/application/sublime-text]
+application-id='sublime_text.desktop'
+
 [org/gnome/desktop/notifications/application/jetbrains-studio]
 application-id='jetbrains-studio.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-software]
 application-id='org.gnome.Software.desktop'
 
+[org/gnome/desktop/notifications/application/eog]
+application-id='eog.desktop'
+
 [org/gnome/desktop/notifications/application/gnome-tweak-tool]
 application-id='gnome-tweak-tool.desktop'
 
-[org/gnome/desktop/notifications/application/rhythmbox]
-application-id='rhythmbox.desktop'
+[org/gnome/desktop/notifications/application/apport-gtk]
+application-id='apport-gtk.desktop'
 
-[org/gnome/desktop/notifications/application/thunderbird]
-application-id='thunderbird.desktop'
+[org/gnome/desktop/notifications/application/slack-slack]
+application-id='slack_slack.desktop'
 
 [org/gnome/desktop/notifications/application/slack]
 application-id='slack.desktop'
+
+[org/gnome/desktop/notifications/application/thunderbird]
+application-id='thunderbird.desktop'
 
 [org/gnome/desktop/media-handling]
 automount-open=false
@@ -241,12 +251,12 @@ audible-bell=true
 schema-version=uint32 3
 
 [org/gnome/software]
-check-timestamp=int64 1545974323
+check-timestamp=int64 1546855032
 install-timestamp=int64 1536492346
 
 [org/gtk/settings/file-chooser]
 sort-column='name'
-sidebar-width=148
+sidebar-width=150
 window-position=(858, 318)
 show-size-column=true
 show-hidden=false
@@ -263,9 +273,6 @@ custom-colors=[(0.7803921568627451, 0.7803921568627451, 0.7803921568627451, 1.0)
 [org/compiz]
 existing-profiles=['Default', 'unity']
 current-profile='unity'
-
-[org/compiz/profiles/unity-lowgfx/plugins/core]
-active-plugins=['core', 'composite', 'opengl', 'compiztoolbox', 'vpswitch', 'snap', 'mousepoll', 'resize', 'place', 'move', 'wall', 'grid', 'regex', 'imgpng', 'session', 'animation', 'fade', 'workarounds', 'scale', 'expo', 'ezoom', 'switcher']
 
 [org/compiz/profiles/unity]
 plugins-with-set-keys=['composite', 'commands', 'vpswitch', 'matecompat', 'unitymtgrabhandles', 'grid', 'animation', 'workarounds', 'core', 'snap', 'opengl', 'fade', 'ezoom', 'mousepoll', 'move', 'resize', 'session', 'unityshell', 'place', 'wall', 'scale', 'expo', 'switcher', 'staticswitcher', 'gnomecompat', 'decor']
@@ -336,7 +343,8 @@ show-details=true
 window-width=454
 
 [ca/desrt/dconf-editor]
-saved-view='/org/gnome/nautilus/'
+saved-view='/org/gnome/desktop/notifications/application-children'
+show-warning=false
 window-height=600
 window-width=800
 window-is-maximized=false

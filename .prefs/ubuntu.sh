@@ -68,6 +68,10 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
  # From this point downwards it's OS specific things.
 ###
 
+# Slack.
+sudo snap install slack --classic
+sudo snap refresh
+
 # Thunderbird.
 sudo add-apt-repository -y -u ppa:mozillateam/ppa
 sudo apt-get install thunderbird
@@ -83,9 +87,13 @@ sudo apt-get install cryptomator
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
-# Remove crap.
-sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca
+# Remove crap that I don't need.
+sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines gnome-todo* libreoffice-*
+
+# Removing Amazon crap.
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
+sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
 
 # Java.
 sudo add-apt-repository -y -u ppa:openjdk-r/ppa
