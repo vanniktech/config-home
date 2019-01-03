@@ -35,7 +35,7 @@ sudo apt-get install ack-grep
 sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
 
 # Bat.
-wget -q -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.6.0/bat_0.6.0_amd64.deb && sudo dpkg -i bat.deb && rm bat.deb
+wget -q -O bat.deb https://github.com/sharkdp/bat/releases/download/v0.9.0/bat_0.9.0_amd64.deb && sudo dpkg -i bat.deb && rm bat.deb
 
 # Youtube-dl.
 sudo wget -q https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
