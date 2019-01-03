@@ -19,8 +19,7 @@ sudo apt-get install tree
 sudo apt-get install htop
 
 # Hub for GitHub.
-sudo add-apt-repository ppa:cpick/hub -y
-sudo apt-get update
+sudo add-apt-repository -y -u ppa:cpick/hub
 sudo apt-get install hub
 
 # Go-Jira
@@ -70,18 +69,15 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 ###
 
 # Thunderbird.
-sudo add-apt-repository ppa:mozillateam/ppa -y
-sudo apt-get update
+sudo add-apt-repository -y -u ppa:mozillateam/ppa
 sudo apt-get install thunderbird
 
 # Google Drive.
-sudo add-apt-repository ppa:alessandro-strada/ppa -y
-sudo apt-get update
+sudo add-apt-repository -y -u ppa:alessandro-strada/ppa
 sudo apt-get install google-drive-ocamlfuse
 
 # Cryptomator.
-sudo add-apt-repository ppa:sebastian-stenzel/cryptomator -y
-sudo apt-get update
+sudo add-apt-repository -y -u ppa:sebastian-stenzel/cryptomator
 sudo apt-get install cryptomator
 
 # Pcregrep for grepping multilines (by default on Mac)
@@ -92,8 +88,7 @@ sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-comm
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
 # Java.
-sudo add-apt-repository ppa:openjdk-r/ppa -y
-sudo apt-get update
+sudo add-apt-repository -y -u ppa:openjdk-r/ppa
 sudo apt-get install openjdk-8-jdk
 
 # Music.
@@ -156,4 +151,4 @@ cd -
 # Cleaning up.
 sudo apt-get update
 sudo apt-get autoremove --purge
-sudo apt-get autoclea
+sudo apt-get autoclean
