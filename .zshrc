@@ -137,7 +137,9 @@ if [[ "$os" == 'Linux' ]]; then
   stty intr ^j
 
   # Disable insert key.
-  xmodmap -e 'keycode 118='
+  if [ -n "${DISPLAY+x}" ]; then
+    xmodmap -e 'keycode 118='
+  fi
 elif [[ "$os" == 'Darwin' ]]; then
   # Init z file.
   source /usr/local/etc/profile.d/z.sh
