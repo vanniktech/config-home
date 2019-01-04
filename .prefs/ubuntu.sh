@@ -19,8 +19,8 @@ sudo apt-get install tree
 sudo apt-get install htop
 
 # Hub for GitHub.
-sudo add-apt-repository -y -u ppa:cpick/hub
-sudo apt-get install hub
+sudo snap install --classic hub
+sudo snap refresh
 
 # Go-Jira
 sudo wget -q https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.0.20/jira-linux-386 -O /usr/local/bin/jira
