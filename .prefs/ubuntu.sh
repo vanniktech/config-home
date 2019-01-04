@@ -116,13 +116,13 @@ sudo apt-get install libsox-fmt-mp3
 sudo apt-get install dconf-editor
 
 # Remove everything gnome related that I do not need.
-sudo apt-get purge gnome-calculator gnome-orca gnome-system-log gnome-mahjongg gnome-mines gnome-sudoku gnome-todo*
+sudo apt-get purge gnome-calculator gnome-robots gnome-tetravex gnome-taquin gnome-music gnome-nibbles gnome-orca gnome-system-log gnome-mahjongg gnome-mines gnome-sudoku gnome-chess gnome-contacts gnome-klotski gnome-maps gnome-todo*
 
 # Remove other crap that I do not need.
-sudo apt-get purge totem* nano gedit rhythmbox brasero* deja-dup cheese aisleriot playonlinux shotwell simple-scan firefox remmina libreoffice-*
+sudo apt-get purge totem* nano gedit rhythmbox brasero* deja-dup cheese aisleriot playonlinux shotwell simple-scan firefox remmina libreoffice-* four-in-a-row five-or-more iagno lightsoff quadrapassel tali swell-foop
 
 # Remove unused unity desktop.
-sudo apt-get purge unity-session unity
+sudo apt-get purge unity*
 
 # Remove unused display managers.
 sudo apt-get purge sddm lightdm
