@@ -88,9 +88,9 @@ sudo apt-get install cryptomator
 sudo apt-get install pcregrep
 
 # Remove crap that I don't need.
-sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines gnome-todo* libreoffice-*
+sudo apt-get purge totem nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines shotwell simple-scan gnome-sudoku firefox gnome-todo* libreoffice-*
 
-# Removing Amazon crap.
+# Remove Amazon once and for all.
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
 sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
