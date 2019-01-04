@@ -87,14 +87,6 @@ sudo apt-get install cryptomator
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
-# Remove crap that I do not need.
-sudo apt-get purge totem nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-calculator gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines shotwell simple-scan gnome-sudoku firefox remmina gnome-todo* libreoffice-*
-
-# Remove Amazon once and for all.
-gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
-sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
-sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
-
 # Java.
 sudo add-apt-repository -y -u ppa:openjdk-r/ppa
 sudo apt-get install openjdk-8-jdk
@@ -123,6 +115,23 @@ sudo apt-get install libsox-fmt-mp3
 
 # Dconf-editor.
 sudo apt-get install dconf-editor
+
+# Remove everything gnome related that I do not need.
+sudo apt-get purge gnome-calculator gnome-orca gnome-system-log gnome-mahjongg gnome-mines gnome-sudoku gnome-todo*
+
+# Remove other crap that I do not need.
+sudo apt-get purge totem* nano gedit rhythmbox brasero* deja-dup cheese aisleriot playonlinux shotwell simple-scan firefox remmina libreoffice-*
+
+# Remove unused unity desktop.
+sudo apt-get purge unity-session unity
+
+# Remove unused display managers.
+sudo apt-get purge sddm lightdm
+
+# Remove Amazon once and for all.
+gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
+sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
+sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
 
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
