@@ -10,7 +10,7 @@ rm gradle.zip
 
 # Git.
 sudo apt-get install git
-curl https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
+wget -O - https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
 
 # Tree.
 sudo apt-get install tree
@@ -88,7 +88,6 @@ sudo apt-get install cryptomator
 sudo apt-get install pcregrep
 
 # Java.
-sudo add-apt-repository -y -u ppa:openjdk-r/ppa
 sudo apt-get install openjdk-8-jdk
 
 # Music.
