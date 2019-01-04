@@ -65,7 +65,7 @@ rm -rf "$HOME/.pidcat"
 git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 
 ###
- # From this point downwards it's OS specific things.
+ # From this point downwards it is OS specific things.
 ###
 
 # Slack.
@@ -87,8 +87,8 @@ sudo apt-get install cryptomator
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
-# Remove crap that I don't need.
-sudo apt-get purge totem nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines shotwell simple-scan gnome-sudoku firefox gnome-todo* libreoffice-*
+# Remove crap that I do not need.
+sudo apt-get purge totem nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-calculator gnome-orca cheese aisleriot playonlinux gnome-system-log unity-lens-photos gnome-mahjongg gnome-mines shotwell simple-scan gnome-sudoku firefox remmina gnome-todo* libreoffice-*
 
 # Remove Amazon once and for all.
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
@@ -110,7 +110,6 @@ sudo apt-get install xclip
 
 # Sublime 3.
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
 sudo apt-get install sublime-text
@@ -121,6 +120,9 @@ git clone git@github.com:vanniktech/config-sublime3.git "$HOME/.config/sublime-t
 
 # MP3 Handler for sox.
 sudo apt-get install libsox-fmt-mp3
+
+# Dconf-editor.
+sudo apt-get install dconf-editor
 
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
@@ -139,7 +141,7 @@ dconf load / < "$HOME/.prefs/ubuntu-dconf.txt"
 # dconf dump / > "$HOME/.prefs/ubuntu-dconf.txt"
 
 # Android Studio fixes.
-grep -q -F 'fs.inotify.max_user_watches = 524288' /etc/sysctl.conf || echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
+grep -q -F "fs.inotify.max_user_watches = 524288" /etc/sysctl.conf || echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p --system
 
 # Simulator (Ubuntu 18.04 and kvm).
