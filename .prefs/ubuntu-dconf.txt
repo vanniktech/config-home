@@ -10,6 +10,10 @@ scaling-factor=uint32 1
 [system/proxy]
 use-same-proxy=false
 
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-timeout=3600
+sleep-inactive-ac-type='suspend'
+
 [org/gnome/settings-daemon/plugins/media-keys]
 area-screenshot='<Primary><Shift>dollar'
 window-screenshot='<Primary><Shift>numbersign'
@@ -173,7 +177,10 @@ maximize-horizontally=['disabled']
 minimize=['<Primary>h']
 
 [org/gnome/desktop/session]
-idle-delay=uint32 3600
+idle-delay=uint32 600
+
+[org/gnome/desktop/sound]
+allow-volume-above-100-percent=false
 
 [org/gnome/desktop/background]
 show-desktop-icons=true
@@ -183,6 +190,9 @@ show-all-sources=false
 current=uint32 1
 sources=[('xkb', 'us')]
 xkb-options=['caps:backspace', 'ctrl:swap_lalt_lctl_lwin']
+
+[org/gnome/control-center]
+last-panel='power'
 
 [org/gnome/eog/view]
 background-color='rgb(0,0,0)'
