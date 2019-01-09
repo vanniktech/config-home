@@ -294,7 +294,7 @@ function cm {
     | sed 's/\[Android\] //' \
     | sed 's/\Android: //' \
     | awk 'NR%2{printf "%s: ",$0;next;} {printf "%s%s",toupper(substr($0, 0, 1)),substr($0, 2);next}' \
-    | awk '!/[[:punct:]]$/ && NF{$NF=$NF"."}1' \
+    | awk '!/[[:digit:]]$/ && !/[[:punct:]]$/ && NF{$NF=$F"."}1' \
     | tr -d "\\n" \
     | pbcopy
 }
