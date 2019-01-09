@@ -10,7 +10,7 @@ rm gradle.zip
 
 # Git.
 sudo apt-get install git
-curl https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
+wget -O - https://raw.githubusercontent.com/kamranahmedse/git-standup/master/installer.sh | sudo sh
 
 # Tree.
 sudo apt-get install tree
@@ -65,8 +65,12 @@ rm -rf "$HOME/.pidcat"
 git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 
 ###
- # From this point downwards it's OS specific things.
+ # From this point downwards it is OS specific things.
 ###
+
+# Slack.
+sudo snap install slack --classic
+sudo snap refresh
 
 # Thunderbird.
 sudo add-apt-repository -y -u ppa:mozillateam/ppa
@@ -83,12 +87,7 @@ sudo apt-get install cryptomator
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
 
-# Remove crap.
-sudo apt-get purge nano gedit rhythmbox unity-lens-shopping brasero brasero-common unity-lens-video unity-lens-music totem-gstreamer totem-common brasero deja-dup gnome-orca
-gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
-
 # Java.
-sudo add-apt-repository -y -u ppa:openjdk-r/ppa
 sudo apt-get install openjdk-8-jdk
 
 # Music.
@@ -102,7 +101,6 @@ sudo apt-get install xclip
 
 # Sublime 3.
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt-get install apt-transport-https
 echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
 sudo apt-get update
 sudo apt-get install sublime-text
@@ -113,6 +111,25 @@ git clone git@github.com:vanniktech/config-sublime3.git "$HOME/.config/sublime-t
 
 # MP3 Handler for sox.
 sudo apt-get install libsox-fmt-mp3
+
+# Dconf-editor.
+sudo apt-get install dconf-editor
+
+# Remove everything gnome related that I do not need.
+sudo apt-get purge gnome-calculator gnome-robots gnome-tetravex gnome-taquin gnome-music gnome-nibbles gnome-orca gnome-system-log gnome-mahjongg gnome-mines gnome-sudoku gnome-chess gnome-contacts gnome-klotski gnome-maps gnome-todo*
+
+# Remove other crap that I do not need.
+sudo apt-get purge totem* nano gedit rhythmbox brasero* deja-dup cheese aisleriot playonlinux shotwell simple-scan firefox remmina libreoffice-* four-in-a-row five-or-more iagno lightsoff quadrapassel tali swell-foop
+
+# Remove unused unity desktop.
+sudo apt-get purge unity*
+
+# Remove unused display managers.
+sudo apt-get purge sddm lightdm
+
+# Remove Amazon once and for all.
+sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
+sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
 
 # Cleanup default dconf entries first.
 dconf reset -f "/org/gnome/gedit/"
@@ -131,7 +148,7 @@ dconf load / < "$HOME/.prefs/ubuntu-dconf.txt"
 # dconf dump / > "$HOME/.prefs/ubuntu-dconf.txt"
 
 # Android Studio fixes.
-grep -q -F 'fs.inotify.max_user_watches = 524288' /etc/sysctl.conf || echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
+grep -q -F "fs.inotify.max_user_watches = 524288" /etc/sysctl.conf || echo "fs.inotify.max_user_watches = 524288" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p --system
 
 # Simulator (Ubuntu 18.04 and kvm).
