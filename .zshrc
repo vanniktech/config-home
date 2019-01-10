@@ -275,9 +275,9 @@ function pnb() {
   jira_ticket=$(git_current_branch | ack -o '[A-Za-z]{2,3}-[0-9]+')
 
   local message
-  if [ "$1" == "--wip" ]; then message="" else message=$1 fi
+  if [ "$1" == "--wip" ]; then message=""; else message=$1; fi
 
-  if [ ! "$jira_ticket" ];then
+  if [ ! "$jira_ticket" ]; then
     title=$(printf "%s\\n\\n%s" "$last_commit_message" "$message")
   else
     title=$(printf "%s\\n\\nhttps://moovel.atlassian.net/browse/%s\\n\\n%s" "$last_commit_message" "$jira_ticket" "$message")
