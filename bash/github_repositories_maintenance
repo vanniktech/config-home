@@ -1,0 +1,56 @@
+#!/bin/bash
+
+update_labels() {
+  local repo_name
+  repo_name=$1
+
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/duplicate?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/enhancement?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/help%20wanted?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/question?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/wontfix?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/good%20first%20issue?access_token=$2" > /dev/null
+  curl -s -X DELETE "https://api.github.com/repos/vanniktech/$repo_name/labels/invalid?access_token=$2" > /dev/null
+
+  if ! curl --fail -X PATCH --data '{ "color": "d8ffb2", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels/blocked?access_token=$2"
+  then
+    curl -X POST --data '{ "name": "blocked", "color": "d8ffb2", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels?access_token=$2"
+  fi
+
+  if ! curl --fail -X PATCH --data '{ "color": "ee0701", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels/bug?access_token=$2"
+  then
+    curl -X POST --data '{ "name": "bug", "color": "ee0701", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels?access_token=$2"
+  fi
+
+  if ! curl --fail -X PATCH --data '{ "color": "7057ff", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels/pr%20welcome?access_token=$2"
+  then
+    curl -X POST --data '{ "name": "pr welcome", "color": "7057ff", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels?access_token=$2"
+  fi
+
+  if ! curl --fail -X PATCH --data '{ "color": "e4e669", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels/needs%20info?access_token=$2"
+  then
+    curl -X POST --data '{ "name": "needs info", "color": "e4e669", "description": "" }' "https://api.github.com/repos/vanniktech/$repo_name/labels?access_token=$2"
+  fi
+}
+
+update_labels "gradle-android-apk-size-plugin" "$1"
+update_labels "gradle-android-javadoc-plugin" "$1"
+update_labels "gradle-android-junit-jacoco-plugin" "$1"
+update_labels "gradle-code-quality-tools-plugin" "$1"
+update_labels "gradle-dependency-graph-generator-plugin" "$1"
+update_labels "gradle-maven-publish-plugin" "$1"
+update_labels "config-home" "$1"
+update_labels "config-sublime3" "$1"
+update_labels "Emoji" "$1"
+update_labels "espresso-utils" "$1"
+update_labels "junit-rules" "$1"
+update_labels "kotlin-on-code-quality-tools" "$1"
+update_labels "lint-rules" "$1"
+update_labels "OnActivityResult" "$1"
+update_labels "RxBilling" "$1"
+update_labels "RxPermission" "$1"
+update_labels "RxRiddles" "$1"
+update_labels "SparseBuilders" "$1"
+update_labels "VNTNumberPickerPreference" "$1"
+update_labels "VNTFontListPreference" "$1"
+update_labels "TextBuilder" "$1"
