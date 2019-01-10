@@ -259,26 +259,35 @@ function phf {
 }
 
 function pnb() {
-  # Push the current branch.
-  g phou "$(git_current_branch)"
+  # Get the current branch.
+  local current_branch
+  current_branch=$(git_current_branch)
 
+  # Push the current branch.
+  g phou "$current_branch"
+
+  # Last commit message.
   local last_commit_message
   last_commit_message=$(git log -n 1 --pretty=format:'%s')
 
-  # Let's try to get a possible ticket by a convention of AB-0123456789:
-  local jira_ticket_number
-  jira_ticket_number=$(echo "$last_commit_message" | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}')
+  # Let's try to get a possible ticket with a convention of AB-0123456789: from the branch name.
+  local jira_ticket
+  jira_ticket=$(git_current_branch | ack -o '[A-Za-z]{2,3}-[0-9]+')
 
-  # Remove the :
-  local jira_ticket=${jira_ticket_number/:/}
+  local message
+  if [ "$1" == "--wip" ]; then message="" else message=$1 fi
 
   if [ ! "$jira_ticket" ];then
-    title=$(printf "%s\\n\\n%s" "$last_commit_message" "$1")
+    title=$(printf "%s\\n\\n%s" "$last_commit_message" "$message")
   else
-    title=$(printf "%s\\n\\nhttps://moovel.atlassian.net/browse/%s\\n\\n%s" "$last_commit_message" "$jira_ticket" "$1")
+    title=$(printf "%s\\n\\nhttps://moovel.atlassian.net/browse/%s\\n\\n%s" "$last_commit_message" "$jira_ticket" "$message")
   fi
 
-  hub pull-request -m "$title" -F -
+  if [[ "$*" == *"--wip" ]]; then
+    hub pull-request -l "wip" -m "$title" -F -
+  else
+    hub pull-request -m "$title" -F -
+  fi
 }
 
 # Jira.
