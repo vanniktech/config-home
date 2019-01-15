@@ -270,9 +270,9 @@ function pnb() {
   local last_commit_message
   last_commit_message=$(git log -n 1 --pretty=format:'%s')
 
-  # Let's try to get a possible ticket with a convention of AB-0123456789: from the branch name.
+  # Let's try to get a possible ticket with a convention of AB-0123456789: from the commit message.
   local jira_ticket
-  jira_ticket=$(git_current_branch | ack -o '[A-Za-z]{2,3}-[0-9]+')
+  jira_ticket=$(echo "$last_commit_message" | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}' | sed 's/://')
 
   local message
   if [ "$1" == "--wip" ]; then message=""; else message=$1; fi
