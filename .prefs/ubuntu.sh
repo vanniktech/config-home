@@ -69,7 +69,11 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 ###
 
 # Slack.
-sudo snap install slack --classic
+sudo snap install --classic slack
+sudo snap refresh
+
+# Kotlin
+sudo snap install --classic kotlin
 sudo snap refresh
 
 # Thunderbird.
