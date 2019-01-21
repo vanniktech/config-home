@@ -95,3 +95,5 @@ defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 
 # Restart the service in order to propagate changes.
 killall SystemUIServer
+
+source unix.sh
