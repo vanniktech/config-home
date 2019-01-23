@@ -335,11 +335,11 @@ function cpp {
         git up
       fi
 
-      git remote prune origin
-      dmb
-
       # Go to the previous branch.
       git checkout -
+
+      git remote prune origin
+      dmb
     fi
 
     cd ~- || exit # Go to previous directory without echoing.
