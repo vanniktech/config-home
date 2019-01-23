@@ -163,13 +163,9 @@ sudo chown "$(whoami)" /dev/kvm
 # Install missing dependencies - https://stackoverflow.com/questions/42831999/android-studio-2-3-ubuntu-16-10-emulator-do-not-start
 sudo apt-get install lib64stdc++6:i386 mesa-utils
 
-# Fix some internals
-cd "$ANDROID_HOME/emulator/lib64" || exit
-mv libstdc++/ libstdc++.bak
-ln -s /usr/lib64/libstdc++.so.6 libstdc++
-cd -
-
 # Cleaning up.
 sudo apt-get update
 sudo apt-get autoremove --purge
 sudo apt-get autoclean
+
+source unix.sh
