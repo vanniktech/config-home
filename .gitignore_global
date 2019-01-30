@@ -3,3 +3,4 @@
 t
 local.properties
 *.sublime-workspace
+.gradle/
