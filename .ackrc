@@ -2,6 +2,7 @@
 --ignore-dir=idea
 --ignore-dir=.idea
 --ignore-dir=buck-out
+--ignore-dir=swagger-ui
 --ignore-file=is:R.java
 --ignore-file=is:R2.java
 --ignore-file=ext:iml
