@@ -1,6 +1,7 @@
 --ignore-dir=build
 --ignore-dir=idea
 --ignore-dir=.idea
+--ignore-dir=.gradle
 --ignore-dir=buck-out
 --ignore-file=is:R.java
 --ignore-file=is:R2.java
