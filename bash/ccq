@@ -75,7 +75,7 @@ checkPmdVersion() {
 }
 
 checkDetektVersion() {
-  checkVersion "detekt" "$1" "1.0.0.RC12"
+  checkVersion "detekt" "$1" "1.0.0-RC12"
 }
 
 checkktlintVersion() {
