@@ -68,6 +68,9 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
  # From this point downwards it is OS specific things.
 ###
 
+# Color picker.
+sudo apt-get install gpick
+
 # Slack.
 sudo snap install --classic slack
 sudo snap refresh
