@@ -203,11 +203,11 @@ setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording en
 # Finding and doing things.
 
 function f {
-  find . -type "f" -name "$1" -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*"
+  find . -type "f" -name "$1" -and -not -path "*/.idea/*" -and -not -path "*/.git/*" -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*"
 }
 
 function fd {
-  find . -type d -name "$1" -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*"
+  find . -type d -name "$1" -and -not -path "*/.idea/*" -and -not -path "*/.git/*" -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*"
 }
 
 function fs {
