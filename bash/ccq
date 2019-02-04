@@ -120,7 +120,7 @@ PROJECTS[12]=$HOME/dev/GitHub/gradle-dependency-graph-generator-plugin
 PROJECTS[13]=$HOME/dev/GitHub/gradle-maven-publish-plugin
 PROJECTS[14]=$HOME/dev/GitHub/RxRiddles
 PROJECTS[15]=$HOME/dev/GitHub/RxBilling
-PROJECTS[16]=$HOME/dev/vanniktech
+PROJECTS[16]=$HOME/dev/GitHub/vanniktech
 
 for i in "${PROJECTS[@]}"; do
   projectName=${i##*/}
