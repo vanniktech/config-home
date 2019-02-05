@@ -443,11 +443,8 @@ function backup() {
   local computer_name
   computer_name=${${$(hostname)/.fritz.box/}/.local/}
 
-  # Delete possibly old backup.
-  rm -rf $computer_name
-
   # Create folder named according to the computer.
-  mkdir $computer_name
+  mkdir "$computer_name"
 
   # Start moving everything that's precious.
   cp "$HOME/.gradle/gradle.properties" "$computer_name"
@@ -460,7 +457,11 @@ function backup() {
   cp -a "$HOME/.jira.d" "$computer_name"
 
   # Get all keystore files.
-  find . -maxdepth 4 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} $computer_name \; 2>/dev/null # Ignore any kind of errors.
+  find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} $computer_name \; 2>/dev/null # Ignore any kind of errors.
+
+  # Zip and delete directory.
+  zip -er "$computer_name.zip" "$computer_name"
+  rm -rf "$computer_name"
 }
 
 # Others.
