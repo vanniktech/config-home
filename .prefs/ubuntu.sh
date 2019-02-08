@@ -71,6 +71,9 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 # Gimp.
 sudo apt-get install gimp
 
+# Inkscape.
+sudo apt-get install inkscape
+
 # Color picker.
 sudo apt-get install gpick
 
