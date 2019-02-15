@@ -440,6 +440,10 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+function asdump() {
+  jps -mv | grep studio | awk '{print $1}' | xargs jstack -l >> dump.txt
+}
+
 function backup() {
   local computer_name
   computer_name=${${$(hostname)/.fritz.box/}/.local/}
