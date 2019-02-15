@@ -68,6 +68,12 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
  # From this point downwards it is OS specific things.
 ###
 
+# Gimp.
+sudo apt-get install gimp
+
+# Inkscape.
+sudo apt-get install inkscape
+
 # Color picker.
 sudo apt-get install gpick
 
