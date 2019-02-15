@@ -335,11 +335,12 @@ function cpp {
         git up
       fi
 
-      # Go to the previous branch.
-      git checkout -
+      dmb
+
+      # Go to the previous branch and ignore any errors. An error usually indicates that the branch was already merged.
+      git checkout - 2>/dev/null
 
       git remote prune origin
-      dmb
     fi
 
     cd ~- || exit # Go to previous directory without echoing.
