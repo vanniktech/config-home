@@ -115,7 +115,7 @@ function typos {
 
 if [[ "$os" == 'Linux' ]]; then
   # Add Gradle.
-  export PATH="$PATH:/opt/gradle/gradle-5.2.1/bin"
+  export PATH="$PATH:/opt/gradle/bin/"
 
   # Init z file.
   source /etc/profile.d/z.sh
