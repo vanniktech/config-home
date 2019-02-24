@@ -14,6 +14,9 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zs
 # Fastlane.
 sudo gem install fastlane
 
+# GitHub Changelog Generator.
+sudo gem install github_changelog_generator
+
 # Travis.
 sudo gem install travis
 
