@@ -178,4 +178,8 @@ sudo apt-get update
 sudo apt-get autoremove --purge
 sudo apt-get autoclean
 
+# Disable snapd service.
+sudo systemctl stop snapd.service
+sudo systemctl disable snapd.service
+
 source unix.sh
