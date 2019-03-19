@@ -440,6 +440,21 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+function androidanimations() {
+  local animation_value
+  animation_value=$(adb shell settings get global transition_animation_scale)
+
+  if [[ "$animation_value" == "0.0" ]]; then
+    adb shell settings put global window_animation_scale 1.0
+    adb shell settings put global transition_animation_scale 1.0
+    adb shell settings put global animator_duration_scale 1.0
+  else
+    adb shell settings put global window_animation_scale 0.0
+    adb shell settings put global transition_animation_scale 0.0
+    adb shell settings put global animator_duration_scale 0.0
+  fi
+}
+
 function asdump() {
   jps -mv | grep studio | awk '{print $1}' | xargs jstack -l >> dump.txt
 }
