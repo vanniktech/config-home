@@ -11,6 +11,7 @@ scaling-factor=uint32 1
 use-same-proxy=false
 
 [org/gnome/settings-daemon/plugins/power]
+power-button-action='suspend'
 sleep-inactive-ac-timeout=3600
 sleep-inactive-ac-type='suspend'
 
