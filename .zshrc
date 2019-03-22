@@ -231,7 +231,7 @@ function ned {
 function o {
   remote="$(git config --get remote.origin.url)"
   cleanRemote=${${${${remote/git\@/}/.git/}/:/\/}/https:\/\//}
-  browser "https://$cleanRemote"
+  browser "https://$cleanRemote" 2>/dev/null # Ignore any errors.
 }
 
 function dmb {
