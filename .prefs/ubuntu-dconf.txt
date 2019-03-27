@@ -34,6 +34,9 @@ app-picker-view=uint32 1
 favorite-apps=['org.gnome.Nautilus.desktop', 'google-chrome.desktop', 'jetbrains-studio.desktop', 'sublime_text.desktop', 'org.gnome.Terminal.desktop', 'slack_slack.desktop', 'thunderbird.desktop']
 enable-hot-corners=false
 
+[org/gnome/shell/extensions/dash-to-dock]
+click-action='minimize'
+
 [org/gnome/baobab/ui]
 window-state=87168
 window-size=(1459, 982)
