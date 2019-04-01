@@ -4,10 +4,10 @@ set -euo pipefail
 # Gradle
 sudo rm -rf /opt/gradle/ && \
   sudo mkdir -p /opt/gradle/ && \
-  wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.2.1-all.zip && \
+  wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.3.1-all.zip && \
   unzip -q gradle.zip && \
-  sudo mv gradle-5.2.1/* /opt/gradle/ && \
-  rm -rf gradle.zip gradle-5.2.1/
+  sudo mv gradle-5.3.1/* /opt/gradle/ && \
+  rm -rf gradle.zip gradle-5.3.1/
 
 # Git.
 sudo apt-get install git
