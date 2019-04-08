@@ -4,3 +4,4 @@ t
 local.properties
 *.sublime-workspace
 .gradle/
+.attach_pid*
