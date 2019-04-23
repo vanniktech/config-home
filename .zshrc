@@ -284,7 +284,7 @@ function pnb() {
   fi
 
   if [[ "$*" == *"--wip" ]]; then
-    hub pull-request -l "wip" -m "$title" -F -
+    hub pull-request --draft -m "$title" -F -
   else
     hub pull-request -m "$title" -F -
   fi
