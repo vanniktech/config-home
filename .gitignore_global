@@ -6,3 +6,4 @@ local.properties
 .gradle/
 .attach_pid*
 jacoco.exec
+android_screenshot_*.png
