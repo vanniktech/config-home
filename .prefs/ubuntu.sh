@@ -102,6 +102,7 @@ sudo apt-get install cryptomator
 sudo apt-get install pcregrep
 
 # Java.
+sudo add-apt-repository -y -u ppa:openjdk-r/ppa
 sudo apt-get install openjdk-8-jdk
 
 # Music.
