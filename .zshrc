@@ -389,7 +389,7 @@ alias lv="ack VERSION_NAME gradle.properties | sed -En \"s/VERSION_NAME=//p\""
 # Android.
 function androidtakescreenshot() {
   local file_path
-  file_path="/sdcard/$(date +%s).png"
+  file_path="/sdcard/android_screenshot_$(date +%s).png"
 
   adb shell screencap -p "$file_path"
   adb pull "$file_path"
