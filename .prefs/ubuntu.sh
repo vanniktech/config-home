@@ -179,6 +179,11 @@ sudo apt-get update
 sudo apt-get autoremove --purge
 sudo apt-get autoclean
 
+# Cleaning up some dot directories and files.
+rm -rf "$HOME/.mozilla"
+rm -rf "$HOME/.nano"
+rm -rf "$HOME/.zcompdump*"
+
 # Disable snapd service.
 sudo systemctl stop snapd.service
 sudo systemctl disable snapd.service
