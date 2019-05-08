@@ -16,6 +16,9 @@ export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$JAVA_HOME"
 
+# Android Lint should print the entire stacktrace.
+export LINT_PRINT_STACKTRACE=true
+
 # Path to your oh-my-zsh installation should be in the .zprofile file.
 
 # Set name of the theme to load. Optionally, if you set this to "random"
