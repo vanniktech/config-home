@@ -8,6 +8,8 @@
 --ignore-file=is:R2.java
 --ignore-file=ext:iml
 --ignore-file=ext:ai
+--ignore-file=is:privacy.en.html
+--ignore-file=is:privacy.de.html
 
 --type-add=kotlin=.kt,.kts
 --type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle,properties
