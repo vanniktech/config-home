@@ -476,7 +476,6 @@ function backup() {
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
   cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
-  cp -a "$HOME/.bintray" "$computer_name" 2>/dev/null # Ignore any kind of errors.
 
   # For the time being I can't open source this - https://github.com/Netflix-Skunkworks/go-jira/issues/172
   cp -a "$HOME/.jira.d" "$computer_name"
