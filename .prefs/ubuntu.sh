@@ -58,8 +58,8 @@ sudo apt-get install speedtest-cli
 sudo apt-get install shellcheck
 
 # Diff-so-fancy.
-wget -q https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
-chmod +x /usr/local/bin/diff-so-fancy
+sudo wget -q https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -O /usr/local/bin/diff-so-fancy
+sudo chmod +x /usr/local/bin/diff-so-fancy
 
 # Pidcat.
 rm -rf "$HOME/.pidcat"
@@ -68,6 +68,23 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 ###
  # From this point downwards it is OS specific things.
 ###
+
+# Curl.
+sudo apt-get install curl
+
+# Oh-my-zsh.
+rm -rf "$ZSH"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git checkout "$HOME/.zshrc"
+
+# Git.
+sudo apt-get install git
+
+# Gem.
+sudo apt-get install ruby-dev
+
+# Python 3.
+sudo apt-get install python3-pip
 
 # Gimp.
 sudo apt-get install gimp
