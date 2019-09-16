@@ -16,6 +16,8 @@
 !/.prefs/**
 !bash/
 !bash/**
+!.jira.d/
+!.jira.d/**
 
 # Google Drive configuration.
 !.gdfuse/
