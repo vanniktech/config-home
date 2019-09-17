@@ -7,3 +7,4 @@ local.properties
 .attach_pid*
 jacoco.exec
 android_screenshot_*.png
+nul
