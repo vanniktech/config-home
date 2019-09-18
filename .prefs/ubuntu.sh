@@ -28,7 +28,7 @@ sudo wget -q https://github.com/Netflix-Skunkworks/go-jira/releases/download/v1.
 sudo chmod +x /usr/local/bin/jira
 
 # Phraseapp.
-sudo wget -q https://github.com/phrase/phraseapp-client/releases/download/1.13.0/phraseapp_linux_amd64 -O /usr/local/bin/phraseapp
+sudo wget -q https://github.com/phrase/phraseapp-client/releases/download/1.15.1/phraseapp_linux_amd64 -O /usr/local/bin/phraseapp
 sudo chmod +x /usr/local/bin/phraseapp
 
 # Ack.
