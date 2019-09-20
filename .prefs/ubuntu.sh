@@ -147,6 +147,9 @@ git clone git@github.com:vanniktech/config-sublime3.git "$HOME/.config/sublime-t
 # MP3 Handler for sox.
 sudo apt-get install libsox-fmt-mp3
 
+# Powertop
+sudo apt-get install powertop
+
 # Dconf-editor.
 sudo apt-get install dconf-editor
 
