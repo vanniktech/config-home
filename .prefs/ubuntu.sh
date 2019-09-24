@@ -110,10 +110,6 @@ sudo snap refresh
 sudo add-apt-repository -y -u ppa:mozillateam/ppa
 sudo apt-get install thunderbird
 
-# Google Drive.
-sudo add-apt-repository -y -u ppa:alessandro-strada/ppa
-sudo apt-get install google-drive-ocamlfuse
-
 # Cryptomator.
 sudo add-apt-repository -y -u ppa:sebastian-stenzel/cryptomator
 sudo apt-get install cryptomator
