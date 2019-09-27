@@ -370,15 +370,11 @@ gwtc() {
 
 # Ack shorthands.
 alias ay="ack --yaml"
-alias ayi="ack --yaml -i"
 alias ax="ack --xml"
-alias axi="ack --xml -i"
 alias ak="ack --kotlin"
-alias aki="ack --kotlin -i"
 alias aj="ack --java"
-alias aji="ack --java -i"
 alias ag="ack --groovy"
-alias agi="ack --groovy -i"
+alias aq="ack --sql"
 
 # Compress iamges.
 alias ci="find . -name '*.png' -and -not -name '*.9.png' -exec pngquant --skip-if-larger --speed 1 -f --ext .png 256 {} \\;"
