@@ -75,6 +75,9 @@ sudo apt-get install exfat-utils
 # Curl.
 sudo apt-get install curl
 
+# jq.
+sudo apt-get install jq
+
 # Oh-my-zsh.
 rm -rf "$ZSH"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
