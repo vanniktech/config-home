@@ -12,4 +12,5 @@
 --ignore-file=is:privacy.de.html
 
 --type-add=kotlin=.kt,.kts
+--type-add=sql=.sq,.sql,.sqm
 --type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle,properties
