@@ -439,6 +439,19 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+function androidprofilerendering() {
+  local is_shown
+  is_shown=$(adb shell getprop debug.hwui.profile)
+
+  if [[ "$is_shown" == "visual_bars" ]]; then
+    adb shell setprop debug.hwui.profile 0
+  else
+    adb shell setprop debug.hwui.profile visual_bars
+  fi
+
+  androidrefreshview
+}
+
 function androidanimations() {
   local animation_value
   animation_value=$(adb shell settings get global transition_animation_scale)
