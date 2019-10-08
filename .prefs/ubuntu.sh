@@ -158,6 +158,9 @@ sudo apt-get purge gnome-calculator gnome-robots gnome-tetravex gnome-taquin gno
 # Remove other crap that I do not need.
 sudo apt-get purge totem* nano gedit rhythmbox brasero* deja-dup cheese aisleriot playonlinux shotwell simple-scan firefox remmina libreoffice-* four-in-a-row five-or-more iagno lightsoff quadrapassel tali swell-foop
 
+# rclone.
+wget -qO- https://rclone.org/install.sh | sudo bash
+
 # Remove unused unity desktop.
 sudo apt-get purge unity*
 
