@@ -167,6 +167,12 @@ sudo apt-get purge unity*
 # Remove unused display managers.
 sudo apt-get purge sddm lightdm
 
+# Netstat and other tools such as netstat, ifconfig, arp, etc.
+sudo apt-get install net-tools
+
+# Postgres.
+sudo apt install postgresql postgresql-contrib
+
 # Remove Amazon once and for all.
 sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
 sudo dpkg-divert --divert /usr/share/applications/ubuntu-amazon-default.desktop.diverted --local --rename /usr/share/applications/ubuntu-amazon-default.desktop
