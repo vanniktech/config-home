@@ -111,6 +111,7 @@ alias h=history
 alias g=git
 alias c=clear
 alias cl="wc -l"
+alias diff="diff --color=always"
 
 function typos {
   aspell --home-dir="$HOME" --personal=.aspell --dont-backup -t -c "$1"
