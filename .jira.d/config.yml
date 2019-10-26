@@ -133,3 +133,10 @@ custom-commands:
         required: true
     script: |-
       {{jira}} transition "Testing" {{args.ticketnumber}} --noedit
+  - name: in-dev-done
+    help: moves the given ticket to the 'Dev Done' column
+    args:
+      - name: ticketnumber
+        required: true
+    script: |-
+      {{jira}} transition "Dev done" {{args.ticketnumber}} --noedit
