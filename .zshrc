@@ -298,9 +298,9 @@ function pnb() {
 alias j=jira
 eval "$(jira --completion-script-zsh)"
 
-# Puts the commit message from the given branch if it's prefixed with a ticket number into the clipboard. e.g. AP-123, AP-123/blub
+# Puts the commit message from the given branch if it's prefixed with a ticket number into the clipboard. e.g. AP-123, AP-123/blub, bug/AP-123-test
 function cm {
-  jira view "$(git_current_branch | cut -f1 -d"/")" --field=summary,issue \
+  jira view "$(git_current_branch | sed 's/bug\///' | sed 's/feature\///' | cut -f1 -d"/" | cut -f1-2 -d"-")" --field=summary,issue \
     | head -n 2 \
     | sed 's/issue: //' \
     | sed 's/summary: //' \
