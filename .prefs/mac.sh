@@ -12,6 +12,9 @@ brew update
 # Install any updates before so it won't conflicts with installs.
 brew upgrade
 
+# OpenJDK.
+brew cask install adoptopenjdk
+
 # Gradle.
 brew install gradle
 
@@ -69,6 +72,12 @@ brew install pidcat
  # From this point downwards it's OS specific things.
 ###
 
+# Sublime.
+ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+# Cocoapods.
+sudo gem install cocoapods
+
 # Ffmpeg.
 brew install ffmpeg
 
@@ -92,6 +101,10 @@ defaults write com.apple.screencapture disable-shadow -bool TRUE
 
 # Disable sound effects. For example when taking a screenshot.
 defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
+
+# Faster keyboard execution.
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+defaults write NSGlobalDomain KeyRepeat -int 2
 
 # Restart the service in order to propagate changes.
 killall SystemUIServer

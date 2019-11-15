@@ -9,3 +9,4 @@ jacoco.exec
 android_screenshot_*.png
 nul
 .jira.d/
+*.developerprofile

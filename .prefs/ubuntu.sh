@@ -1,7 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
-# Gradle
+# Java / OpenJDK.
+sudo add-apt-repository -y -u ppa:openjdk-r/ppa
+sudo apt-get install openjdk-11-jdk
+
+# Gradle.
 sudo rm -rf /opt/gradle/ && \
   sudo mkdir -p /opt/gradle/ && \
   wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.6.2-all.zip && \
@@ -119,10 +123,6 @@ sudo apt-get install cryptomator
 
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
-
-# Java.
-sudo add-apt-repository -y -u ppa:openjdk-r/ppa
-sudo apt-get install openjdk-11-jdk
 
 # Music.
 sudo apt-get install vlc
