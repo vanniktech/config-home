@@ -51,17 +51,6 @@ custom-commands:
     script: |
       board_id=$({{jira}} req "/rest/agile/1.0/board?projectKeyOrId=$JIRA_PROJECT" --gjq values.0.id)
       {{jira}} req "/rest/agile/1.0/board/$board_id/sprint?state=active" --gjq values.0 --template table
-  - name: qa
-    help: assigns the given ticket to qa
-    options:
-      - name: assignee
-        short: a
-        default: $JIRA_DEFAULT_QA_ASSIGNEE
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} assign {{args.ticketnumber}} {{options.assignee}}
   - name: c
     help: creates an issuetype in the given project AND labels issues as android
     options:
