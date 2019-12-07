@@ -24,6 +24,7 @@ sudo gem install travis
 sudo gem cleanup
 
 # Souncloud Music Downloader.
+# Usage scdl -l https://soundcloud.com/derobdachlose -f
 pip3 install scdl
 
 # Vim syntax highlighting.
