@@ -9,6 +9,7 @@
 	b = branch
 	cach = commit --amend -C HEAD
 	cam = commit -a -m
+	ca = commit --amend
 	cem = commit --amend -m
 	cm = commit -m
 	c = checkout
