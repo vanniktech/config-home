@@ -1,5 +1,6 @@
 --ignore-dir=build
 --ignore-dir=idea
+--ignore-dir=Pods
 --ignore-dir=.idea
 --ignore-dir=.gradle
 --ignore-dir=buck-out
