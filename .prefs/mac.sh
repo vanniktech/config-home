@@ -68,6 +68,9 @@ brew install diff-so-fancy
 # Pidcat.
 brew install pidcat
 
+# jq.
+brew install jq
+
 ###
  # From this point downwards it's OS specific things.
 ###
