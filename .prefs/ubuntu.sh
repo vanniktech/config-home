@@ -69,6 +69,9 @@ sudo chmod +x /usr/local/bin/diff-so-fancy
 rm -rf "$HOME/.pidcat"
 git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 
+# jq.
+sudo apt-get install jq
+
 ###
  # From this point downwards it is OS specific things.
 ###
@@ -78,9 +81,6 @@ sudo apt-get install exfat-utils
 
 # Curl.
 sudo apt-get install curl
-
-# jq.
-sudo apt-get install jq
 
 # Oh-my-zsh.
 rm -rf "$ZSH"
