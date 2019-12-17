@@ -15,4 +15,5 @@
 --type-add=properties=.properties
 --type-add=kotlin=.kt,.kts
 --type-add=sql=.sq,.sql,.sqm
+--type-add=ios=.h,.m,.swift
 --type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle,properties
