@@ -207,6 +207,7 @@ sudo apt-get install lib64stdc++6:i386 mesa-utils
 
 # Set up my Android phone.
 echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="4ee7", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android.rules
+sudo udevadm control --reload-rules
 
 # Cleaning up.
 sudo apt-get update
