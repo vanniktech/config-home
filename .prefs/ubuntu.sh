@@ -8,10 +8,10 @@ sudo apt-get install openjdk-11-jdk
 # Gradle.
 sudo rm -rf /opt/gradle/ && \
   sudo mkdir -p /opt/gradle/ && \
-  wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.6.2-all.zip && \
+  wget -q -O gradle.zip https://services.gradle.org/distributions/gradle-5.6.4-all.zip && \
   unzip -q gradle.zip && \
-  sudo mv gradle-5.6.2/* /opt/gradle/ && \
-  rm -rf gradle.zip gradle-5.6.2/
+  sudo mv gradle-5.6.4/* /opt/gradle/ && \
+  rm -rf gradle.zip gradle-5.6.4/
 
 # Git.
 sudo apt-get install git
