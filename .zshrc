@@ -111,13 +111,14 @@ alias h=history
 alias g=git
 alias c=clear
 alias cl="wc -l"
-alias diff="diff --color=always"
 
 function typos {
   aspell --home-dir="$HOME" --personal=.aspell --dont-backup -t -c "$1"
 }
 
 if [[ "$os" == 'Linux' ]]; then
+  alias diff="diff --color=always"
+
   # Add Gradle.
   export PATH="$PATH:/opt/gradle/bin/"
 
