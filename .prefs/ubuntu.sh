@@ -72,6 +72,9 @@ git clone git@github.com:JakeWharton/pidcat.git "$HOME/.pidcat"
 # jq.
 sudo apt-get install jq
 
+# Postgres.
+sudo apt install postgresql postgresql-contrib
+
 ###
  # From this point downwards it is OS specific things.
 ###
@@ -169,9 +172,6 @@ sudo apt-get purge sddm lightdm
 
 # Netstat and other tools such as netstat, ifconfig, arp, etc.
 sudo apt-get install net-tools
-
-# Postgres.
-sudo apt install postgresql postgresql-contrib
 
 # Remove Amazon once and for all.
 sudo rm -rf /usr/share/applications/ubuntu-amazon-default.desktop
