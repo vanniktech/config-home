@@ -71,6 +71,10 @@ brew install pidcat
 # jq.
 brew install jq
 
+# Postgres.
+brew install postgresql
+brew services start postgresql
+
 ###
  # From this point downwards it's OS specific things.
 ###
