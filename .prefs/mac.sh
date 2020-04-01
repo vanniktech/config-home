@@ -86,6 +86,9 @@ pip3 install cairosvg
 # Sublime.
 ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
+# node.
+brew install node
+
 # Cocoapods.
 sudo gem install cocoapods
 
