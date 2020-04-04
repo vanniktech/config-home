@@ -92,6 +92,9 @@ brew install node
 # Cocoapods.
 sudo gem install cocoapods
 
+# Required for building.
+brew install coreutils
+
 # Ffmpeg.
 brew install ffmpeg
 
