@@ -216,6 +216,10 @@ function fd {
   find . -type d -name "$1" -and -not -path "*/.idea/*" -and -not -path "*/.git/*" -and -not -path "*/build/tmp/*" -and -not -path "*/build/intermediates/*" -and -not -path "*/build/generated/*" -and -not -path "*/build/classes/*"
 }
 
+function fsed {
+  find . -name "$1" -exec sed -i "/$2/d" {} +
+}
+
 function fs {
   f "$1" | xargs subl
 }
