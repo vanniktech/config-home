@@ -95,6 +95,9 @@ brew install node
 # Cocoapods.
 sudo gem install cocoapods
 
+# Swiftgen
+brew install swiftgen
+
 # Required for building.
 brew install coreutils
 
