@@ -376,7 +376,7 @@ gwtc() {
 }
 
 # Ack shorthands.
-alias ag="ack --groovy"
+alias ag="ack --gradle"
 alias aj="ack --java"
 alias ak="ack --kotlin"
 alias ap="ack --properties"
