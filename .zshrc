@@ -153,6 +153,15 @@ elif [[ "$os" == 'Darwin' ]]; then
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
   alias sysclean="brew cleanup"
+
+  # iOS.
+  function svgtopdf {
+    cairosvg "$1" -o "${1/.svg/.pdf}"
+  }
+
+  function svgtopdf15 {
+    cairosvg "$1" -s 1.5 -o "${1/.svg/.pdf}"
+  }
 fi
 
 # Copy last command from Terminal into the clipboard.
