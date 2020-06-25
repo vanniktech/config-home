@@ -415,17 +415,17 @@ function androidtakescreenshot() {
 
 # https://stackoverflow.com/a/50618460/1979703
 function androidrefreshview() {
-  adb shell service call activity 1599295570 > nul
+  adball shell "service call activity 1599295570" > nul
 }
 
 function androidoverdraw() {
   local is_shown
-  is_shown=$(adb shell getprop debug.hwui.overdraw)
+  is_shown=$(adb -d shell getprop debug.hwui.overdraw)
 
   if [[ "$is_shown" == "show" ]]; then
-    adb shell setprop debug.hwui.overdraw false
+    adball shell "setprop debug.hwui.overdraw false"
   else
-    adb shell setprop debug.hwui.overdraw show
+    adball shell "setprop debug.hwui.overdraw show"
   fi
 
   androidrefreshview
@@ -433,12 +433,12 @@ function androidoverdraw() {
 
 function androidtouches() {
   local show_touches
-  show_touches=$(adb shell settings get system show_touches)
+  show_touches=$(adb -d shell settings get system show_touches)
 
   if [[ "$show_touches" == 1 ]]; then
-    adb shell settings put system show_touches 0
+    adball shell "settings put system show_touches 0"
   else
-    adb shell settings put system show_touches 1
+    adball shell "settings put system show_touches 1"
   fi
 
   androidrefreshview
@@ -446,12 +446,12 @@ function androidtouches() {
 
 function androidlayoutbounds() {
   local is_shown
-  is_shown=$(adb shell getprop debug.layout)
+  is_shown=$(adb -d shell getprop debug.layout)
 
   if [[ "$is_shown" == "true" ]]; then
-    adb shell setprop debug.layout hidden
+    adball shell "setprop debug.layout hidden"
   else
-    adb shell setprop debug.layout true
+    adball shell "setprop debug.layout true"
   fi
 
   androidrefreshview
@@ -463,28 +463,28 @@ function androiddevices()
 }
 
 function androidscreenshotmodeenter() {
-  adb shell settings put global sysui_demo_allowed 1
-  adb shell am broadcast -a com.android.systemui.demo -e command exit
-  adb shell am broadcast -a com.android.systemui.demo -e command enter
-  adb shell am broadcast -a com.android.systemui.demo -e command notifications -e visible false
-  adb shell am broadcast -a com.android.systemui.demo -e command status -e bluetooth hidden -e volume hidden -e speakerphone false -e location false -e mute false -e alarm false -e eri false -e sync false -e tty false
-  adb shell am broadcast -a com.android.systemui.demo -e command network -e wifi show -e level 4 -e mobile false -e datatype hidden -e airplane false -e carriernetworkchange false
-  adb shell am broadcast -a com.android.systemui.demo -e command battery -e level 100 -e plugged false -e powersave false
-  adb shell am broadcast -a com.android.systemui.demo -e command clock -e hhmm 1100
+  adball shell "settings put global sysui_demo_allowed 1"
+  adball shell "am broadcast -a com.android.systemui.demo -e command exit"
+  adball shell "am broadcast -a com.android.systemui.demo -e command enter"
+  adball shell "am broadcast -a com.android.systemui.demo -e command notifications -e visible false"
+  adball shell "am broadcast -a com.android.systemui.demo -e command status -e bluetooth hidden -e volume hidden -e speakerphone false -e location false -e mute false -e alarm false -e eri false -e sync false -e tty false"
+  adball shell "am broadcast -a com.android.systemui.demo -e command network -e wifi show -e level 4 -e mobile false -e datatype hidden -e airplane false -e carriernetworkchange false"
+  adball shell "am broadcast -a com.android.systemui.demo -e command battery -e level 100 -e plugged false -e powersave false"
+  adball shell "am broadcast -a com.android.systemui.demo -e command clock -e hhmm 1100"
 }
 
 function androidscreenshotmodeexit() {
-  adb shell am broadcast -a com.android.systemui.demo -e command exit
+  adball shell "am broadcast -a com.android.systemui.demo -e command exit"
 }
 
 function androidprofilerendering() {
   local is_shown
-  is_shown=$(adb shell getprop debug.hwui.profile)
+  is_shown=$(adb -d shell getprop debug.hwui.profile)
 
   if [[ "$is_shown" == "visual_bars" ]]; then
-    adb shell setprop debug.hwui.profile 0
+    adball shell "setprop debug.hwui.profile 0"
   else
-    adb shell setprop debug.hwui.profile visual_bars
+    adball shell "setprop debug.hwui.profile visual_bars"
   fi
 
   androidrefreshview
@@ -492,17 +492,22 @@ function androidprofilerendering() {
 
 function androidanimations() {
   local animation_value
-  animation_value=$(adb shell settings get global transition_animation_scale)
+  animation_value=$(adb -d shell settings get global transition_animation_scale)
 
   if [[ "$animation_value" == "0.0" ]]; then
-    adb shell settings put global window_animation_scale 1.0
-    adb shell settings put global transition_animation_scale 1.0
-    adb shell settings put global animator_duration_scale 1.0
+    adball shell "settings put global window_animation_scale 1.0"
+    adball shell "settings put global transition_animation_scale 1.0"
+    adball shell "settings put global animator_duration_scale 1.0"
   else
-    adb shell settings put global window_animation_scale 0.0
-    adb shell settings put global transition_animation_scale 0.0
-    adb shell settings put global animator_duration_scale 0.0
+    adball shell "settings put global window_animation_scale 0.0"
+    adball shell "settings put global transition_animation_scale 0.0"
+    adball shell "settings put global animator_duration_scale 0.0"
   fi
+}
+
+function adball()
+{
+  adb devices | grep -E '\t(device|emulator)' | cut -f 1 | xargs -J% -n1 -P5 adb -s % "$@"
 }
 
 function asdump() {
