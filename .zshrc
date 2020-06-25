@@ -457,6 +457,11 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
+function androiddevices()
+{
+  adb devices 2>&1 | tail -n +2 | sed '/^$/d'
+}
+
 function androidscreenshotmodeenter() {
   adb shell settings put global sysui_demo_allowed 1
   adb shell am broadcast -a com.android.systemui.demo -e command exit
