@@ -408,9 +408,10 @@ function androidtakescreenshot() {
   local file_path
   file_path="/sdcard/android_screenshot_$(date +%s).png"
 
-  adb shell screencap -p "$file_path"
-  adb pull "$file_path"
-  adb shell rm "$file_path"
+  adb -d shell screencap -p "$file_path"
+  adb -d pull "$file_path"
+  adb -d shell rm "$file_path"
+  open "$PWD"
 }
 
 # https://stackoverflow.com/a/50618460/1979703
