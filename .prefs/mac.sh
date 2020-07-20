@@ -113,6 +113,9 @@ brew install gnu-sed
 # Poppler which brings pdfseparate (pdfseparate sample.pdf sample-%d.pdf and others).
 brew install poppler
 
+# aspell. Typos checking.
+brew install aspell
+
 # Dot for magic images.
 brew install graphviz
 
