@@ -113,8 +113,13 @@ alias g=git
 alias c=clear
 alias cl="wc -l"
 
+# German directory - https://stackoverflow.com/questions/1949976/where-to-find-dictionaries-for-other-languages-for-intellij/16278834#16278834
+# Download from https://ftp.gnu.org/gnu/aspell/dict/0index.html
+# `cd` into the directory and execute `./configure`
+# aspell -l de dump master | aspell -l de expand | tr ' ' '\n' > de.dic
+
 function typos {
-  aspell --home-dir="$HOME" --personal=.aspell --dont-backup -t -c "$1"
+  aspell --home-dir="$HOME" --personal="$HOME/.aspell/personal.dic" --dont-backup -t -c "$1"
 }
 
 if [[ "$os" == 'Linux' ]]; then
@@ -529,7 +534,6 @@ function backup() {
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
   cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
-  cp -a "$HOME/.aspell" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp -a "$HOME/.config/rclone" "$computer_name" 2>/dev/null # Ignore any kind of errors.
 
   # Get all keystore files.
