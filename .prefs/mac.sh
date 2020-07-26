@@ -132,6 +132,10 @@ defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 2
 
+# Show dot files in finder.
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
+
 # Restart the service in order to propagate changes.
 killall SystemUIServer
 
