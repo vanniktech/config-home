@@ -21,6 +21,10 @@
 !.jira.d/
 !.jira.d/**
 
+# Add Aspell.
+!.aspell/
+!.aspell/**
+
 # Ignore Jira cookies.
 .jira.d/cookies.js
 

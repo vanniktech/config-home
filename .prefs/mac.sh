@@ -79,11 +79,27 @@ brew services start postgresql
  # From this point downwards it's OS specific things.
 ###
 
+# cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
+brew install python3 cairo pango gdk-pixbuf libffi
+pip3 install cairosvg
+
 # Sublime.
 ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
+# Heroku.
+brew tap heroku/brew && brew install heroku
+
+# node.
+brew install node
+
 # Cocoapods.
 sudo gem install cocoapods
+
+# Swiftgen
+brew install swiftgen
+
+# Required for building.
+brew install coreutils
 
 # Ffmpeg.
 brew install ffmpeg
@@ -96,6 +112,9 @@ brew install gnu-sed
 
 # Poppler which brings pdfseparate (pdfseparate sample.pdf sample-%d.pdf and others).
 brew install poppler
+
+# aspell. Typos checking.
+brew install aspell
 
 # Dot for magic images.
 brew install graphviz
@@ -112,6 +131,10 @@ defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 # Faster keyboard execution.
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 2
+
+# Show dot files in finder.
+defaults write com.apple.Finder AppleShowAllFiles true
+killall Finder
 
 # Restart the service in order to propagate changes.
 killall SystemUIServer
