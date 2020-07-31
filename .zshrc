@@ -78,7 +78,11 @@ export ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 export plugins=(zsh-autosuggestions speedread)
 
-source "$ZSH/oh-my-zsh.sh"
+# Optionally, init zsh.
+if test -f "$ZSH/oh-my-zsh.sh"
+then
+  source "$ZSH/oh-my-zsh.sh"
+fi
 
 # User configuration
 
