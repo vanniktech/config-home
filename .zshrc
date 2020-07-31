@@ -259,7 +259,7 @@ function o {
 }
 
 function dmb {
-  git fetch -p && git branch -vv | ack ': gone' | awk '{print $1}' | grep -v '\*' | sed -r "s/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | xargs -n 1 git branch -D
+  git fetch -p && git branch --no-color -vv | ack ': gone' | awk '{print $1}' | grep -v '\*' | xargs -n 1 git branch -D
 }
 
 function gpr {
@@ -267,11 +267,11 @@ function gpr {
 }
 
 function dab {
-  git branch | grep -v '\*' | sed -r "s/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g" | xargs git branch -D
+  git branch --no-color | grep -v '\*' | xargs git branch -D
 }
 
 function git_current_branch {
-  git branch | sed -n '/\* /s///p' | sed -r "s/\\x1B\\[([0-9]{1,2}(;[0-9]{1,2})?)?[mGK]//g"
+  git branch --no-color | sed -n '/\* /s///p'
 }
 
 function pb {
