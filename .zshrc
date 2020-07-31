@@ -316,7 +316,11 @@ function pnb() {
 
 # Jira.
 alias j=jira
-eval "$(jira --completion-script-zsh)"
+
+if command -v jira &> /dev/null
+then
+  eval "$(jira --completion-script-zsh)"
+fi
 
 # Puts the commit message from the given branch if it's prefixed with a ticket number into the clipboard. e.g. AP-123, AP-123/blub, bug/AP-123-test
 function cm {
