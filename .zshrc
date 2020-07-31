@@ -152,8 +152,11 @@ if [[ "$os" == 'Linux' ]]; then
     xmodmap -e 'keycode 118='
   fi
 elif [[ "$os" == 'Darwin' ]]; then
-  # Init z file.
-  source /usr/local/etc/profile.d/z.sh
+  # Optionally, init z file.
+  if test -f /usr/local/etc/profile.d/z.sh
+  then
+    source /usr/local/etc/profile.d/z.sh
+  fi
 
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
