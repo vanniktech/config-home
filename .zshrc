@@ -522,8 +522,7 @@ function androidanimations() {
   fi
 }
 
-function adball()
-{
+function adball() {
   adb devices | grep -E '\t(device|emulator)' | cut -f 1 | xargs -J% -n1 -P5 adb -s % "$@"
 }
 
@@ -556,7 +555,11 @@ function backup() {
 }
 
 # Others.
-alias cat=bat
+alias le=less
+
+function gd {
+  cat "$1" | diff-so-fancy | less --tabs=4 -RFX
+}
 
 # We always want to start at the home directory.
 cd || exit
