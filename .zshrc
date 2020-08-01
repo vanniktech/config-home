@@ -555,10 +555,11 @@ function backup() {
 }
 
 # Others.
+alias cat=bat
 alias le=less
 
 function gd {
-  cat "$1" | diff-so-fancy | less --tabs=4 -RFX
+  diff-so-fancy < "$1" | less --tabs=4 -RFX
 }
 
 # We always want to start at the home directory.
