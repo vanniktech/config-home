@@ -558,6 +558,10 @@ function backup() {
 alias cat=bat
 alias le=less
 
+function ll {
+  ls -lH
+}
+
 function gd {
   diff-so-fancy < "$1" | less --tabs=4 -RFX
 }
