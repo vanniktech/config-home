@@ -13,6 +13,7 @@
 	cem = commit --amend -m
 	cm = commit -m
 	c = checkout
+	cd = checkout develop
 	cp = checkout -p
 	d = diff
 	dc = diff-tree --no-commit-id --name-status -r
