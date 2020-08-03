@@ -60,6 +60,7 @@
 	rba = rebase --abort
 	rbc = rebase --continue
 	rbi = rebase -i
+	rc = mergetool # Resolve conflicts.
 	rbm = rebase master
 	rbih1 = rebase -i HEAD~1
 	rbih2 = rebase -i HEAD~2
@@ -127,3 +128,8 @@
 	enabled = true
 [diff "jar"]
 	textconv = jar2txt
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
