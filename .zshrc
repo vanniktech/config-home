@@ -190,7 +190,7 @@ function clean {
   find ~/.gradle/notifications -maxdepth 1 | tail -n+2 | grep -v "$current_gradle_version" | xargs rm -rv
 
   echo "\\033[0;32mNuking caches other than $current_gradle_version\\033[0m"
-  find ~/.gradle/caches -maxdepth 1 | tail -n+2 | ack "[\\d\\.]{3,5}" | grep -v "$current_gradle_version" | xargs rm -rv
+  find ~/.gradle/caches -maxdepth 1 | tail -n+2 | grep "[\\d\\.]{3,5}" | grep -v "$current_gradle_version" | xargs rm -rv
 
   echo "\\033[0;32mNuking all files in ~/.gradle that have not been accessed in the last 30 days\\033[0m"
   find ~/.gradle -type "f" -atime +30 -delete
@@ -266,7 +266,7 @@ function o {
 }
 
 function dmb {
-  git fetch -p && git branch --no-color -vv | ack ': gone' | awk '{print $1}' | grep -v '\*' | xargs -n 1 git branch -D
+  git fetch -p && git branch --no-color -vv | grep ': gone' | awk '{print $1}' | grep -v '\*' | xargs -n 1 git branch -D
 }
 
 function gpr {
@@ -358,7 +358,7 @@ function cpp {
 
       git checkout master
 
-      number_of_upstreams=$(git remote | ack -c upstream)
+      number_of_upstreams=$(git remote | grep -c upstream)
 
       if [ "$number_of_upstreams" -gt 0 ] ; then
         # We are in a fork.
