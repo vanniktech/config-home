@@ -424,9 +424,9 @@ function androidtakescreenshot() {
   local file_path
   file_path="/sdcard/android_screenshot_$(date +%s).png"
 
-  adb -d shell screencap -p "$file_path"
-  adb -d pull "$file_path"
-  adb -d shell rm "$file_path"
+  adb -d shell screencap -p "$file_path" 2> /dev/null || adb -e shell screencap -p "$file_path"
+  adb -d pull "$file_path" 2> /dev/null || adb -e pull "$file_path"
+  adb -d shell rm "$file_path" 2> /dev/null || adb -e shell rm "$file_path"
   open "$PWD"
 }
 
@@ -437,7 +437,7 @@ function androidrefreshview() {
 
 function androidoverdraw() {
   local is_shown
-  is_shown=$(adb -d shell getprop debug.hwui.overdraw)
+  is_shown=$(adb -d shell getprop debug.hwui.overdraw 2> /dev/null || adb -e shell getprop debug.hwui.overdraw)
 
   if [[ "$is_shown" == "show" ]]; then
     adball shell "setprop debug.hwui.overdraw false"
@@ -450,7 +450,7 @@ function androidoverdraw() {
 
 function androidtouches() {
   local show_touches
-  show_touches=$(adb -d shell settings get system show_touches)
+  show_touches=$(adb -d shell settings get system show_touches 2> /dev/null || adb -e shell settings get system show_touches)
 
   if [[ "$show_touches" == 1 ]]; then
     adball shell "settings put system show_touches 0"
@@ -463,7 +463,7 @@ function androidtouches() {
 
 function androidlayoutbounds() {
   local is_shown
-  is_shown=$(adb -d shell getprop debug.layout)
+  is_shown=$(adb -d shell getprop debug.layout 2> /dev/null || adb -e shell getprop debug.layout)
 
   if [[ "$is_shown" == "true" ]]; then
     adball shell "setprop debug.layout hidden"
@@ -496,7 +496,7 @@ function androidscreenshotmodeexit() {
 
 function androidprofilerendering() {
   local is_shown
-  is_shown=$(adb -d shell getprop debug.hwui.profile)
+  is_shown=$(adb -d shell getprop debug.hwui.profile 2> /dev/null || adb -e shell getprop debug.hwui.profile)
 
   if [[ "$is_shown" == "visual_bars" ]]; then
     adball shell "setprop debug.hwui.profile 0"
@@ -509,7 +509,7 @@ function androidprofilerendering() {
 
 function androidanimations() {
   local animation_value
-  animation_value=$(adb -d shell settings get global transition_animation_scale)
+  animation_value=$(adb -d shell settings get global transition_animation_scale 2> /dev/null || adb -e shell settings get global transition_animation_scale)
 
   if [[ "$animation_value" == "0.0" ]]; then
     adball shell "settings put global window_animation_scale 1.0"
