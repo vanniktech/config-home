@@ -18,6 +18,8 @@ syntax on
 "~					Toggle case of the character under the cursor, or all visually-selected characters
 "x					Delete current character
 "u					Undo last change
+"i					Insert mode
+"a					Insert mode after cursor
 
 " vimdiff
 "]c					next conflict
