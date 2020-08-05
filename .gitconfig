@@ -29,6 +29,8 @@
 	fa = fetch --all
 	fgi = rm -r --cached .
 	m = merge
+	md = merge develop
+	mm = merge master
 	mud = merge upstream/develop
 	mum = merge upstream/master
 	mu1 = merge upstream/1.x
