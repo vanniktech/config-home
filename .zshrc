@@ -390,11 +390,10 @@ function speedread-clipboard {
 }
 
 # Gradle.
-alias gw="gradle"
-alias gws="gradle --stop"
-alias gwcb="gradle clean build"
-alias gwcdl="gradle lintDebug"
-alias gwdu="gradle dependencyUpdates"
+alias gw="gradle || gradlew || ../gradlew"
+alias gws="gw --stop"
+alias gwcdl="gw lintDebug"
+alias gwdu="gw dependencyUpdates"
 
 gwtc() {
   gw testDebug --tests "*$1*"
