@@ -474,8 +474,7 @@ function androidlayoutbounds() {
   androidrefreshview
 }
 
-function androiddevices()
-{
+function androiddevices() {
   adb devices 2>&1 | tail -n +2 | sed '/^$/d'
 }
 
@@ -492,6 +491,10 @@ function androidscreenshotmodeenter() {
 
 function androidscreenshotmodeexit() {
   adball shell "am broadcast -a com.android.systemui.demo -e command exit"
+}
+
+function androidtype() {
+  adball shell "input text '$1'"
 }
 
 function androidprofilerendering() {
