@@ -9,6 +9,7 @@
 --ignore-file=is:R2.java
 --ignore-file=ext:iml
 --ignore-file=ext:ai
+--ignore-file=ext:svg
 --ignore-file=is:privacy.en.html
 --ignore-file=is:privacy.de.html
 
