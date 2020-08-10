@@ -390,7 +390,16 @@ function speedread-clipboard {
 }
 
 # Gradle.
-alias gw="gradle || gradlew || ../gradlew"
+function gw {
+  if command -v jira &> /dev/null; then
+    gradle "$@"
+  elif test -f "$PWD/gradlew"; then
+   ./gradlew "$@"
+  else
+    .././gradlew "$@"
+  fi
+}
+
 alias gws="gw --stop"
 alias gwcdl="gw lintDebug"
 alias gwdu="gw dependencyUpdates"
