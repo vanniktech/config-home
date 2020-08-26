@@ -424,8 +424,29 @@ alias ci="find . -name '*.png' -and -not -name '*.9.png' -exec pngquant --skip-i
 # T my favorite.
 alias et="chmod +x t && ./t"
 
-# Print Library Version from gradle.properties.
-alias lv="ack VERSION_NAME gradle.properties | sed -En \"s/VERSION_NAME=//p\""
+# Print Version.
+function v {
+  gradle_properties_version=$(ack VERSION_NAME gradle.properties 2> /dev/null)
+  app_build_gradle_version_name=$(ack 'versionName "' app/build.gradle 2> /dev/null)
+  build_gradle_version_name=$(ack 'versionName "' build.gradle 2> /dev/null)
+  build_gradle_name=$(ack "name: '" build.gradle 2> /dev/null)
+
+  if [ -n "$gradle_properties_version" ]; then
+    echo $gradle_properties_version
+  fi
+
+  if [ -n "$app_build_gradle_version_name" ]; then
+    echo $app_build_gradle_version_name
+  fi
+
+  if [ -n "$build_gradle_version_name" ]; then
+    echo $build_gradle_version_name
+  fi
+
+  if [ -n "$build_gradle_name" ]; then
+    echo $build_gradle_name
+  fi
+}
 
 # Android.
 function androidtakescreenshot() {
