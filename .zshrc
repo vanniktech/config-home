@@ -401,8 +401,10 @@ function gw {
 }
 
 alias gws="gw --stop"
-alias gwcdl="gw lintDebug"
-alias gwdu="gw dependencyUpdates"
+alias gwl="gw lintDebug"
+alias gwu="gw dependencyUpdates"
+alias gwt="gw testDebug --tests *Test --fail-fast"
+alias gwi="gw testDebug --tests *Integration --fail-fast"
 
 gwtc() {
   gw testDebug --tests "*$1*"
