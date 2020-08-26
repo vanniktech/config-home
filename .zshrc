@@ -432,19 +432,19 @@ function v {
   build_gradle_name=$(ack "name: '" build.gradle 2> /dev/null)
 
   if [ -n "$gradle_properties_version" ]; then
-    echo $gradle_properties_version
+    echo "$gradle_properties_version"
   fi
 
   if [ -n "$app_build_gradle_version_name" ]; then
-    echo $app_build_gradle_version_name
+    echo "$app_build_gradle_version_name"
   fi
 
   if [ -n "$build_gradle_version_name" ]; then
-    echo $build_gradle_version_name
+    echo "$build_gradle_version_name"
   fi
 
   if [ -n "$build_gradle_name" ]; then
-    echo $build_gradle_name
+    echo "$build_gradle_name"
   fi
 }
 
