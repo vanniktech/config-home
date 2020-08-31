@@ -1,145 +1,145 @@
 [user]
-	name = Niklas Baudy
-	email = niklas.baudy@vanniktech.de
+  email = niklas.baudy@vanniktech.de
+  name = Niklas Baudy
 [alias]
-	a = add
-	aa = add --all
-	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
-	ap = add -p
-	b = branch
-	cach = commit --amend -C HEAD
-	cam = commit -a -m
-	ca = commit --amend
-	cem = commit --amend -m
-	cm = commit -m
-	c = checkout
-	cd = checkout develop
-	cp = checkout -p
-	d = diff
-	dc = diff-tree --no-commit-id --name-status -r
-	ds = diff --staged
-	dsw = diff --staged -w
-	dswd = diff --staged --word-diff
-	dnc = diff --no-color
-	dw = diff -w
-	dwd = diff --word-diff
-	dcsv = diff --word-diff-regex="[^[:space:],]+"
-	f = fetch
-	fu = fetch upstream
-	fa = fetch --all
-	fgi = rm -r --cached .
-	m = merge
-	md = merge develop
-	mm = merge master
-	mud = merge upstream/develop
-	mum = merge upstream/master
-	mu1 = merge upstream/1.x
-	mu2 = merge upstream/2.x
-	noc = rev-list HEAD --count
-	l = log
-	lc = log --graph --pretty=format:\"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --date=relative
-	lch = rev-parse HEAD
-	lm = "!me=$(git config --get user.name); git log --oneline --author \"$me\""
-	lo = log --oneline
-	ls = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
-	lodg = log --oneline --decorate --graph
-	ph = push
-	phf = push --force-with-lease
-	pho = push origin
-	phoa = push origin --all
-	phou = push origin -u
-	phod = push origin develop
-	phoud = push origin -u develop
-	phodt = push origin develop --tags
-	phom = push origin master
-	phoum = push origin -u master
-	phomt = push origin master --tags
-	s = status
-	si = status --ignored
-	st = stash
-	sp = stash -p
-	sta = stash apply
-	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
-	r = reset
-	ra = remote add
-	rao = remote add origin
-	rau = remote add upstream
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbd = rebase develop
-	rbi = rebase -i
-	rbm = rebase master
-	rbih1 = rebase -i HEAD~1
-	rbih2 = rebase -i HEAD~2
-	rbih3 = rebase -i HEAD~3
-	rbih4 = rebase -i HEAD~4
-	rbih5 = rebase -i HEAD~5
-	rbiod = rebase -i origin/develop
-	rbiom = rebase -i origin/master
-	rc = mergetool # Resolve conflicts.
-	rbs = rebase --skip
-	rh = reset --hard
-	rha = reset HEAD .
-	rhod = reset --hard origin/develop
-	rhom = reset --hard origin/master
-	rro = remote remove origin
-	rru = remote remove upstream
-	rpo = remote prune origin
-	rpu = remote prune upstream
-	rs = reset --soft
+  a = add
+  aa = add --all
+  aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
+  ap = add -p
+  b = branch
+  c = checkout
+  ca = commit --amend
+  cach = commit --amend -C HEAD
+  cam = commit -a -m
+  cd = checkout develop
+  cem = commit --amend -m
+  cm = commit -m
+  cp = checkout -p
+  d = diff
+  dc = diff-tree --no-commit-id --name-status -r
+  dcsv = diff --word-diff-regex="[^[:space:],]+"
+  dnc = diff --no-color
+  ds = diff --staged
+  dsw = diff --staged -w
+  dswd = diff --staged --word-diff
+  dw = diff -w
+  dwd = diff --word-diff
+  f = fetch
+  fa = fetch --all
+  fgi = rm -r --cached .
+  fu = fetch upstream
+  l = log
+  lc = log --graph --pretty=format:\"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --date=relative
+  lch = rev-parse HEAD
+  lm = "!me=$(git config --get user.name); git log --oneline --author \"$me\""
+  lo = log --oneline
+  lodg = log --oneline --decorate --graph
+  ls = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
+  m = merge
+  md = merge develop
+  mm = merge master
+  mu1 = merge upstream/1.x
+  mu2 = merge upstream/2.x
+  mud = merge upstream/develop
+  mum = merge upstream/master
+  noc = rev-list HEAD --count
+  ph = push
+  phf = push --force-with-lease
+  pho = push origin
+  phoa = push origin --all
+  phod = push origin develop
+  phodt = push origin develop --tags
+  phom = push origin master
+  phomt = push origin master --tags
+  phou = push origin -u
+  phoud = push origin -u develop
+  phoum = push origin -u master
+  r = reset
+  ra = remote add
+  rao = remote add origin
+  rau = remote add upstream
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbd = rebase develop
+  rbi = rebase -i
+  rbih1 = rebase -i HEAD~1
+  rbih2 = rebase -i HEAD~2
+  rbih3 = rebase -i HEAD~3
+  rbih4 = rebase -i HEAD~4
+  rbih5 = rebase -i HEAD~5
+  rbiod = rebase -i origin/develop
+  rbiom = rebase -i origin/master
+  rbm = rebase master
+  rbs = rebase --skip
+  rc = mergetool # Resolve conflicts.
+  rh = reset --hard
+  rha = reset HEAD .
+  rhod = reset --hard origin/develop
+  rhom = reset --hard origin/master
+  rpo = remote prune origin
+  rpu = remote prune upstream
+  rro = remote remove origin
+  rru = remote remove upstream
+  rs = reset --soft
+  s = status
+  si = status --ignored
+  sp = stash -p
+  squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+  st = stash
+  sta = stash apply
+  trd = ls-tree -r develop --name-only
+  trm = ls-tree -r master --name-only
+  unwatch = update-index --assume-unchanged
+  up = pull --rebase --autostash
+  watch = update-index --no-assume-unchanged
   t = tag
-	trd = ls-tree -r develop --name-only
-	trm = ls-tree -r master --name-only
-	unwatch = update-index --assume-unchanged
-	watch = update-index --no-assume-unchanged
-	up = pull --rebase --autostash
 [core]
-	autocrlf = input
-	ignorecase = false
-	excludesfile = ~/.gitignore_global
-	attributesfile = ~/.gitattributes_global
+  attributesfile = ~/.gitattributes_global
+  autocrlf = input
+  excludesfile = ~/.gitignore_global
+  ignorecase = false
 [color]
-	ui = always
+  ui = always
 [color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  commit = green bold
+  frag = magenta bold
+  meta = yellow bold
+  new = green bold
+  old = red bold
+  whitespace = red reverse
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  newHighlight = green bold 22
+  newNormal = green bold
+  oldHighlight = red bold 52
+  oldNormal = red bold
 [color "branch"]
-	current = red
-	local = yellow
-	remote = green
+  current = red
+  local = yellow
+  remote = green
 [color "status"]
-	added = green
-	changed = yellow
-	untracked = red
+  added = green
+  changed = yellow
+  untracked = red
 [rebase]
-	autostash = true
-	autosquash = true
+  autosquash = true
+  autostash = true
 [stash]
-	showPatch = true
+  showPatch = true
 [push]
-	default = matching
+  default = matching
 [pager]
-	diff = diff-so-fancy | less --tabs=2 -RFX
-	show = diff-so-fancy | less --tabs=2 -RFX
+  diff = diff-so-fancy | less --tabs=2 -RFX
+  show = diff-so-fancy | less --tabs=2 -RFX
 [interactive]
-	# diffFilter = diff-so-fancy | less --tabs=2 -RFX # This unfortunately broke with recent Git versions. https://github.com/so-fancy/diff-so-fancy/issues/296
+  # diffFilter = diff-so-fancy | less --tabs=2 -RFX # This unfortunately broke with recent Git versions. https://github.com/so-fancy/diff-so-fancy/issues/296
 [diff]
-	compactionHeuristic = true
-	colorMoved = dimmed_zebra
+  colorMoved = dimmed_zebra
+  compactionHeuristic = true
 [rerere]
-	enabled = true
+  enabled = true
 [diff "jar"]
-	textconv = jar2txt
+  textconv = jar2txt
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [mergetool]
-	prompt = false
+  prompt = false
