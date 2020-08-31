@@ -43,6 +43,7 @@
   mud = merge upstream/develop
   mum = merge upstream/master
   noc = rev-list HEAD --count
+  p = cherry-pick
   ph = push
   phf = push --force-with-lease
   pho = push origin
