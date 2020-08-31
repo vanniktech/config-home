@@ -405,6 +405,8 @@ alias gwl="gw lintDebug"
 alias gwu="gw dependencyUpdates"
 alias gwt="gw testDebug --tests *Test --fail-fast"
 alias gwi="gw testDebug --tests *Integration --fail-fast"
+alias gwad="gw assembleDebug"
+alias gwid="gw installDebug"
 
 gwtc() {
   gw testDebug --tests "*$1*"
