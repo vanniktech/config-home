@@ -132,6 +132,13 @@ defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 defaults write NSGlobalDomain KeyRepeat -int 2
 
+# Disable Smart Quoutes & Dashes.
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -int 0
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -int 0
+
+# Disable full stop with double-space.
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
+
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
