@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Only install brew if not already installed.
-  if ! type "brew" > /dev/null; then
+if ! type "brew" > /dev/null; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
