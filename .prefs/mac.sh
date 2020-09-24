@@ -139,6 +139,10 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -int 0
 # Disable full stop with double-space.
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
 
+# Dock tweaks like auto hide.
+defaults write com.apple.dock autohide -int 1
+killall Dock
+
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
