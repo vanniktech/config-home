@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Only install brew if not already installed.
-if ! type "brew" > /dev/null; then
+  if ! type "brew" > /dev/null; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
@@ -138,6 +138,10 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -int 0
 
 # Disable full stop with double-space.
 defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
+
+# Dock tweaks like auto hide.
+defaults write com.apple.dock autohide -int 1
+killall Dock
 
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true
