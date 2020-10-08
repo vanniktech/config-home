@@ -31,6 +31,7 @@
   l = log
   lc = log --graph --pretty=format:\"%an: %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset\" --date=relative
   lch = rev-parse HEAD
+  lcm = show -s --format=%s
   lm = "!me=$(git config --get user.name); git log --oneline --author \"$me\""
   lo = log --oneline
   lodg = log --oneline --decorate --graph
