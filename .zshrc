@@ -577,10 +577,12 @@ function backup() {
   cp "$HOME/.gradle/gradle.properties" "$computer_name"
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
+  cp -a "$HOME/.appstatistics" "$computer_name"
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
   cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
-  cp -a "$HOME/.config/rclone" "$computer_name" 2>/dev/null # Ignore any kind of errors.
+
+  crontab -l > "$computer_name/crontab"
 
   # Get all keystore files.
   find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} $computer_name \; 2>/dev/null # Ignore any kind of errors.
