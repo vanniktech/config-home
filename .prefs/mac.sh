@@ -119,6 +119,9 @@ brew install aspell
 # Dot for magic images.
 brew install graphviz
 
+# Swiftlint.
+brew install swiftlint
+
 # Cleaning up.
 brew cleanup
 
