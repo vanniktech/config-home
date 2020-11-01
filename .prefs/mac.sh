@@ -130,6 +130,7 @@ defaults write com.apple.screencapture disable-shadow -bool TRUE
 
 # Disable sound effects. For example when taking a screenshot.
 defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
+defaults write NSGlobalDomain _HIHideMenuBar -bool true
 
 # Faster keyboard execution.
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
