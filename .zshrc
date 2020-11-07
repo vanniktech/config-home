@@ -577,7 +577,7 @@ function backup() {
   cp "$HOME/.gradle/gradle.properties" "$computer_name"
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
-  cp -a "$HOME/.appstatistics" "$computer_name"
+  rsync -a "$HOME/.appstatistics" "$computer_name" --exclude .git
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
   cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
