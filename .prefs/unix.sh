@@ -20,6 +20,9 @@ sudo gem install github_changelog_generator
 # Travis.
 sudo gem install travis
 
+# Kotlin Multiplatform.
+sudo gem install cocoapods-generate
+
 # Clean up.
 sudo gem cleanup
 
