@@ -577,6 +577,12 @@ function backup() {
   cp "$HOME/.gradle/gradle.properties" "$computer_name"
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
+  cp "$HOME/my-aws-private.key" "$computer_name"
+  cp "$HOME/my-aws-public.crt" "$computer_name"
+  cp "$HOME/my-aws-public.p12" "$computer_name"
+  cp -a "$HOME/.aws" "$computer_name"
+  mkdir -p "$computer_name/docker/"
+  cp -a "$HOME/.docker/config.json" "$computer_name/docker/"
   rsync -a "$HOME/.appstatistics" "$computer_name" --exclude .git
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"

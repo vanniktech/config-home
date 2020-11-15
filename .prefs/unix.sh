@@ -34,3 +34,6 @@ pip3 install git+https://github.com/flyingrub/scdl --upgrade
 rm -rf "$HOME/.vim/pack/default/start/vim-polyglot"
 mkdir -p "$HOME/.vim/pack/default/start/"
 git clone https://github.com/sheerun/vim-polyglot "$HOME/.vim/pack/default/start/vim-polyglot"
+
+# Amazon CDK.
+npm install -g aws-cdk

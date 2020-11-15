@@ -122,6 +122,21 @@ brew install graphviz
 # Swiftlint.
 brew install swiftlint
 
+# AWS.
+brew install awscli
+brew install docker-credential-helper-ecr
+
+# Docker.
+brew install virtualbox
+brew install docker
+brew install docker-machine
+
+# Set up Docker.
+docker-machine create --driver virtualbox default
+docker-machine restart
+eval "$(docker-machine env default)"
+docker-machine restart
+
 # Cleaning up.
 brew cleanup
 
