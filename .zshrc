@@ -578,6 +578,7 @@ function backup() {
   cp "$HOME/.gradle/gradle.properties" "$computer_name"
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
+  cp "$HOME/.zsh_history" "$computer_name"
   cp "$HOME/my-aws-private.key" "$computer_name"
   cp "$HOME/my-aws-public.crt" "$computer_name"
   cp "$HOME/my-aws-public.p12" "$computer_name"
