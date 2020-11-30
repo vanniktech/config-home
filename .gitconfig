@@ -82,6 +82,7 @@
   rha = reset HEAD .
   rhod = reset --hard origin/develop
   rhom = reset --hard origin/master
+  rlc = reset --soft HEAD~1
   rpo = remote prune origin
   rpu = remote prune upstream
   rro = remote remove origin
