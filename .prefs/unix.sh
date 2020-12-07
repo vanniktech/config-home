@@ -36,4 +36,4 @@ mkdir -p "$HOME/.vim/pack/default/start/"
 git clone https://github.com/sheerun/vim-polyglot "$HOME/.vim/pack/default/start/vim-polyglot"
 
 # Amazon CDK.
-npm install -g aws-cdk
+npm install -g aws-cdk || npm update -g aws-cdk
