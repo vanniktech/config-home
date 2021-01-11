@@ -253,6 +253,10 @@ function frm {
   f "$1" | xargs rm -rf
 }
 
+function cpd {
+  cp "$1" "$HOME/Downloads"
+}
+
 # Nuke empty directories
 function ned {
   find . -mindepth 1 -type d -empty -delete
