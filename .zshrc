@@ -435,10 +435,16 @@ alias et="chmod +x t && ./t"
 
 # Print Version.
 function v {
+  directory_name=${PWD##*/}
+  ios_version=$(ack MARKETING_VERSION "../${PWD##*/}.xcodeproj/project.pbxproj" --no-filename | head -n 1 2> /dev/null)
   gradle_properties_version=$(ack VERSION_NAME gradle.properties 2> /dev/null)
   app_build_gradle_version_name=$(ack 'versionName "' app/build.gradle 2> /dev/null)
   build_gradle_version_name=$(ack 'versionName "' build.gradle 2> /dev/null)
   build_gradle_name=$(ack "name: '" build.gradle 2> /dev/null)
+
+  if [ -n "$ios_version" ]; then
+    echo "$ios_version"
+  fi
 
   if [ -n "$gradle_properties_version" ]; then
     echo "$gradle_properties_version"
