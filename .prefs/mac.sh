@@ -125,6 +125,7 @@ brew install swiftlint
 # AWS.
 brew install awscli
 brew install docker-credential-helper-ecr
+brew install --cask session-manager-plugin
 
 # Docker.
 brew install virtualbox
