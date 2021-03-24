@@ -13,7 +13,7 @@ brew update
 brew upgrade
 
 # OpenJDK.
-brew cask install adoptopenjdk
+brew install --cask adoptopenjdk
 
 # Gradle.
 brew install gradle
