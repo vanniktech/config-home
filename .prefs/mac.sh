@@ -133,7 +133,7 @@ brew install docker
 brew install docker-machine
 
 # DVDs.
-brew install libdvdcss handbrake
+brew install libdvdcss homebrew/cask/handbrake
 
 # Set up Docker.
 docker-machine create --driver virtualbox default
