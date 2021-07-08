@@ -7,6 +7,7 @@ local.properties
 .attach_pid*
 jacoco.exec
 android_screenshot_*.png
+android_video_*.mp4
 nul
 .jira.d/
 *.developerprofile

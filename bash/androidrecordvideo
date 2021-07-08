@@ -1,0 +1,34 @@
+#!/bin/bash
+
+file_path="/sdcard/android_video_$(date +%s).mp4"
+
+is_emulator=$(adb devices | grep -c "emulator-")
+
+if [[ "$is_emulator" == 1 ]]; then
+  adb -e shell screenrecord $file_path &
+else
+  adb -d shell screenrecord $file_path &
+fi
+
+pid=$!
+
+read -p "Press [Enter] to stop recording ..."
+
+# Kill the recording process.
+kill $pid
+
+echo "Compiling video on device ..."
+sleep 3
+
+if [[ "$is_emulator" == 1 ]]; then
+  adb -e pull $file_path
+  adb -e shell rm $file_path
+else
+  adb -d pull $file_path
+  adb -d shell rm $file_path
+fi
+
+# Kill background process incase kill pid fails.
+trap "kill 0" SIGINT SIGTERM EXIT
+
+open "$PWD"
