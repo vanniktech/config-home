@@ -3,13 +3,16 @@ set -euo pipefail
 
 # Only install brew if not already installed.
 if ! type "brew" > /dev/null; then
+  echo "[Brew] installing"
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 # Update brew to get the latest juice.
+echo "[Brew] update"
 brew update
 
 # Install any updates before so it won't conflicts with installs.
+echo "[Brew] upgrade"
 brew upgrade
 
 # OpenJDK.
@@ -92,9 +95,6 @@ brew tap heroku/brew && brew install heroku
 # node.
 brew install node
 
-# Cocoapods.
-sudo gem install cocoapods
-
 # Swiftgen
 brew install swiftgen
 
@@ -127,22 +127,26 @@ brew install awscli
 brew install docker-credential-helper-ecr
 brew install --cask session-manager-plugin
 
-# Docker.
-brew install virtualbox
-brew install docker
-brew install docker-machine
-
 # DVDs.
 brew install libdvdcss homebrew/cask/handbrake
 
+# Docker.
+# brew install virtualbox
+# brew install docker
+# brew install docker-machine
+
 # Set up Docker.
-docker-machine create --driver virtualbox default
-docker-machine restart
-eval "$(docker-machine env default)"
-docker-machine restart
+# docker-machine create --driver virtualbox default
+# docker-machine restart
+# eval "$(docker-machine env default)"
+# docker-machine restart
 
 # Cleaning up.
 brew cleanup
+
+# Cocoapods.
+echo "[gem] Installing cocoapods"
+sudo gem install cocoapods -n /usr/local/bin
 
 # Disable shadow when taking a screenshot.
 defaults write com.apple.screencapture disable-shadow -bool TRUE

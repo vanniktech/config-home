@@ -12,16 +12,13 @@ rm -rf "$zsh_plugins_path/zsh-autosuggestions"
 git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zsh-autosuggestions"
 
 # Fastlane.
-sudo gem install fastlane
+sudo gem install fastlane -n /usr/local/bin
 
 # GitHub Changelog Generator.
-sudo gem install github_changelog_generator
-
-# Travis.
-sudo gem install travis
+sudo gem install github_changelog_generator -n /usr/local/bin
 
 # Kotlin Multiplatform.
-sudo gem install cocoapods-generate
+sudo gem install cocoapods-generate -n /usr/local/bin
 
 # Clean up.
 sudo gem cleanup
