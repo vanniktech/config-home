@@ -15,9 +15,6 @@ brew update
 echo "[Brew] upgrade"
 brew upgrade
 
-# OpenJDK.
-brew install --cask adoptopenjdk
-
 # Gradle.
 brew install gradle
 
