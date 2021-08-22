@@ -16,6 +16,8 @@
 !/.prefs/**
 !bash/
 !bash/**
+!.github/
+!.github/**
 
 # Add Jira.
 !.jira.d/
