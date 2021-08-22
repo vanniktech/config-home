@@ -1,0 +1,30 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ macOS-latest, ubuntu-latest ]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install shellcheck
+        if: matrix.os == 'macOS-latest'
+        run: brew install shellcheck
+
+      - name: Validate scripts
+        run: |
+          shellcheck -e SC1090,SC1091 .zshrc
+          shellcheck -e SC1091 .prefs/mac.sh
+          shellcheck -e SC1091 .prefs/ubuntu.sh
+          shellcheck .prefs/unix.sh
+          shellcheck bash/ccq
+          shellcheck bash/jar2txt
+          shellcheck bash/update_root_gradle
+          shellcheck bash/github_repositories_maintenance
