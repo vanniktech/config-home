@@ -17,7 +17,7 @@ export PATH="$PATH:$ANDROID_HOME/tools/bin"
 export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$PATH:$JAVA_HOME"
 
-# Android Lint should print the entire stacktrace.
+# Tell Android Lint to print the entire stacktrace.
 export LINT_PRINT_STACKTRACE=true
 
 # Path to your oh-my-zsh installation should be in the .zprofile file.
@@ -45,7 +45,7 @@ export ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -67,7 +67,7 @@ export ZSH_THEME="robbyrussell"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+export HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -78,7 +78,7 @@ export ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 export plugins=(zsh-autosuggestions speedread)
 
-# Optionally, init zsh.
+# If available, init zsh.
 if test -f "$ZSH/oh-my-zsh.sh"
 then
   source "$ZSH/oh-my-zsh.sh"
@@ -112,10 +112,11 @@ export PAGER="less -F -X"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias h=history
 alias g=git
 alias c=clear
 alias cl="wc -l"
+alias cat=bat
+alias ll="ls -lH"
 
 # German directory - https://stackoverflow.com/questions/1949976/where-to-find-dictionaries-for-other-languages-for-intellij/16278834#16278834
 # Download from https://ftp.gnu.org/gnu/aspell/dict/0index.html
@@ -166,7 +167,7 @@ elif [[ "$os" == 'Darwin' ]]; then
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
   alias sysclean="brew cleanup"
 
-  # iOS.
+  # iOS related (converting svgs files to pdf files)
   function svgtopdf {
     cairosvg "$1" -o "${1/.svg/.pdf}"
   }
@@ -263,6 +264,10 @@ function ned {
 }
 
 # Git things.
+function gd {
+  diff-so-fancy < "$1" | less --tabs=4 -RFX
+}
+
 function o {
   remote="$(git config --get remote.origin.url)"
   cleanRemote=${${${${remote/git\@/}/.git/}/:/\/}/https:\/\//}
@@ -305,18 +310,10 @@ function pnb() {
   local last_commit_message
   last_commit_message=$(git log -n 1 --pretty=format:'%s')
 
-  # Let's try to get a possible ticket with a convention of AB-0123456789: from the commit message.
-  local jira_ticket
-  jira_ticket=$(echo "$last_commit_message" | awk '/[A-Z]{2,3}-[0-9]+:/ {print $1}' | sed 's/://')
-
   local message
   if [ "$1" == "--wip" ]; then message=""; else message=$1; fi
 
-  if [ ! "$jira_ticket" ]; then
-    title=$(printf "%s\\n\\n%s" "$last_commit_message" "$message")
-  else
-    title=$(printf "%s\\n\\nhttps://moovel.atlassian.net/browse/%s\\n\\n%s" "$last_commit_message" "$jira_ticket" "$message")
-  fi
+  title=$(printf "%s\\n\\n%s" "$last_commit_message" "$message")
 
   if [[ "$*" == *"--wip" ]]; then
     hub pull-request --draft -m "$title" -F -
@@ -386,7 +383,7 @@ function cpp {
   done
 }
 
-alias od="g dw --no-color > t && subl t"
+alias od="g dsw --no-color > t && subl t"
 
 # Speedread the current content of the clipboard.
 function speedread-clipboard {
@@ -427,9 +424,6 @@ alias ax="ack --xml"
 alias ay="ack --yaml"
 alias ai="ack --ios"
 
-# Compress iamges.
-alias ci="find . -name '*.png' -and -not -name '*.9.png' -exec pngquant --skip-if-larger --speed 1 -f --ext .png 256 {} \\;"
-
 # T my favorite.
 alias et="chmod +x t && ./t"
 
@@ -443,22 +437,16 @@ function v {
 
   if [ -n "$ios_version" ]; then
     echo "$ios_version"
-  fi
-
-  if [ -n "$gradle_properties_version" ]; then
+  elif [ -n "$gradle_properties_version" ]; then
     echo "$gradle_properties_version"
-  fi
-
-  if [ -n "$app_build_gradle_version_name" ]; then
+  elif [ -n "$app_build_gradle_version_name" ]; then
     echo "$app_build_gradle_version_name"
-  fi
-
-  if [ -n "$build_gradle_version_name" ]; then
+  elif [ -n "$build_gradle_version_name" ]; then
     echo "$build_gradle_version_name"
-  fi
-
-  if [ -n "$build_gradle_name" ]; then
+  elif [ -n "$build_gradle_name" ]; then
     echo "$build_gradle_name"
+  else
+    ack "versionName \"" "$PWD" || ack "name: \"[\\d]+" "$PWD"
   fi
 }
 
@@ -607,18 +595,6 @@ function backup() {
   # Zip and delete directory.
   zip -er "$computer_name.zip" "$computer_name"
   rm -rf "$computer_name"
-}
-
-# Others.
-alias cat=bat
-alias le=less
-
-function ll {
-  ls -lH
-}
-
-function gd {
-  diff-so-fancy < "$1" | less --tabs=4 -RFX
 }
 
 # We always want to start at the home directory.
