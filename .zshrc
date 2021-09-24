@@ -468,7 +468,7 @@ function androidrefreshview() {
 
 function androidoverdraw() {
   local is_shown
-  is_shown=$(adb -d shell getprop debug.hwui.overdraw 2> /dev/null || adb -e shell getprop debug.hwui.overdraw)
+  is_shown=$(adb -d shell getprop debug.hwui.overdraw 2> /dev/null || adb -e shell getprop debug.hwui.overdraw 2> /dev/null || adball shell getprop debug.hwui.overdraw | head -n 1)
 
   if [[ "$is_shown" == "show" ]]; then
     adball shell "setprop debug.hwui.overdraw false"
@@ -481,7 +481,7 @@ function androidoverdraw() {
 
 function androidtouches() {
   local show_touches
-  show_touches=$(adb -d shell settings get system show_touches 2> /dev/null || adb -e shell settings get system show_touches)
+  show_touches=$(adb -d shell settings get system show_touches 2> /dev/null || adb -e shell settings get system show_touches 2> /dev/null || adball shell settings get system show_touches | head -n 1)
 
   if [[ "$show_touches" == 1 ]]; then
     adball shell "settings put system show_touches 0"
@@ -494,12 +494,25 @@ function androidtouches() {
 
 function androidlayoutbounds() {
   local is_shown
-  is_shown=$(adb -d shell getprop debug.layout 2> /dev/null || adb -e shell getprop debug.layout)
+  is_shown=$(adb -d shell getprop debug.layout 2> /dev/null || adb -e shell getprop debug.layout 2> /dev/null || adball shell getprop debug.layout | head -n 1)
 
   if [[ "$is_shown" == "true" ]]; then
     adball shell "setprop debug.layout hidden"
   else
     adball shell "setprop debug.layout true"
+  fi
+
+  androidrefreshview
+}
+
+function androidprofilerendering() {
+  local is_shown
+  is_shown=$(adb -d shell getprop debug.hwui.profile 2> /dev/null || adb -e shell getprop debug.hwui.profile 2> /dev/null || adball shell getprop debug.hwui.profile | head -n 1)
+
+  if [[ "$is_shown" == "visual_bars" ]]; then
+    adball shell "setprop debug.hwui.profile 0"
+  else
+    adball shell "setprop debug.hwui.profile visual_bars"
   fi
 
   androidrefreshview
@@ -526,19 +539,6 @@ function androidscreenshotmodeexit() {
 
 function androidtype() {
   adball shell "input text '$1'"
-}
-
-function androidprofilerendering() {
-  local is_shown
-  is_shown=$(adb -d shell getprop debug.hwui.profile 2> /dev/null || adb -e shell getprop debug.hwui.profile)
-
-  if [[ "$is_shown" == "visual_bars" ]]; then
-    adball shell "setprop debug.hwui.profile 0"
-  else
-    adball shell "setprop debug.hwui.profile visual_bars"
-  fi
-
-  androidrefreshview
 }
 
 function androidanimations() {
