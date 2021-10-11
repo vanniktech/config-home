@@ -1,0 +1,23 @@
+initscript {
+  repositories {
+     gradlePluginPortal()
+  }
+
+  dependencies {
+    classpath "com.github.ben-manes:gradle-versions-plugin:0.39.0"
+  }
+}
+
+rootProject {
+  apply plugin: com.github.benmanes.gradle.versions.VersionsPlugin
+
+  tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+      def version = it.candidate.version
+      def module = it.candidate.module
+      def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword -> version.toUpperCase().contains(keyword) }
+      def regex = /^[0-9,.v-]+(-r)?$/
+      return (!stableKeyword && !(version ==~ regex)) || (version == "2.71828") || module == "org.jacoco.ant"
+    }
+  }
+}
