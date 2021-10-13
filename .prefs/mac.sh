@@ -79,6 +79,9 @@ brew services start postgresql
  # From this point downwards it's OS specific things.
 ###
 
+# VLC.
+brew install vlc
+
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
 pip3 install cairosvg
