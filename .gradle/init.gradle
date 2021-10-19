@@ -15,9 +15,15 @@ rootProject {
     rejectVersionIf {
       def version = it.candidate.version
       def module = it.candidate.module
+      def currentVersin = it.currentVersion
+
       def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword -> version.toUpperCase().contains(keyword) }
+
+      // Allow upgrading to a new alpha / beta when we're using one.
+      def currentAlphaBeta = ['ALPHA', 'BETA'].any { keyword -> currentVersin.toUpperCase().contains(keyword) }
+
       def regex = /^[0-9,.v-]+(-r)?$/
-      return (!stableKeyword && !(version ==~ regex)) || (version == "2.71828") || module == "org.jacoco.ant"
+      return (!stableKeyword && !(version ==~ regex) && !currentAlphaBeta) || (version == "2.71828") || module == "org.jacoco.ant"
     }
   }
 }
