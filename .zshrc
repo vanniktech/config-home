@@ -294,6 +294,27 @@ function pb {
   g pho "$(git_current_branch)"
 }
 
+# Push first unpushed commit.
+function pfuc {
+  # Get the current branch.
+  local current_branch
+  current_branch=$(git_current_branch)
+
+  local remote
+  remote=$(git remote)
+
+  local last_unsynced_commit
+  last_unsynced_commit=$(git log "$remote/$current_branch.." --oneline --no-color | tail -n 1 | awk '{print $1}')
+
+  if [ -n "$last_unsynced_commit" ]; then
+    git push "$remote" "$last_unsynced_commit:$current_branch"
+  else
+    green=$(tput setaf 2)
+    reset=$(tput sgr0)
+    echo "${green}No last unpushed commit${reset}"
+  fi
+}
+
 function phf {
   g phf origin "$(git_current_branch)"
 }
