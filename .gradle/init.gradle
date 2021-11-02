@@ -15,6 +15,7 @@ rootProject {
     rejectVersionIf {
       def version = it.candidate.version
       def module = it.candidate.module
+      def group = it.candidate.group
       def currentVersin = it.currentVersion
 
       def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword -> version.toUpperCase().contains(keyword) }
@@ -22,8 +23,10 @@ rootProject {
       // Allow upgrading to a new alpha / beta when we're using one.
       def currentAlphaBeta = ['ALPHA', 'BETA'].any { keyword -> currentVersin.toUpperCase().contains(keyword) }
 
+      def isJacoco = group == "org.jacoco"
+
       def regex = /^[0-9,.v-]+(-r)?$/
-      return (!stableKeyword && !(version ==~ regex) && !currentAlphaBeta) || (version == "2.71828") || module == "org.jacoco.ant"
+      return (!stableKeyword && !(version ==~ regex) && !currentAlphaBeta) || (version == "2.71828") || isJacoco
     }
   }
 }
