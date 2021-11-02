@@ -91,6 +91,7 @@
   s = status
   si = status --ignored
   sp = stash -p
+  ft = "!f(){ git tag --contains ${1}; };f"
   squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   st = stash
   sta = stash apply
