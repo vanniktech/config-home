@@ -577,6 +577,10 @@ function androidanimations() {
   fi
 }
 
+function androiduninstall() {
+  adb shell pm list packages | ack "$1" | awk -F ":" '{print $2}' | xargs -L 1 -I@ bash -c "echo -n 'Uninstalling @ ... ' && adb uninstall @"
+}
+
 function adball() {
   adb devices | grep -E '\t(device|emulator)' | cut -f 1 | xargs -J% -n1 -P5 adb -s % "$@"
 }
