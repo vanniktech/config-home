@@ -5,31 +5,11 @@ custom-commands:
   - name: mine
     help: display issues assigned to me
     script: |-
-      {{jira}} list --template table --query "resolution = unresolved AND assignee=currentuser() ORDER BY status, issue"
+      {{jira}} list --template table --query "resolution = unresolved AND project=$JIRA_PROJECT AND assignee=currentuser() ORDER BY status, issue"
   - name: mine-created
     help: display issues created by me
     script: |-
-      {{jira}} list --template table --query "resolution = unresolved AND creator=currentuser() ORDER BY created"
-  - name: v-selected-for-development
-    help: display issues that are in the 'Selected for Development' column
-    script: |-
-      {{jira}} list --template table --query "resolution = unresolved AND status='Selected for Development' AND project=$JIRA_PROJECT ORDER BY created"
-  - name: v-progress
-    help: display issues that are in the 'Progress' column
-    script: |-
-      {{jira}} list --template table --query "resolution = unresolved AND status='In Progress' AND project=$JIRA_PROJECT ORDER BY created"
-  - name: v-landing-zone
-    help: display issues that are in the 'Landing Zone' column
-    script: |-
-      {{jira}} list --template table --query "resolution = unresolved AND status='Landing Zone 🛬' AND project=$JIRA_PROJECT ORDER BY created"
-  - name: v-sprint
-    help: display issues for active sprint of the given project
-    script: |-
-      {{jira}} list --template table --query "sprint in openSprints() AND type != epic AND resolution = unresolved AND project=$JIRA_PROJECT ORDER BY status, created"
-  - name: v-sprint-android
-    help: display issues for active sprint for android
-    script: |-
-      {{jira}} list --template table --query "sprint in openSprints() AND type != epic AND resolution = unresolved AND project=$JIRA_PROJECT AND labels=\"android\" ORDER BY status, created"
+      {{jira}} list --template table --query "resolution = unresolved AND project=$JIRA_PROJECT AND creator=currentuser() ORDER BY created"
   - name: delete
     help: deletes the given ticket
     args:
@@ -52,7 +32,7 @@ custom-commands:
       board_id=$({{jira}} req "/rest/agile/1.0/board?projectKeyOrId=$JIRA_PROJECT" --gjq values.0.id)
       {{jira}} req "/rest/agile/1.0/board/$board_id/sprint?state=active" --gjq values.0 --template table
   - name: c
-    help: creates an issuetype in the given project AND labels issues as android
+    help: creates an issuetype in the given project
     options:
       - name: project
         short: p
@@ -61,78 +41,14 @@ custom-commands:
         short: d
         default: ""
     args:
-      - name: issuetype
-        required: true
       - name: summary
         required: true
+      - name: issuetype
+        default: "Task"
     script: |-
       if [ "Epic" = "{{args.issuetype}}" ]; then
         {{jira}} epic create --epic-name="{{args.summary}}" -o summary="{{args.summary}}" -o customfield_10120="{{args.summary}}" -o description="{{options.description}}" --noedit
       else
         {{jira}} create --issuetype={{args.issuetype}} -o summary="{{args.summary}}" -o description="{{options.description}}" --noedit --saveFile /tmp/c.yml
         issue=$(grep issue /tmp/c.yml | awk '{print $2}')
-        {{jira}} label-android $issue
       fi
-  - name: label-android
-    help: labels the given ticket as android
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} labels add {{args.ticketnumber}} android
-  - name: label-ios
-    help: labels the given ticket as ios
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} labels add {{args.ticketnumber}} ios
-  - name: unlabel-android
-    help: unlabels the given ticket as android
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} labels remove {{args.ticketnumber}} android
-  - name: unlabel-ios
-    help: unlabels the given ticket as ios
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} labels remove {{args.ticketnumber}} ios
-  - name: in-review
-    help: moves the given ticket to the "In Review" column
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} transition "In Review" {{args.ticketnumber}} --noedit
-  - name: in-selected-development
-    help: moves the given ticket to the 'Selected for Development' column
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} transition "Selected for Development" {{args.ticketnumber}} --noedit
-  - name: in-testing
-    help: moves the given ticket to the 'Testing' column
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} transition "Testing" {{args.ticketnumber}} --noedit
-  - name: in-resolved
-    help: moves the given ticket to the 'Testing' column
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} transition "Resolve Issue" {{args.ticketnumber}} --noedit
-  - name: in-dev-done
-    help: moves the given ticket to the 'Dev Done' column
-    args:
-      - name: ticketnumber
-        required: true
-    script: |-
-      {{jira}} transition "Dev done" {{args.ticketnumber}} --noedit
