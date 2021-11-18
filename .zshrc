@@ -270,7 +270,7 @@ function gd {
 
 function o {
   remote="$(git config --get remote.origin.url)"
-  cleanRemote=${${${${remote/git\@/}/.git/}/:/\/}/https:\/\//}
+  cleanRemote=$(git config --get remote.origin.url | sed 's/git@//' | sed 's/.git$//' | sed 's/:/\//')
   browser "https://$cleanRemote" 2>/dev/null # Ignore any errors.
 }
 
@@ -591,7 +591,7 @@ function asdump() {
 
 function backup() {
   local computer_name
-  computer_name=${${$(hostname)/.fritz.box/}/.local/}
+  computer_name=$(hostname | sed 's/.local//')
 
   # Create folder named according to the computer.
   mkdir "$computer_name"
@@ -615,7 +615,7 @@ function backup() {
   crontab -l > "$computer_name/crontab"
 
   # Get all keystore files.
-  find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} $computer_name \; 2>/dev/null # Ignore any kind of errors.
+  find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} "$computer_name" \; 2>/dev/null # Ignore any kind of errors.
 
   # Zip and delete directory.
   zip -er "$computer_name.zip" "$computer_name"
