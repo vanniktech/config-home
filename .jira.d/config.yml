@@ -10,6 +10,10 @@ custom-commands:
     help: display issues created by me
     script: |-
       {{jira}} list --template table --query "resolution = unresolved AND project=$JIRA_PROJECT AND creator=currentuser() ORDER BY created"
+  - name: watching
+    help: display issues watched by me
+    script: |-
+      {{jira}} list --template table --query "resolution = unresolved AND project=$JIRA_PROJECT AND watcher=currentuser() ORDER BY created"
   - name: delete
     help: deletes the given ticket
     args:
