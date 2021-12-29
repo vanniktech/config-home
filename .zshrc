@@ -474,7 +474,8 @@ function v {
 # Android.
 function androidtakescreenshot() {
   local file_path
-  file_path="/sdcard/android_screenshot_$(date +%s).png"
+  file_name=${1:-android_screenshot_$(date +%s)}
+  file_path="/sdcard/$file_name.png"
 
   adb -d shell screencap -p "$file_path" 2> /dev/null || adb -e shell screencap -p "$file_path"
   adb -d pull "$file_path" 2> /dev/null || adb -e pull "$file_path"
