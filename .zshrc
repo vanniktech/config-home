@@ -184,26 +184,26 @@ function clean {
   local current_gradle_version
   current_gradle_version=$(gw --version | grep Gradle | awk '{print $2}')
 
-  echo "\\033[0;32mNuking daemons other than $current_gradle_version\\033[0m"
+  echo "\\033[0;32mNuking Gradle daemons other than $current_gradle_version\\033[0m"
   find ~/.gradle/daemon -maxdepth 1 | tail -n+2 | grep -v "$current_gradle_version" | xargs rm -rv
 
-  echo "\\033[0;32mNuking notifications other than $current_gradle_version\\033[0m"
-  find ~/.gradle/notifications -maxdepth 1 | tail -n+2 | grep -v "$current_gradle_version" | xargs rm -rv
-
-  echo "\\033[0;32mNuking caches other than $current_gradle_version\\033[0m"
-  find ~/.gradle/caches -maxdepth 1 | tail -n+2 | grep "[\\d\\.]{3,5}" | grep -v "$current_gradle_version" | xargs rm -rv
-
-  echo "\\033[0;32mNuking all files in ~/.gradle that have not been accessed in the last 30 days\\033[0m"
-  find ~/.gradle -type "f" -atime +30 -delete
+  echo "\\033[0;32mNuking Gradle wrapper other than $current_gradle_version\\033[0m"
+  find ~/.gradle/wrapper -maxdepth 3 | ack "[\\d]\." | grep -v "$current_gradle_version" | xargs rm -rv
 
   echo "\\033[0;32mNuking all empty directories in ~/.gradle/\\033[0m"
   find ~/.gradle -mindepth 1 -type d -empty -delete
 
-  echo "\\033[0;32mNuking all files in ~/.m2 that have not been accessed in the last 30 days\\033[0m"
-  find ~/.m2 -type "f" -atime +30 -delete
+  echo "\\033[0;32mNuking all files in ~/.m2 that have not been accessed in the last 180 days\\033[0m"
+  find ~/.m2 -type "f" -atime +180 -delete
 
   echo "\\033[0;32mNuking all empty directories in ~/.m2/\\033[0m"
   find ~/.m2 -mindepth 1 -type d -empty -delete
+
+  echo "\\033[0;32mNuking all files in ~/Library/Developer/Xcode/Archives/ that have not been accessed in the last 90 days\\033[0m"
+  find ~/Library/Developer/Xcode/Archives/ -type "f" -atime +90 -delete
+
+  echo "\\033[0;32mNuking all empty directories in ~/Library/Developer/Xcode/Archives//\\033[0m"
+  find ~/Library/Developer/Xcode/Archives/ -mindepth 1 -type d -empty -delete
 
   echo "\\033[0;32mClean up gem\\033[0m"
   sudo gem cleanup
