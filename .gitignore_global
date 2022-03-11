@@ -8,6 +8,8 @@ local.properties
 jacoco.exec
 android_screenshot_*.png
 android_video_*.mp4
+Screenshot * at *.png
+Simulator Screen Shot -*.png
 nul
 .jira.d/
 *.developerprofile
