@@ -414,11 +414,11 @@ function speedread-clipboard {
 # Gradle.
 function gw {
   if command -v jira &> /dev/null; then
-    gradle "$@"
+    gradle --configuration-cache "$@"
   elif test -f "$PWD/gradlew"; then
-   ./gradlew "$@"
+   ./gradlew --configuration-cache "$@"
   else
-    .././gradlew "$@"
+    .././gradlew --configuration-cache "$@"
   fi
 }
 
