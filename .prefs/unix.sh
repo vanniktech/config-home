@@ -13,6 +13,7 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zs
 
 # Fastlane.
 sudo gem install fastlane -n /usr/local/bin
+sudo gem install bundler -n /usr/local/bin
 
 # GitHub Changelog Generator.
 sudo gem install github_changelog_generator -n /usr/local/bin
