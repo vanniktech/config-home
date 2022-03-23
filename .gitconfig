@@ -73,6 +73,9 @@
   rbih7 = rebase -i HEAD~7
   rbih8 = rebase -i HEAD~8
   rbih9 = rebase -i HEAD~9
+  rbih10 = rebase -i HEAD~10
+  rbih11 = rebase -i HEAD~11
+  rbih12 = rebase -i HEAD~12
   rbiod = rebase -i origin/develop
   rbiom = rebase -i origin/master
   rbm = rebase master
