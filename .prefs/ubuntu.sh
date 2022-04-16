@@ -112,10 +112,6 @@ sudo apt-get install gpick
 sudo snap install --classic slack
 sudo snap refresh
 
-# Kotlin
-sudo snap install --classic kotlin
-sudo snap refresh
-
 # Thunderbird.
 sudo add-apt-repository -y -u ppa:mozillateam/ppa
 sudo apt-get install thunderbird
