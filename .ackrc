@@ -17,4 +17,4 @@
 --type-add=kotlin=.kt,.kts
 --type-add=sql=.sq,.sql,.sqm
 --type-add=ios=.h,.m,.swift
---type-add=gradle:ext:groovy,gtmpl,gpp,grunit,gradle,properties,kts
+--type-add=gradle:ext:groovy,gtmpl,gpp,grunit,gradle,properties,kts,toml
