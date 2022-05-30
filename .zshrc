@@ -448,6 +448,8 @@ alias ai="ack --ios"
 # T my favorite.
 alias et="chmod +x t && ./t"
 
+alias yt="yt-dlp -S \"res:1080,fps\""
+
 # Print Version.
 function v {
   ios_version=$(ack MARKETING_VERSION "../${PWD##*/}.xcodeproj/project.pbxproj" --no-filename 2> /dev/null | head -n 1)

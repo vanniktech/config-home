@@ -46,6 +46,7 @@ brew install bat
 
 # Youtube-dl.
 brew install youtube-dl
+brew install yt-dlp/taps/yt-dlp
 
 # Images.
 brew install imagemagick
