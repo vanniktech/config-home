@@ -26,5 +26,4 @@ jobs:
           shellcheck .prefs/unix.sh
           shellcheck bash/ccq
           shellcheck bash/jar2txt
-          shellcheck bash/update_root_gradle
           shellcheck bash/github_repositories_maintenance
