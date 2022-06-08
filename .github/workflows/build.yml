@@ -24,7 +24,6 @@ jobs:
           shellcheck -e SC1091 .prefs/mac.sh
           shellcheck -e SC1091 .prefs/ubuntu.sh
           shellcheck .prefs/unix.sh
-          shellcheck bash/ccq
           shellcheck bash/jar2txt
           shellcheck bash/update_root_gradle
           shellcheck bash/github_repositories_maintenance
