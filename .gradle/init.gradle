@@ -21,7 +21,7 @@ rootProject {
       def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { keyword -> version.toUpperCase().contains(keyword) }
 
       // Allow upgrading to a new alpha / beta when we're using one.
-      def currentAlphaBeta = ['ALPHA', 'BETA'].any { keyword -> currentVersin.toUpperCase().contains(keyword) }
+      def currentAlphaBeta = ['ALPHA', 'BETA', "RC"].any { keyword -> currentVersin.toUpperCase().contains(keyword) }
 
       def isJacoco = group == "org.jacoco"
 
