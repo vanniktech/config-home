@@ -428,8 +428,8 @@ alias gwu="gw dependencyUpdates"
 alias gwt="gw testDebug --tests *Test --fail-fast"
 alias gwt2="gw testDebug --continue --tests *Test"
 alias gwi="gw testDebug --tests *Integration --fail-fast"
-alias gwad="gw assembleDebug"
-alias gwid="gw installDebug"
+alias gwad="gw assembleDebug --continue"
+alias gwid="gw installDebug --continue"
 
 gwtc() {
   gw testDebug --tests "*$1*"
