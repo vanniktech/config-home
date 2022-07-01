@@ -481,6 +481,10 @@ function v {
 }
 
 # Android.
+function androidpushmusic() {
+  find . -name "*.mp3" -exec adb push "$PWD/{}" /storage/emulated/0/Music \;
+}
+
 function androidtakescreenshot() {
   local file_path
   file_name=${1:-android_screenshot_$(date +%s)}
