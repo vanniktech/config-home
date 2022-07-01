@@ -422,7 +422,14 @@ function gw {
   fi
 }
 
-alias gws="gw --stop"
+alias gd="jps|grep -E 'KotlinCompileDaemon|GradleDaemon'"
+
+function gws {
+  gw --stop || true
+  jps | grep -E 'KotlinCompileDaemon|GradleDaemon' | awk '{print $1}' | xargs kill -9 || true
+  killall java || true
+}
+
 alias gwl="gw lintDebug"
 alias gwu="gw dependencyUpdates"
 alias gwt="gw testDebug --tests *Test --fail-fast"
