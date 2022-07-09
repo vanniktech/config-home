@@ -44,8 +44,7 @@ brew install ack
 # Bat
 brew install bat
 
-# Youtube-dl.
-brew install youtube-dl
+# Youtube Downloader.
 brew install yt-dlp/taps/yt-dlp
 
 # Images.
