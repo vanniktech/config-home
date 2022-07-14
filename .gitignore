@@ -10,6 +10,7 @@
 !.gitattributes_global
 !.travis.yml
 !.vimrc
+!README.md
 
 # And those folders.
 !/.prefs/

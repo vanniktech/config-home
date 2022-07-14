@@ -4,7 +4,7 @@ set -euo pipefail
 # Only install brew if not already installed.
 if ! type "brew" > /dev/null; then
   echo "[Brew] installing"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Update brew to get the latest juice.
@@ -75,18 +75,25 @@ brew install jq
 brew install postgresql
 brew services start postgresql
 
-###
- # From this point downwards it's OS specific things.
-###
+# Slack.
+brew install --cask slack
+
+# Thunderbird.
+brew install --cask thunderbird
 
 # VLC.
 brew install vlc
+
+###
+ # From this point downwards it's OS specific things.
+###
 
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
 pip3 install cairosvg
 
 # Sublime.
+mkdir -p ~/bin/
 ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 # Heroku.
@@ -120,15 +127,13 @@ brew install aspell
 brew install graphviz
 
 # Swiftlint.
-brew install swiftlint
+# This only works when XCode is installed and since it takes forever to download, we'll default to true!
+brew install swiftlint || true
 
 # AWS.
 brew install awscli
 brew install docker-credential-helper-ecr
 brew install --cask session-manager-plugin
-
-# DVDs.
-brew install libdvdcss homebrew/cask/handbrake
 
 # Docker.
 # brew install virtualbox
