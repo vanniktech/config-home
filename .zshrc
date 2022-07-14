@@ -158,9 +158,10 @@ if [[ "$os" == 'Linux' ]]; then
   fi
 elif [[ "$os" == 'Darwin' ]]; then
   # Optionally, init z file.
-  if test -f /usr/local/etc/profile.d/z.sh
+  z_path="$(brew --prefix)/etc/profile.d/z.sh"
+  if test -f $z_path
   then
-    source /usr/local/etc/profile.d/z.sh
+    source $z_path
   fi
 
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"

@@ -175,6 +175,12 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
 defaults write com.apple.dock autohide -int 1
 killall Dock
 
+# Use proper function keys. Needs a restart.
+defaults write "Apple Global Domain" com.apple.keyboard.fnState -int 1
+
+# Clock with seconds. Needs a restart.
+defaults write "com.apple.menuextra.clock" ShowSeconds -int 1
+
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
