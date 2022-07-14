@@ -130,28 +130,16 @@ brew install graphviz
 # This only works when XCode is installed and since it takes forever to download, we'll default to true!
 brew install swiftlint || true
 
+# Cocoapods.
+brew install cocoapods
+
 # AWS.
 brew install awscli
 brew install docker-credential-helper-ecr
 brew install --cask session-manager-plugin
 
-# Docker.
-# brew install virtualbox
-# brew install docker
-# brew install docker-machine
-
-# Set up Docker.
-# docker-machine create --driver virtualbox default
-# docker-machine restart
-# eval "$(docker-machine env default)"
-# docker-machine restart
-
 # Cleaning up.
 brew cleanup
-
-# Cocoapods.
-echo "[gem] Installing cocoapods"
-sudo gem install cocoapods -n /usr/local/bin
 
 # Disable shadow when taking a screenshot.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
