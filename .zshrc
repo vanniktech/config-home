@@ -164,6 +164,9 @@ elif [[ "$os" == 'Darwin' ]]; then
     source $z_path
   fi
 
+  # Use gsed as sed.
+  export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
   alias sysclean="brew cleanup"
