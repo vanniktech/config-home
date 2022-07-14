@@ -15,6 +15,10 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zs
 sudo gem install fastlane -n /usr/local/bin
 sudo gem install bundler -n /usr/local/bin
 
+# Workaround for GitHub Changelog Generator.
+# https://github.com/github-changelog-generator/github-changelog-generator/issues/1003
+sudo gem install async -v '~> 1.29' -n /usr/local/bin
+
 # GitHub Changelog Generator.
 sudo gem install github_changelog_generator -n /usr/local/bin
 
