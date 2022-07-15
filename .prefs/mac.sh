@@ -131,7 +131,8 @@ brew install graphviz
 brew install swiftlint || true
 
 # Cocoapods.
-brew install cocoapods
+# This only works when XCode is installed and since it takes forever to download, we'll default to true!
+brew install cocoapods || true
 
 # AWS.
 brew install awscli
