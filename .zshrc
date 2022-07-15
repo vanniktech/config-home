@@ -610,7 +610,7 @@ function asdump() {
 
 function backup() {
   local computer_name
-  computer_name=$(hostname | sed 's/.local//')
+  computer_name=$(hostname | sed 's/.local//' | sed 's/.fritz.box//')
 
   # Create folder named according to the computer.
   mkdir "$computer_name"
@@ -635,8 +635,15 @@ function backup() {
   find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} "$computer_name" \; 2>/dev/null # Ignore any kind of errors.
 
   # Zip and delete directory.
-  zip -er "$computer_name.zip" "$computer_name"
+  zip_target="$computer_name.zip"
+  zip -er "$HOME/$zip_target" "$computer_name"
   rm -rf "$computer_name"
+  echo "Created $zip_target in $HOME"
+
+  # Backup Thunderbird.
+  thunderbird_target="Thunderbird.zip"
+  zip -rq "$HOME/$thunderbird_target" "$HOME/Library/Thunderbird"
+  echo "Created $thunderbird_target in $HOME"
 }
 
 # We always want to start at the home directory.
