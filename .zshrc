@@ -158,14 +158,15 @@ if [[ "$os" == 'Linux' ]]; then
   fi
 elif [[ "$os" == 'Darwin' ]]; then
   # Optionally, init z file.
-  z_path="$(brew --prefix)/etc/profile.d/z.sh"
-  if test -f $z_path
+  brew_prefix="$(brew --prefix)"
+  z_path="$brew_prefix/etc/profile.d/z.sh"
+  if test -f "$z_path"
   then
-    source $z_path
+    source "$z_path"
   fi
 
   # Use gsed as sed.
-  export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
+  export PATH="$brew_prefix/opt/gnu-sed/libexec/gnubin:$PATH"
 
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
