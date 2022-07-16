@@ -613,6 +613,7 @@ function backup() {
   computer_name=$(hostname | sed 's/.local//' | sed 's/.fritz.box//')
 
   # Create folder named according to the computer.
+  rm -rf "$computer_name"
   mkdir "$computer_name"
 
   # Start moving everything that's precious.
@@ -620,6 +621,7 @@ function backup() {
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
   cp "$HOME/.zsh_history" "$computer_name"
+  cp "$HOME/.FileZilla.xml" "$computer_name"
   cp "$HOME/my-aws-private.key" "$computer_name"
   cp "$HOME/my-aws-public.crt" "$computer_name"
   cp "$HOME/my-aws-public.p12" "$computer_name"
@@ -635,13 +637,16 @@ function backup() {
   find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} "$computer_name" \; 2>/dev/null # Ignore any kind of errors.
 
   # Zip and delete directory.
-  zip_target="$computer_name.zip"
+  rm -f -- *-"$computer_name".zip
+  prefix=$(date "+%Y%m%d-")
+  zip_target="$prefix$computer_name.zip"
   zip -er "$HOME/$zip_target" "$computer_name"
   rm -rf "$computer_name"
   echo "Created $zip_target in $HOME"
 
   # Backup Thunderbird.
-  thunderbird_target="Thunderbird.zip"
+  rm -f -- *-Thunderbird.zip
+  thunderbird_target="${prefix}Thunderbird.zip"
   zip -rq "$HOME/$thunderbird_target" "$HOME/Library/Thunderbird"
   echo "Created $thunderbird_target in $HOME"
 }
