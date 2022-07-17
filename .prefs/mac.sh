@@ -74,8 +74,8 @@ echo "n" > pyenv install 2.7.18
 brew install pidcat
 
 # Change pidcat to use Python 2.7.18
-sudo sed -i '1d' "$(which pidcat)"
-sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(which pidcat)"
+sudo sed -i '1d' "$(command -v pidcat)"
+sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
 
 # jq.
 brew install jq
