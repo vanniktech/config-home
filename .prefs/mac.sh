@@ -68,14 +68,14 @@ brew install diff-so-fancy
 # Workarounds for Pidcat.
 # https://github.com/JakeWharton/pidcat/issues/180#issuecomment-1124019329
 brew install pyenv
-echo "n" > pyenv install 2.7.18
+echo n | pyenv install 2.7.18 || true
 
 # Pidcat.
 brew install pidcat
 
 # Change pidcat to use Python 2.7.18
-sudo sed -i '1d' "$(which pidcat)"
-sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(which pidcat)"
+sudo sed -i '1d' "$(command -v pidcat)"
+sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
 
 # jq.
 brew install jq
@@ -152,7 +152,7 @@ brew install --cask session-manager-plugin
 brew install duti
 duti -s com.sublimetext.3 .css all
 duti -s com.sublimetext.3 .gradle all
-duti -s com.sublimetext.3 .html all
+duti -s com.sublimetext.3 .groovy all
 duti -s com.sublimetext.3 .java all
 duti -s com.sublimetext.3 .json all
 duti -s com.sublimetext.3 .kt all
