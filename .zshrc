@@ -158,10 +158,15 @@ if [[ "$os" == 'Linux' ]]; then
   fi
 elif [[ "$os" == 'Darwin' ]]; then
   # Optionally, init z file.
-  if test -f /usr/local/etc/profile.d/z.sh
+  brew_prefix="$(brew --prefix)"
+  z_path="$brew_prefix/etc/profile.d/z.sh"
+  if test -f "$z_path"
   then
-    source /usr/local/etc/profile.d/z.sh
+    source "$z_path"
   fi
+
+  # Use gsed as sed.
+  export PATH="$brew_prefix/opt/gnu-sed/libexec/gnubin:$PATH"
 
   alias gts3="cd \$HOME/Library/Application\\ Support/Sublime\\ Text\\ 3/"
   alias browser="open -n -b com.google.Chrome --args --profile-directory=\"Default\""
@@ -482,7 +487,7 @@ function v {
 
 # Android.
 function androidpushmusic() {
-  find . -name "*.mp3" -exec adb push "$PWD/{}" /storage/emulated/0/Music \;
+  find . -name "*.mp3" -exec adb push "$PWD/{}" /storage/emulated/0/Music/ \;
 }
 
 function androidtakescreenshot() {
@@ -605,9 +610,10 @@ function asdump() {
 
 function backup() {
   local computer_name
-  computer_name=$(hostname | sed 's/.local//')
+  computer_name=$(hostname | sed 's/.local//' | sed 's/.fritz.box//')
 
   # Create folder named according to the computer.
+  rm -rf "$computer_name"
   mkdir "$computer_name"
 
   # Start moving everything that's precious.
@@ -615,12 +621,11 @@ function backup() {
   cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
   cp "$HOME/.zprofile" "$computer_name"
   cp "$HOME/.zsh_history" "$computer_name"
+  cp "$HOME/.FileZilla.xml" "$computer_name"
   cp "$HOME/my-aws-private.key" "$computer_name"
   cp "$HOME/my-aws-public.crt" "$computer_name"
   cp "$HOME/my-aws-public.p12" "$computer_name"
   cp -a "$HOME/.aws" "$computer_name"
-  mkdir -p "$computer_name/docker/"
-  cp -a "$HOME/.docker/config.json" "$computer_name/docker/"
   rsync -a "$HOME/.appstatistics" "$computer_name" --exclude .git
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
@@ -632,8 +637,18 @@ function backup() {
   find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} "$computer_name" \; 2>/dev/null # Ignore any kind of errors.
 
   # Zip and delete directory.
-  zip -er "$computer_name.zip" "$computer_name"
+  rm -f -- *-"$computer_name".zip
+  prefix=$(date "+%Y%m%d-")
+  zip_target="$prefix$computer_name.zip"
+  zip -er "$HOME/$zip_target" "$computer_name"
   rm -rf "$computer_name"
+  echo "Created $zip_target in $HOME"
+
+  # Backup Thunderbird.
+  rm -f -- *-Thunderbird.zip
+  thunderbird_target="${prefix}Thunderbird.zip"
+  zip -rq "$HOME/$thunderbird_target" "$HOME/Library/Thunderbird"
+  echo "Created $thunderbird_target in $HOME"
 }
 
 # We always want to start at the home directory.

@@ -4,7 +4,7 @@ set -euo pipefail
 # Only install brew if not already installed.
 if ! type "brew" > /dev/null; then
   echo "[Brew] installing"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Update brew to get the latest juice.
@@ -65,8 +65,17 @@ brew install shellcheck
 # Diff-so-fancy.
 brew install diff-so-fancy
 
+# Workarounds for Pidcat.
+# https://github.com/JakeWharton/pidcat/issues/180#issuecomment-1124019329
+brew install pyenv
+echo "n" > pyenv install 2.7.18
+
 # Pidcat.
 brew install pidcat
+
+# Change pidcat to use Python 2.7.18
+sudo sed -i '1d' "$(command -v pidcat)"
+sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
 
 # jq.
 brew install jq
@@ -75,18 +84,25 @@ brew install jq
 brew install postgresql
 brew services start postgresql
 
-###
- # From this point downwards it's OS specific things.
-###
+# Slack.
+brew install --cask slack
+
+# Thunderbird.
+brew install --cask thunderbird
 
 # VLC.
 brew install vlc
+
+###
+ # From this point downwards it's OS specific things.
+###
 
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
 pip3 install cairosvg
 
 # Sublime.
+mkdir -p ~/bin/
 ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 # Heroku.
@@ -120,33 +136,20 @@ brew install aspell
 brew install graphviz
 
 # Swiftlint.
-brew install swiftlint
+# This only works when XCode is installed and since it takes forever to download, we'll default to true!
+brew install swiftlint || true
+
+# Cocoapods.
+# This only works when XCode is installed and since it takes forever to download, we'll default to true!
+brew install cocoapods || true
 
 # AWS.
 brew install awscli
 brew install docker-credential-helper-ecr
 brew install --cask session-manager-plugin
 
-# DVDs.
-brew install libdvdcss homebrew/cask/handbrake
-
-# Docker.
-# brew install virtualbox
-# brew install docker
-# brew install docker-machine
-
-# Set up Docker.
-# docker-machine create --driver virtualbox default
-# docker-machine restart
-# eval "$(docker-machine env default)"
-# docker-machine restart
-
 # Cleaning up.
 brew cleanup
-
-# Cocoapods.
-echo "[gem] Installing cocoapods"
-sudo gem install cocoapods -n /usr/local/bin
 
 # Disable shadow when taking a screenshot.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
@@ -169,6 +172,12 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -int 0
 # Dock tweaks like auto hide.
 defaults write com.apple.dock autohide -int 1
 killall Dock
+
+# Use proper function keys. Needs a restart.
+defaults write "Apple Global Domain" com.apple.keyboard.fnState -int 1
+
+# Clock with seconds. Needs a restart.
+defaults write "com.apple.menuextra.clock" ShowSeconds -int 1
 
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true

@@ -71,6 +71,17 @@ sudo apt-get install jq
 # Postgres.
 sudo apt install postgresql postgresql-contrib
 
+# Slack.
+sudo snap install --classic slack
+sudo snap refresh
+
+# Thunderbird.
+sudo add-apt-repository -y -u ppa:mozillateam/ppa
+sudo apt-get install thunderbird
+
+# Music.
+sudo apt-get install vlc
+
 ###
  # From this point downwards it is OS specific things.
 ###
@@ -95,32 +106,14 @@ sudo apt-get install ruby-dev
 # Python 3.
 sudo apt-get install python3-pip
 
-# Gimp.
-sudo apt-get install gimp
-
 # Inkscape.
 sudo apt-get install inkscape
 
 # Color picker.
 sudo apt-get install gpick
 
-# Slack.
-sudo snap install --classic slack
-sudo snap refresh
-
-# Thunderbird.
-sudo add-apt-repository -y -u ppa:mozillateam/ppa
-sudo apt-get install thunderbird
-
-# Cryptomator.
-sudo add-apt-repository -y -u ppa:sebastian-stenzel/cryptomator
-sudo apt-get install cryptomator
-
 # Pcregrep for grepping multilines (by default on Mac)
 sudo apt-get install pcregrep
-
-# Music.
-sudo apt-get install vlc
 
 # Filezilla.
 sudo apt-get install filezilla
