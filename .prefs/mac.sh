@@ -153,17 +153,17 @@ brew install --cask session-manager-plugin
 
 # Duti. duti -x sh
 brew install duti
-duti -s com.sublimetext.3 .css all
-duti -s com.sublimetext.3 .gradle all
-duti -s com.sublimetext.3 .groovy all
-duti -s com.sublimetext.3 .java all
-duti -s com.sublimetext.3 .json all
-duti -s com.sublimetext.3 .kt all
-duti -s com.sublimetext.3 .kts all
-duti -s com.sublimetext.3 .md all
-duti -s com.sublimetext.3 .sh all
-duti -s com.sublimetext.3 .swift all
-duti -s com.sublimetext.3 .xml all
+duti -s com.sublimetext.4 .css all
+duti -s com.sublimetext.4 .gradle all
+duti -s com.sublimetext.4 .groovy all
+duti -s com.sublimetext.4 .java all
+duti -s com.sublimetext.4 .json all
+duti -s com.sublimetext.4 .kt all
+duti -s com.sublimetext.4 .kts all
+duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .sh all
+duti -s com.sublimetext.4 .swift all
+duti -s com.sublimetext.4 .xml all
 
 # Cleaning up.
 brew cleanup
