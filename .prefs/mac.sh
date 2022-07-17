@@ -93,6 +93,9 @@ brew install --cask thunderbird
 # VLC.
 brew install vlc
 
+# Sublime.
+brew install --cask sublime-text
+
 ###
  # From this point downwards it's OS specific things.
 ###
