@@ -461,6 +461,9 @@ alias ai="ack --ios"
 alias et="chmod +x t && ./t"
 
 alias yt="yt-dlp -S \"res:1080,fps\""
+function yt-mp3 {
+  yt-dlp -f 'bestaudio' -x --audio-format mp3 "$1" -o '%(title)s.%(ext)s'
+}
 
 # Print Version.
 function v {
