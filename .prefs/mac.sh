@@ -108,7 +108,7 @@ if [[ $noto_sans_sc_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansSC."
 else
   echo "Installing NotoSansSC."
-  curl https://fonts.google.com/download\?family\=Noto%20Sans%20SC > "$HOME/Downloads/Noto-Sans-SC.zip"
+  curl https://fonts.google.com/download?family=Noto%20Sans%20SC > "$HOME/Downloads/Noto-Sans-SC.zip"
   unzip "$HOME/Downloads/Noto-Sans-SC.zip" -d "$HOME/Downloads/Noto-Sans-SC/"
   cp "$HOME"/Downloads/Noto-Sans-SC/*.otf /Library/Fonts/
   rm -f "$HOME/Downloads/Noto-Sans-SC.zip"
@@ -121,7 +121,7 @@ if [[ $noto_sans_tc_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansTC."
 else
   echo "Installing NotoSansTC."
-  curl https://fonts.google.com/download\?family\=Noto%20Sans%20TC > "$HOME/Downloads/Noto-Sans-TC.zip"
+  curl https://fonts.google.com/download?family=Noto%20Sans%20TC > "$HOME/Downloads/Noto-Sans-TC.zip"
   unzip "$HOME/Downloads/Noto-Sans-TC.zip" -d "$HOME/Downloads/Noto-Sans-TC/"
   cp "$HOME"/Downloads/Noto-Sans-TC/*.otf /Library/Fonts/
   rm -f "$HOME/Downloads/Noto-Sans-TC.zip"
