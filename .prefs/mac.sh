@@ -179,7 +179,9 @@ brew install awscli
 brew install docker-credential-helper-ecr
 brew install --cask session-manager-plugin
 
-# Duti. duti -x sh
+# Duti.
+# duti -x sh
+# To get the application id use: `osascript -e 'id of app "VLC"'`
 brew install duti
 duti -s com.sublimetext.4 .css all
 duti -s com.sublimetext.4 .gradle all
