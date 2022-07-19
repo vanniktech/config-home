@@ -74,6 +74,7 @@ echo n | pyenv install 2.7.18 || true
 brew install pidcat
 
 # Change pidcat to use Python 2.7.18
+echo "Workaround for installing pidcat properly requires sudo"
 sudo sed -i '1d' "$(command -v pidcat)"
 sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
 
@@ -99,6 +100,33 @@ brew install --cask sublime-text
 ###
  # From this point downwards it's OS specific things.
 ###
+
+# Fonts (Chinese for Feature Grahpic Generation).
+noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSansSC*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_sc_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansSC."
+else
+  echo "Installing NotoSansSC."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20SC > "$HOME/Downloads/Noto-Sans-SC.zip"
+  unzip "$HOME/Downloads/Noto-Sans-SC.zip" -d "$HOME/Downloads/Noto-Sans-SC/"
+  cp "$HOME"/Downloads/Noto-Sans-SC/*.otf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-SC.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-SC/"
+fi
+
+noto_sans_tc_count=$(find /Library/Fonts/ -name "NotoSansTC*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_tc_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansTC."
+else
+  echo "Installing NotoSansTC."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20TC > "$HOME/Downloads/Noto-Sans-TC.zip"
+  unzip "$HOME/Downloads/Noto-Sans-TC.zip" -d "$HOME/Downloads/Noto-Sans-TC/"
+  cp "$HOME"/Downloads/Noto-Sans-TC/*.otf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-TC.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-TC/"
+fi
 
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
