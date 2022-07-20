@@ -195,6 +195,7 @@ duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
 duti -s com.sublimetext.4 .sqm all
 duti -s com.sublimetext.4 .swift all
+duti -s com.sublimetext.4 .toml all
 duti -s com.sublimetext.4 .txt all
 duti -s com.sublimetext.4 .xml all
 duti -s org.videolan.vlc .mp3 all
