@@ -468,6 +468,7 @@ function yt-mp3 {
 # Print Version.
 function v {
   ios_version=$(ack MARKETING_VERSION "../${PWD##*/}.xcodeproj/project.pbxproj" --no-filename 2> /dev/null | head -n 1)
+  gradle_catalogue_version=$(ack '^name = ' gradle/libs.versions.toml 2> /dev/null)
   gradle_properties_version=$(ack VERSION_NAME gradle.properties 2> /dev/null)
   app_build_gradle_version_name=$(ack 'versionName "' app/build.gradle 2> /dev/null)
   build_gradle_version_name=$(ack 'versionName "' build.gradle 2> /dev/null)
@@ -475,6 +476,8 @@ function v {
 
   if [ -n "$ios_version" ]; then
     echo "$ios_version"
+  elif [ -n "$gradle_catalogue_version" ]; then
+    echo "$gradle_catalogue_version"
   elif [ -n "$gradle_properties_version" ]; then
     echo "$gradle_properties_version"
   elif [ -n "$app_build_gradle_version_name" ]; then
