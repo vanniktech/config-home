@@ -190,6 +190,7 @@ duti -s com.sublimetext.4 .java all
 duti -s com.sublimetext.4 .json all
 duti -s com.sublimetext.4 .kt all
 duti -s com.sublimetext.4 .kts all
+duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
 duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
