@@ -15,6 +15,11 @@ brew update
 echo "[Brew] upgrade"
 brew upgrade
 
+# Java.
+brew install openjdk
+echo "Linking OpenJDK"
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+
 # Gradle.
 brew install gradle
 
