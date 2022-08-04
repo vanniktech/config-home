@@ -106,6 +106,9 @@ brew install --cask sublime-text
  # From this point downwards it's OS specific things.
 ###
 
+# https://github.com/odlp/bluesnooze/pull/14
+brew install --cask bluesnooze
+
 # Fonts (Chinese for Feature Grahpic Generation).
 noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSansSC*.otf" | wc -l | sed 's/^ *//g')
 
