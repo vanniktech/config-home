@@ -13,4 +13,5 @@ Things that aren't installed.
 - [oh-my-zsh](https://ohmyz.sh/#install)
 - [IntelliJ](https://www.jetbrains.com/idea/)
 - [FileZilla](https://filezilla-project.org/)
+- [XCode](https://apps.apple.com/us/app/xcode/id497799835)
 - [Android SDK](https://developer.android.com/studio)
