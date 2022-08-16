@@ -472,6 +472,8 @@ function v {
   gradle_properties_version=$(ack VERSION_NAME gradle.properties 2> /dev/null)
   app_build_gradle_version_name=$(ack 'versionName "' app/build.gradle 2> /dev/null)
   build_gradle_version_name=$(ack 'versionName "' build.gradle 2> /dev/null)
+  app_build_gradle_kts_version_name=$(ack 'versionName = "' app/build.gradle.kts 2> /dev/null)
+  build_gradle_kts_version_name=$(ack 'versionName = "' build.gradle.kts 2> /dev/null)
   build_gradle_name=$(ack "name: '" build.gradle 2> /dev/null)
 
   if [ -n "$ios_version" ]; then
@@ -484,6 +486,10 @@ function v {
     echo "$app_build_gradle_version_name"
   elif [ -n "$build_gradle_version_name" ]; then
     echo "$build_gradle_version_name"
+  elif [ -n "$app_build_gradle_kts_version_name" ]; then
+    echo "$app_build_gradle_kts_version_name"
+  elif [ -n "$build_gradle_kts_version_name" ]; then
+    echo "$build_gradle_kts_version_name"
   elif [ -n "$build_gradle_name" ]; then
     echo "$build_gradle_name"
   else
