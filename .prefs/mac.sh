@@ -200,9 +200,11 @@ duti -s com.sublimetext.4 .kt all
 duti -s com.sublimetext.4 .kts all
 duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .properties all
 duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
 duti -s com.sublimetext.4 .sqm all
+duti -s com.sublimetext.4 .svg all
 duti -s com.sublimetext.4 .swift all
 duti -s com.sublimetext.4 .toml all
 duti -s com.sublimetext.4 .txt all
