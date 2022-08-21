@@ -163,6 +163,7 @@ brew install ffmpeg
 brew install less
 
 # Sed (want to have the same variant as with Ubuntu).
+# https://www.pement.org/sed/sed1line.txt
 brew install gnu-sed
 
 # Poppler which brings pdfseparate (pdfseparate sample.pdf sample-%d.pdf and others).
