@@ -1,3 +1,6 @@
+" Enter the current millenium.
+set nocompatible
+
 " Disable arrow keys so that I'll stop using them.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -5,7 +8,16 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " Syntax highlighting.
-syntax on
+syntax enable
+
+filetype plugin on
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
 
 set hlsearch    " highlight all search results
 set ignorecase  " do case insensitive search
@@ -27,6 +39,8 @@ set noswapfile  " disable swap file
 "u					Undo last change
 "i					Insert mode
 "a					Insert mode after cursor
+"ls         List open files
+"b          Lets you autocomplete any open buffer
 
 " vimdiff
 "]c					next conflict
