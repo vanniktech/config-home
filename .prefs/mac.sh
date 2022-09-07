@@ -202,6 +202,7 @@ duti -s com.sublimetext.4 .kt all
 duti -s com.sublimetext.4 .kts all
 duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .pro all
 duti -s com.sublimetext.4 .properties all
 duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
@@ -211,6 +212,7 @@ duti -s com.sublimetext.4 .swift all
 duti -s com.sublimetext.4 .toml all
 duti -s com.sublimetext.4 .txt all
 duti -s com.sublimetext.4 .xml all
+duti -s com.sublimetext.4 .yml all
 duti -s org.mozilla.thunderbird .eml all
 duti -s org.videolan.vlc .mp3 all
 duti -s org.videolan.vlc .mp4 all
