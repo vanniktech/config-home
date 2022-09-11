@@ -150,6 +150,9 @@ brew tap heroku/brew && brew install heroku
 # node.
 brew install node
 
+# gnupg.
+brew install gnupg
+
 # Swiftgen
 brew install swiftgen
 
