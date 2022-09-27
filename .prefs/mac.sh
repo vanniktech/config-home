@@ -178,6 +178,9 @@ brew install aspell
 # Dot for magic images.
 brew install graphviz
 
+# Flux.
+brew install --cask flux
+
 # Swiftlint.
 # This only works when XCode is installed and since it takes forever to download, we'll default to true!
 brew install swiftlint || true
