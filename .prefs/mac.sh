@@ -208,6 +208,7 @@ duti -s com.sublimetext.4 .kt all
 duti -s com.sublimetext.4 .kts all
 duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .plist all
 duti -s com.sublimetext.4 .pom all
 duti -s com.sublimetext.4 .pro all
 duti -s com.sublimetext.4 .properties all
