@@ -215,6 +215,7 @@ duti -s com.sublimetext.4 .properties all
 duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
 duti -s com.sublimetext.4 .sqm all
+duti -s com.sublimetext.4 .strings all
 duti -s com.sublimetext.4 .svg all
 duti -s com.sublimetext.4 .swift all
 duti -s com.sublimetext.4 .toml all
