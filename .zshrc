@@ -20,6 +20,9 @@ export PATH="$PATH:$JAVA_HOME"
 # Tell Android Lint to print the entire stacktrace.
 export LINT_PRINT_STACKTRACE=true
 
+# Give Emulator 3 seconds to concentracte before killing it.
+export ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL=3
+
 # Path to your oh-my-zsh installation should be in the .zprofile file.
 
 # Set name of the theme to load. Optionally, if you set this to "random"
