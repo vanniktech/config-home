@@ -1,20 +1,14 @@
 --ignore-dir=build
---ignore-dir=idea
 --ignore-dir=Pods
 --ignore-dir=.idea
 --ignore-dir=.gradle
---ignore-dir=buck-out
 --ignore-dir=swagger-ui
 --ignore-file=is:R.java
---ignore-file=is:R2.java
 --ignore-file=ext:iml
 --ignore-file=ext:ai
 --ignore-file=ext:svg
---ignore-file=is:privacy.en.html
---ignore-file=is:privacy.de.html
 
---type-add=properties=.properties
 --type-add=kotlin=.kt,.kts
 --type-add=sql=.sq,.sql,.sqm
 --type-add=ios=.h,.m,.swift
---type-add=gradle:ext:groovy,gtmpl,gpp,grunit,gradle,properties,kts,toml
+--type-add=gradle:ext:groovy,gradle,properties,kts,toml
