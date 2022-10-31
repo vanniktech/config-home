@@ -97,7 +97,7 @@ brew install --cask slack
 brew install --cask thunderbird
 
 # VLC.
-brew install vlc
+brew install --cask vlc
 
 # Sublime.
 brew install --cask sublime-text
