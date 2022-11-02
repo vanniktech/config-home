@@ -1,4 +1,4 @@
-personal_ws-1.1 en 74 
+personal_ws-1.1 en 82 
 Baudy
 BeAdmin
 BeAssistant
@@ -22,12 +22,14 @@ EBITDA
 EPS
 Fabio
 GDPR
+GitLab
 GmbH
 Gradle
 HTTPS
 Helvetica
 Hetzner
 Journaling
+Multiplatform
 NOPAT
 Naïve
 Niklas
@@ -38,6 +40,7 @@ PluralsCandidate
 RStV
 SSL
 SendGrid
+SuperAdmin
 Survivorship
 TLS
 Tachypsychia
@@ -50,6 +53,9 @@ Zeigarnik
 anonymized
 backend
 backends
+becoach
+changelog
+changelogs
 coachee
 coachees
 cocoapods
@@ -57,6 +63,7 @@ cybersecurity
 decompile
 degradations
 expensing
+frontend
 idempotence
 james
 journaling
@@ -64,6 +71,7 @@ ktlint
 letsencrypt
 mandator
 mandators
+microservice
 microservices
 performant
 pgaudit
