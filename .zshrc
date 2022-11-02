@@ -646,6 +646,7 @@ function backup() {
   rsync -a "$HOME/.appstatistics" "$computer_name" --exclude .git
   cp -a "$HOME/.ssh" "$computer_name"
   cp -a "$HOME/.play-console" "$computer_name"
+  cp -a "$HOME/.config/scdl/scdl.cfg" "$computer_name"
   cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
 
   crontab -l > "$computer_name/crontab"
