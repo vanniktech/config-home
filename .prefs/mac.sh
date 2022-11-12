@@ -136,6 +136,19 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-TC/"
 fi
 
+noto_sans_jp_count=$(find /Library/Fonts/ -name "NotoSansJP*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_jp_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansJP."
+else
+  echo "Installing NotoSansJP."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20JP > "$HOME/Downloads/Noto-Sans-JP.zip"
+  unzip "$HOME/Downloads/Noto-Sans-JP.zip" -d "$HOME/Downloads/Noto-Sans-JP/"
+  cp "$HOME"/Downloads/Noto-Sans-JP/*.otf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-JP.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-JP/"
+fi
+
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
 pip3 install cairosvg
