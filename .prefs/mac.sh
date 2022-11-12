@@ -206,8 +206,10 @@ duti -s com.sublimetext.4 .java all
 duti -s com.sublimetext.4 .json all
 duti -s com.sublimetext.4 .kt all
 duti -s com.sublimetext.4 .kts all
+duti -s com.sublimetext.4 .lock all
 duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .pbxproj all
 duti -s com.sublimetext.4 .plist all
 duti -s com.sublimetext.4 .pom all
 duti -s com.sublimetext.4 .pro all
