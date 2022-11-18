@@ -209,8 +209,8 @@ function clean {
   echo "\\033[0;32mNuking all empty directories in ~/.m2/\\033[0m"
   find ~/.m2 -mindepth 1 -type d -empty -delete
 
-  echo "\\033[0;32mNuking all files in ~/Library/Developer/Xcode/Archives/ that have not been accessed in the last 90 days\\033[0m"
-  find ~/Library/Developer/Xcode/Archives/ -type "f" -atime +90 -delete
+  echo "\\033[0;32mNuking all files in ~/Library/Developer/Xcode/Archives/ that have not been accessed in the last 7 days\\033[0m"
+  find ~/Library/Developer/Xcode/Archives/ -type "f" -atime +7 -delete
 
   echo "\\033[0;32mNuking all empty directories in ~/Library/Developer/Xcode/Archives//\\033[0m"
   find ~/Library/Developer/Xcode/Archives/ -mindepth 1 -type d -empty -delete
