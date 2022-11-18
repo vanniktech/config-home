@@ -504,7 +504,10 @@ function v {
 
 # Android.
 function androidpushmusic() {
-  find . -name "*.mp3" -exec adb push "$PWD/{}" /storage/emulated/0/Music/20/ \;
+  destination="/storage/emulated/0/Music/m/"
+  echo "Pushing music from $PWD to $destination"
+  adb shell mkdir -p "$destination"
+  find . -name "*.mp3" -not -path '*/.*' -exec adb push "$PWD/{}" "$destination" \;
 }
 
 function androidtakescreenshot() {
