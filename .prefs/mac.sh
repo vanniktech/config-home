@@ -106,6 +106,16 @@ brew install --cask sublime-text
  # From this point downwards it's OS specific things.
 ###
 
+# Change mp3 meta information. https://apple.stackexchange.com/a/236355
+# Change artist: id3v2 -a "Prince" 01\ Wow.mp3
+# Change title: id3v2 -t "Wow" 01\ Wow.mp3
+brew install id3v2
+
+# Images & MP3 files.
+# eyeD3 --add-image="FRONT_COVER.jpg":FRONT_COVER "music.mp3"
+# eyeD3 --write-images=. "music.mp3"
+brew install eye-d3
+
 # https://github.com/odlp/bluesnooze/pull/14
 brew install --cask bluesnooze
 
