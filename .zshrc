@@ -274,6 +274,10 @@ function ned {
 }
 
 # Git things.
+function b {
+  git add --all && git commit -m "Backup $(date "+%Y%m%d-%H:%m:%S")"
+}
+
 function gd {
   diff-so-fancy < "$1" | less --tabs=4 -RFX
 }
