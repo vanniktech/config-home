@@ -221,6 +221,7 @@ brew install --cask session-manager-plugin
 # duti -x sh
 # To get the application id use: `osascript -e 'id of app "VLC"'`
 brew install duti
+duti -s com.sublimetext.4 .cfg all
 duti -s com.sublimetext.4 .css all
 duti -s com.sublimetext.4 .csv all
 duti -s com.sublimetext.4 .gradle all
