@@ -297,6 +297,9 @@ defaults write com.apple.Finder FXRemoveOldTrashItems -int 1
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
 
+# XCode compilation time.
+defaults write com.apple.dt.Xcode ShowBuildOperationDuration -bool YES
+
 # Restart the service in order to propagate changes.
 killall SystemUIServer
 
