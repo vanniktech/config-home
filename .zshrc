@@ -197,6 +197,9 @@ function clean {
   echo "$(tput setaf 2)Nuking Gradle daemons other than $current_gradle_version$(tput sgr0)"
   find ~/.gradle/daemon -maxdepth 1 | tail -n+2 | grep -v "$current_gradle_version" | xargs rm -rv
 
+  echo "$(tput setaf 2)Nuking Gradle caches other than $current_gradle_version$(tput sgr0)"
+  find ~/.gradle/caches -maxdepth 1 | ack "/[\\d]\." | grep -v "$current_gradle_version" | xargs rm -rv
+
   echo "$(tput setaf 2)Nuking Gradle wrapper other than $current_gradle_version$(tput sgr0)"
   find ~/.gradle/wrapper -maxdepth 3 | ack "[\\d]\." | grep -v "$current_gradle_version" | xargs rm -rv
 
