@@ -224,6 +224,7 @@ brew install duti
 duti -s com.sublimetext.4 .cfg all
 duti -s com.sublimetext.4 .css all
 duti -s com.sublimetext.4 .csv all
+duti -s com.sublimetext.4 .gpx all
 duti -s com.sublimetext.4 .gradle all
 duti -s com.sublimetext.4 .groovy all
 duti -s com.sublimetext.4 .java all
