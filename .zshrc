@@ -219,7 +219,7 @@ function clean {
   find ~/Library/Developer/Xcode/Archives/ -mindepth 1 -type d -empty -delete
 
   echo "$(tput setaf 2)Clean up gem$(tput sgr0)"
-  sudo gem cleanup
+  gem cleanup
 
   echo "$(tput setaf 2)System dependent clean up$(tput sgr0)"
   sysclean

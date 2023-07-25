@@ -11,22 +11,21 @@ git clone git@github.com:pasky/speedread.git "$zsh_plugins_path/speedread"
 rm -rf "$zsh_plugins_path/zsh-autosuggestions"
 git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zsh-autosuggestions"
 
-# Fastlane.
-sudo gem install fastlane -n /usr/local/bin
-sudo gem install bundler -n /usr/local/bin
+# Update gem.
+gem update --system
 
-# Workaround for GitHub Changelog Generator.
-# https://github.com/github-changelog-generator/github-changelog-generator/issues/1003
-sudo gem install async -v '~> 1.29' -n /usr/local/bin
+# Fastlane.
+gem install fastlane --user-install
+gem install bundler --user-install
 
 # GitHub Changelog Generator.
-sudo gem install github_changelog_generator -n /usr/local/bin
+gem install github_changelog_generator --user-install
 
 # Kotlin Multiplatform.
-sudo gem install cocoapods-generate -n /usr/local/bin
+gem install cocoapods-generate --user-install
 
 # Clean up.
-sudo gem cleanup
+gem cleanup
 
 # Souncloud Music Downloader.
 # Usage scdl -l https://soundcloud.com/derobdachlose -f
