@@ -14,9 +14,11 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zs
 # Update gem.
 gem update --system
 
+# Bundle for better dependency management.
+gem install bundler --user-install
+
 # Fastlane.
 gem install fastlane --user-install
-gem install bundler --user-install
 
 # GitHub Changelog Generator.
 gem install github_changelog_generator --user-install

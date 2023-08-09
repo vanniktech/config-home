@@ -61,6 +61,9 @@ brew install cloc
 # Z.
 brew install z
 
+# ruby.
+brew install ruby
+
 # Speedtest.
 brew install speedtest-cli
 

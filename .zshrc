@@ -185,6 +185,13 @@ elif [[ "$os" == 'Darwin' ]]; then
   function svgtopdf15 {
     cairosvg "$1" -s 1.5 -o "${1/.svg/.pdf}"
   }
+
+  # Fix Ruby. https://mac.install.guide/ruby/13.html
+  if [ -d "$brew_prefix/opt/ruby/bin" ]; then
+    export PATH="$brew_prefix/opt/ruby/bin:$PATH"
+    gem_dir=$(gem environment gemdir)
+    export PATH="$gem_dir/bin:$PATH"
+  fi
 fi
 
 # Copy last command from Terminal into the clipboard.
