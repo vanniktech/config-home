@@ -7,10 +7,23 @@ if [[ "$os" == 'Linux' ]]; then
   source "$HOME/.zprofile" # For some reason this does not work out of the box.
 fi
 
+# Environment variables that need to be set from .zprofile:
+# export ZSH=
+# export ANDROID_HOME=
+# export JAVA_HOME=
+# export GITHUB_ACCESS_TOKEN=
+# export MATCH_KEYCHAIN_PASSWORD=
+# export FIREBASE_TOKEN=
+# export DEEPL_TOKEN=
+# export GOOGLE_DRIVE=
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bash:$HOME/bin:/usr/local/bin:$PATH
 
 # Add some more.
+export ANDROID_SDK=$ANDROID_HOME
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export CHANGELOG_GITHUB_TOKEN=$GITHUB_ACCESS_TOKEN
 export PATH="$PATH:$ANDROID_HOME/emulator"
 export PATH="$PATH:$ANDROID_HOME/tools"
 export PATH="$PATH:$ANDROID_HOME/tools/bin"
@@ -162,6 +175,9 @@ if [[ "$os" == 'Linux' ]]; then
     xmodmap -e 'keycode 118='
   fi
 elif [[ "$os" == 'Darwin' ]]; then
+  # Homebrew.
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+
   # Optionally, init z file.
   brew_prefix="$(brew --prefix)"
   z_path="$brew_prefix/etc/profile.d/z.sh"
@@ -643,43 +659,8 @@ function asdump() {
 }
 
 function backup() {
-  local computer_name
-  computer_name=$(hostname | sed 's/.local//' | sed 's/.fritz.box//')
-
-  # Create folder named according to the computer.
-  rm -rf "$computer_name"
-  mkdir "$computer_name"
-
-  # Start moving everything that's precious.
-  cp "$HOME/.gradle/gradle.properties" "$computer_name"
-  cp "$HOME/.gradle/init.gradle" "$computer_name" 2>/dev/null # Ignore any kind of errors.
-  cp "$HOME/.zprofile" "$computer_name"
-  cp "$HOME/.zsh_history" "$computer_name"
-  cp "$HOME/.FileZilla.xml" "$computer_name"
-  cp "$HOME/my-aws-private.key" "$computer_name"
-  cp "$HOME/my-aws-public.crt" "$computer_name"
-  cp "$HOME/my-aws-public.p12" "$computer_name"
-  cp -a "$HOME/.aws" "$computer_name"
-  rsync -a "$HOME/.appstatistics" "$computer_name" --exclude .git
-  cp -a "$HOME/.ssh" "$computer_name"
-  cp -a "$HOME/.play-console" "$computer_name"
-  cp -a "$HOME/.config/scdl/scdl.cfg" "$computer_name"
-  cp -a "$HOME/.gnupg" "$computer_name" 2>/dev/null # Ignore any kind of errors.
-
-  crontab -l > "$computer_name/crontab"
-
-  # Get all keystore files.
-  find . -maxdepth 5 -not -path '*/\.*' -type "f" \( -iname \*.keystore ! -iname "debug.keystore" -or -iname \*.jks \) -exec cp {} "$computer_name" \; 2>/dev/null # Ignore any kind of errors.
-
-  # Zip and delete directory.
-  rm -f -- *-"$computer_name".zip
-  prefix=$(date "+%Y%m%d-")
-  zip_target="$prefix$computer_name.zip"
-  zip -er "$HOME/$zip_target" "$computer_name"
-  rm -rf "$computer_name"
-  echo "Created $zip_target in $HOME"
-
   # Backup Thunderbird.
+  prefix=$(date "+%Y%m%d-")
   rm -f -- *-Thunderbird.zip
   thunderbird_target="${prefix}Thunderbird.zip"
   zip -rq "$HOME/$thunderbird_target" "$HOME/Library/Thunderbird"
