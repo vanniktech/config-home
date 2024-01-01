@@ -208,6 +208,10 @@ elif [[ "$os" == 'Darwin' ]]; then
     gem_dir=$(gem environment gemdir)
     export PATH="$gem_dir/bin:$PATH"
   fi
+
+  gem_home="$(ruby -e 'puts Gem.user_dir')"
+  export GEM_HOME="$gem_home"
+  export PATH="$PATH:$GEM_HOME/bin"
 fi
 
 # Copy last command from Terminal into the clipboard.
