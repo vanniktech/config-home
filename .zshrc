@@ -661,7 +661,7 @@ function asdump() {
 function backup() {
   # Backup Thunderbird.
   prefix=$(date "+%Y%m%d-")
-  rm -f -- *-Thunderbird.zip
+  rm -rf -- *-Thunderbird.zip
   thunderbird_target="${prefix}Thunderbird.zip"
   zip -rq "$HOME/$thunderbird_target" "$HOME/Library/Thunderbird"
   echo "Created $thunderbird_target in $HOME"
