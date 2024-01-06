@@ -488,7 +488,7 @@ function gws {
 
 alias gwl="gw lintDebug"
 alias gwu="gw dependencyUpdates"
-alias gwt="gw testDebug --tests *Test --fail-fast"
+alias gwt="gw testDebug --continue --tests *Test --fail-fast"
 alias gwt2="gw testDebug --continue --tests *Test"
 alias gwi="gw testDebug --tests *Integration --fail-fast"
 alias gwad="gw assembleDebug --continue"
