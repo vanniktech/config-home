@@ -245,6 +245,18 @@ function clean {
   echo "$(tput setaf 2)Nuking all empty directories in ~/Library/Developer/Xcode/Archives/$(tput sgr0)"
   find ~/Library/Developer/Xcode/Archives/ -mindepth 1 -type d -empty -delete
 
+  echo "$(tput setaf 2)Nuking all dSYM files in ~/dev/$(tput sgr0)"
+  find ~/dev/ -type "f" -name "*.dSYM.zip" -delete
+
+  echo "$(tput setaf 2)Nuking all ipa files in ~/dev/$(tput sgr0)"
+  find ~/dev/ -type "f" -name "*.ipa" -delete
+
+  echo "$(tput setaf 2)Nuking all aab files in ~/dev/$(tput sgr0)"
+  find ~/dev/ -type "f" -name "*.aab" -delete
+
+  echo "$(tput setaf 2)Nuking all apk files in ~/dev/$(tput sgr0)"
+  find ~/dev/ -type "f" -name "*.apk" -delete
+
   echo "$(tput setaf 2)Clean up gem$(tput sgr0)"
   gem cleanup
 
