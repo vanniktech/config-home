@@ -147,7 +147,8 @@
   colorMoved = dimmed_zebra
   compactionHeuristic = true
 [rerere]
-  enabled = true
+	enabled = true
+	autoUpdate = true
 [diff "jar"]
   textconv = jar2txt
 [merge]
