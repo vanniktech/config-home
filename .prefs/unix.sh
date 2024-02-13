@@ -12,6 +12,7 @@ rm -rf "$zsh_plugins_path/zsh-autosuggestions"
 git clone git@github.com:zsh-users/zsh-autosuggestions.git "$zsh_plugins_path/zsh-autosuggestions"
 
 # Update gem.
+gem update
 gem update --system
 
 # Bundle for better dependency management.
