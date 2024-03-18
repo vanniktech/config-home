@@ -7,6 +7,8 @@ if [[ "$os" == 'Linux' ]]; then
   source "$HOME/.zprofile" # For some reason this does not work out of the box.
 fi
 
+zstyle ':omz:alpha:lib:git' async-prompt yes
+
 # Environment variables that need to be set from .zprofile:
 # export ZSH=
 # export ANDROID_HOME=
