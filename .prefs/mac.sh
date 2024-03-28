@@ -251,6 +251,7 @@ duti -s com.sublimetext.4 .swift all
 duti -s com.sublimetext.4 .toml all
 duti -s com.sublimetext.4 .txt all
 duti -s com.sublimetext.4 .vtt all
+duti -s com.sublimetext.4 .xcprivacy all
 duti -s com.sublimetext.4 .xib all
 duti -s com.sublimetext.4 .xml all
 duti -s com.sublimetext.4 .yml all
