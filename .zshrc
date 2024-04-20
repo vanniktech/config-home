@@ -213,21 +213,6 @@ fi
 alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 function clean {
-  local current_gradle_version
-  current_gradle_version=$(gw --version | grep Gradle | awk '{print $2}')
-
-  echo "$(tput setaf 2)Nuking Gradle daemons other than $current_gradle_version$(tput sgr0)"
-  find ~/.gradle/daemon -maxdepth 1 | tail -n+2 | grep -v "$current_gradle_version" | xargs rm -rv
-
-  echo "$(tput setaf 2)Nuking Gradle caches other than $current_gradle_version$(tput sgr0)"
-  find ~/.gradle/caches -maxdepth 1 | ack "/[\\d]\." | grep -v "$current_gradle_version" | xargs rm -rv
-
-  echo "$(tput setaf 2)Nuking Gradle wrapper other than $current_gradle_version$(tput sgr0)"
-  find ~/.gradle/wrapper -maxdepth 3 | ack "[\\d]\." | grep -v "$current_gradle_version" | xargs rm -rv
-
-  echo "$(tput setaf 2)Nuking all empty directories in ~/.gradle/$(tput sgr0)"
-  find ~/.gradle -mindepth 1 -type d -empty -delete
-
   echo "$(tput setaf 2)Nuking all files in ~/.m2 that have not been accessed in the last 180 days$(tput sgr0)"
   find ~/.m2 -type "f" -atime +180 -delete
 
