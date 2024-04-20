@@ -4,6 +4,7 @@ t
 local.properties
 *.sublime-workspace
 .gradle/
+.kotlin/
 .attach_pid*
 jacoco.exec
 android_screenshot_*.png
