@@ -552,6 +552,10 @@ function androidpushmusic() {
   find . -name "*.mp3" -not -path '*/.*' -exec adb push "$PWD/{}" "$destination" \;
 }
 
+function androidkillemulators() {
+  ps aux | ack qemu | awk '{print $2}' | xargs kill
+}
+
 function androidtakescreenshot() {
   local file_path
   file_name=${1:-android_screenshot_$(date +%s)}
