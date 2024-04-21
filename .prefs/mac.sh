@@ -168,9 +168,6 @@ pip3 install cairosvg
 mkdir -p ~/bin/
 ln -sfn "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
-# Heroku.
-brew tap heroku/brew && brew install heroku
-
 # node.
 brew install node
 
