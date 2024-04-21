@@ -37,10 +37,6 @@ brew install hub
 # Go-Jira.
 brew install go-jira
 
-# Phraseapp.
-brew tap phrase/brewed
-brew install phraseapp
-
 # Ack.
 brew install ack
 
