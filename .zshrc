@@ -537,6 +537,7 @@ function androidpushmusic() {
 
 function androidkillemulators() {
   ps aux | ack qemu | awk '{print $2}' | xargs kill
+  find "$HOME/.android/avd" -name "*.lock" -exec rm {} \;
 }
 
 function androidtakescreenshot() {
