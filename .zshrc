@@ -217,11 +217,8 @@ function clean {
   echo "$(tput setaf 2)Nuking all empty directories in ~/.m2/$(tput sgr0)"
   find ~/.m2 -mindepth 1 -type d -empty -delete
 
-  echo "$(tput setaf 2)Nuking all files in ~/Library/Developer/Xcode/Archives/ that have not been accessed in the last 7 days$(tput sgr0)"
-  find ~/Library/Developer/Xcode/Archives/ -type "f" -atime +7 -delete
-
-  echo "$(tput setaf 2)Nuking all empty directories in ~/Library/Developer/Xcode/Archives/$(tput sgr0)"
-  find ~/Library/Developer/Xcode/Archives/ -mindepth 1 -type d -empty -delete
+  echo "$(tput setaf 2)Nuking all files in ~/Library/Developer/Xcode/Archives/$(tput sgr0)"
+  rm -rf ~/Library/Developer/Xcode/Archives/
 
   echo "$(tput setaf 2)Nuking all dSYM files in ~/dev/$(tput sgr0)"
   find ~/dev/ -type "f" -name "*.dSYM.zip" -delete
