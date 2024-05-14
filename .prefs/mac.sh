@@ -222,6 +222,7 @@ duti -s com.sublimetext.4 .csv all
 duti -s com.sublimetext.4 .gpx all
 duti -s com.sublimetext.4 .gradle all
 duti -s com.sublimetext.4 .groovy all
+duti -s com.sublimetext.4 .ini all
 duti -s com.sublimetext.4 .java all
 duti -s com.sublimetext.4 .json all
 duti -s com.sublimetext.4 .kt all
