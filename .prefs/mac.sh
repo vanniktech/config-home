@@ -156,6 +156,19 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-JP/"
 fi
 
+noto_sans_kr_count=$(find /Library/Fonts/ -name "NotoSansKR*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_kr_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansKR."
+else
+  echo "Installing NotoSansKR."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20KR > "$HOME/Downloads/Noto-Sans-KR.zip"
+  unzip "$HOME/Downloads/Noto-Sans-KR.zip" -d "$HOME/Downloads/Noto-Sans-KR/"
+  cp "$HOME"/Downloads/Noto-Sans-KR/*.otf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-KR.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-KR/"
+fi
+
 # cairosvg ic_keyboard_arrow_left_48px.svg -o ic_keyboard_arrow_left_48px.pdf
 brew install python3 cairo pango gdk-pixbuf libffi
 pip3 install cairosvg
