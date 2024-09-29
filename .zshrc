@@ -318,7 +318,7 @@ function dab {
 }
 
 function git_current_branch {
-  git branch --no-color | sed -n '/\* /s///p'
+  git branch --show-current
 }
 
 function pb {
