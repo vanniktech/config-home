@@ -243,6 +243,8 @@ duti -s com.sublimetext.4 .kts all
 duti -s com.sublimetext.4 .lock all
 duti -s com.sublimetext.4 .log all
 duti -s com.sublimetext.4 .md all
+duti -s com.sublimetext.4 .ncx all
+duti -s com.sublimetext.4 .opf all
 duti -s com.sublimetext.4 .pbxproj all
 duti -s com.sublimetext.4 .php all
 duti -s com.sublimetext.4 .plist all
