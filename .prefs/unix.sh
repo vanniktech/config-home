@@ -17,9 +17,6 @@ gem install bundler --user-install
 # Fastlane.
 gem install fastlane --user-install
 
-# GitHub Changelog Generator.
-gem install github_changelog_generator --user-install
-
 # Kotlin Multiplatform.
 gem install cocoapods-generate --user-install
 

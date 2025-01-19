@@ -291,6 +291,10 @@ function ned {
 }
 
 # Git things.
+function github_changelog_generator {
+  git cliff --config ~/.config/git-cliff/cliff.toml
+}
+
 function b {
   git add --all && git commit -m "Backup $(date "+%Y%m%d-%H:%m:%S")"
 }
