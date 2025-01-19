@@ -219,6 +219,9 @@ brew install swiftlint || true
 # This only works when XCode is installed and since it takes forever to download, we'll default to true!
 brew install cocoapods || true
 
+# Git-cliff.
+brew install git-cliff
+
 # AWS.
 brew install awscli
 brew install docker-credential-helper-ecr

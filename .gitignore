@@ -19,6 +19,9 @@
 !bash/**
 !.github/
 !.github/**
+!.config/
+!.config/git-cliff
+!.config/git-cliff/**
 
 # Add Gradle.
 !.gradle/
