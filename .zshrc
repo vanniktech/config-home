@@ -94,7 +94,7 @@ export HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-export plugins=(zsh-autosuggestions speedread)
+export plugins=(zsh-autosuggestions)
 
 # If available, init zsh.
 if test -f "$ZSH/oh-my-zsh.sh"
@@ -436,11 +436,6 @@ function cpp {
 }
 
 alias od="g dsw --no-color > t && subl t"
-
-# Speedread the current content of the clipboard.
-function speedread-clipboard {
-  pbpaste | speedread -w 500
-}
 
 # Gradle.
 function gw {
