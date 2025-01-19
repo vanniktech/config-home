@@ -28,7 +28,7 @@ gem cleanup
 
 # Souncloud Music Downloader.
 # Usage scdl -l https://soundcloud.com/derobdachlose -f
-pip3 install git+https://github.com/flyingrub/scdl --upgrade
+pip3 install git+https://github.com/flyingrub/scdl --upgrade --break-system-packages
 
 # Vim syntax highlighting.
 rm -rf "$HOME/.vim/pack/default/start/vim-polyglot"
