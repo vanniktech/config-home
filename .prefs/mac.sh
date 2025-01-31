@@ -195,6 +195,9 @@ brew install ffmpeg
 # Less (want to have the same variant as with Ubuntu).
 brew install less
 
+# ncdu $HOME
+brew install ncdu
+
 # Sed (want to have the same variant as with Ubuntu).
 # https://www.pement.org/sed/sed1line.txt
 brew install gnu-sed
