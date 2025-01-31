@@ -663,5 +663,9 @@ function backup() {
   echo "Created $thunderbird_target in $HOME"
 }
 
+function killgoogledrive() {
+  ps aux | ack "Google Drive" | awk '{print $2}' | xargs kill
+}
+
 # We always want to start at the home directory.
 cd || exit
