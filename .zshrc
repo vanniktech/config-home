@@ -532,6 +532,10 @@ function androidpushmusic() {
   find . -name "*.mp3" -not -path '*/.*' -exec adb push "$PWD/{}" "$destination" \;
 }
 
+function androidfixemulators() {
+  find "$HOME/.android/avd" -type f -name "*.ini" -exec sed -i 's/hw.audioInput=yes/hw.audioInput=no/g' {} \;
+}
+
 function androidkillemulators() {
   ps aux | ack qemu | awk '{print $2}' | xargs kill
   find "$HOME/.android/avd" -name "*.lock" -exec rm {} \;
