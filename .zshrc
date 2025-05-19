@@ -486,10 +486,10 @@ alias ai="ack --ios"
 # T my favorite.
 alias et="chmod +x t && ./t"
 
-alias yt="yt-dlp -S \"res:1080,fps\""
-alias yts="yt-dlp --write-subs --sub-langs \"es,en,zh-Hans\" -S \"res:1080,fps\""
+alias yt="yt-dlp --cookies-from-browser chrome -S \"res:1080,fps\""
+alias yts="yt-dlp --cookies-from-browser chrome --write-subs --sub-langs \"es,en,zh-Hans\" -S \"res:1080,fps\""
 function yt-mp3 {
-  yt-dlp -f 'bestaudio' -x --audio-format mp3 "$1" -o '%(title)s.%(ext)s'
+  yt-dlp --cookies-from-browser chrome -f 'bestaudio' -x --audio-format mp3 "$1" -o '%(title)s.%(ext)s'
 }
 
 # Print Version.
