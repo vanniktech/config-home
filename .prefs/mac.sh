@@ -257,6 +257,7 @@ duti -s com.sublimetext.4 .plist all
 duti -s com.sublimetext.4 .pom all
 duti -s com.sublimetext.4 .pro all
 duti -s com.sublimetext.4 .properties all
+duti -s com.sublimetext.4 .rb all
 duti -s com.sublimetext.4 .service all
 duti -s com.sublimetext.4 .sh all
 duti -s com.sublimetext.4 .sq all
