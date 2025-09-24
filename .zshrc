@@ -462,7 +462,7 @@ function gws {
 
 alias gwl="gw lintDebug"
 alias gwr="gw generateResourceAccessorsForCommonMain"
-alias gwu="gw dependencyUpdates"
+alias gwu="gw dependencyUpdates --no-parallel"
 alias gwt="gw testDebug --continue --tests *Test --fail-fast"
 alias gwt2="gw testDebug --continue --tests *Test"
 alias gwi="gw testDebug --tests *Integration --fail-fast"
