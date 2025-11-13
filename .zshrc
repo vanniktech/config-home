@@ -487,7 +487,7 @@ alias et="chmod +x t && ./t"
 alias yt="yt-dlp --cookies-from-browser chrome -S \"res:1080,fps\""
 alias yts="yt-dlp --cookies-from-browser chrome --write-subs --sub-langs \"es,en,zh-Hans\" -S \"res:1080,fps\""
 function yt-mp3 {
-  yt-dlp --cookies-from-browser chrome -f 'bestaudio' -x --audio-format m4a "$1" -o '%(title)s.%(ext)s'
+  yt-dlp --cookies-from-browser chrome -x --audio-format mp3 --audio-quality 0 --embed-thumbnail "$1"
 }
 
 # Print Version.
