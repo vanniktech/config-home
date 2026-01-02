@@ -14,9 +14,6 @@ gem update --system
 # Bundle for better dependency management.
 gem install bundler --user-install
 
-# Fastlane.
-gem install fastlane --user-install
-
 # Kotlin Multiplatform.
 gem install cocoapods-generate --user-install
 
