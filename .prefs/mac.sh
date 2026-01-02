@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+echo "Sudo is required for this script."
+sudo -v
+
 # Only install brew if not already installed.
 if ! type "brew" > /dev/null; then
   echo "[Brew] installing"
@@ -76,9 +79,8 @@ echo n | pyenv install 2.7.18 || true
 brew install pidcat
 
 # Change pidcat to use Python 2.7.18
-echo "Workaround for installing pidcat properly requires sudo"
-sudo sed -i '1d' "$(command -v pidcat)"
-sudo sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
+sed -i '1d' "$(command -v pidcat)"
+sed -i "1i #\!$HOME/.pyenv/versions/2.7.18/bin/python -u" "$(command -v pidcat)"
 
 # jq.
 brew install jq
@@ -114,7 +116,7 @@ brew install id3v2
 brew install eye-d3
 
 # https://github.com/odlp/bluesnooze/pull/14
-brew install --cask bluesnooze
+brew install bluesnooze
 
 # Fonts (Chinese for Feature Grahpic Generation).
 noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSansSC*.otf" | wc -l | sed 's/^ *//g')
@@ -156,7 +158,7 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-JP/"
 fi
 
-noto_sans_kr_count=$(find /Library/Fonts/ -name "NotoSansKR*.otf" | wc -l | sed 's/^ *//g')
+noto_sans_kr_count=$(find /Library/Fonts/ -name "NotoSansKR*.ttf" | wc -l | sed 's/^ *//g')
 
 if [[ $noto_sans_kr_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansKR."
