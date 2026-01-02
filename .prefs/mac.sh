@@ -317,6 +317,12 @@ defaults write "Apple Global Domain" AppleShowAllExtensions -int 1
 # Clear Trash after 30 days.
 defaults write com.apple.Finder FXRemoveOldTrashItems -int 1
 
+# Remove some macOS shortcuts.
+disable_mac_os_shortcuts='<dict><key>enabled_context_menu</key><false/><key>enabled_services_menu</key><false/><key>presentation_modes</key><dict><key>ContextMenu</key><false/><key>ServicesMenu</key><false/></dict></dict>'
+defaults write pbs NSServicesStatus -dict-add 'com.apple.Terminal - Open man Page in Terminal - openManPage' "$disable_mac_os_shortcuts"
+defaults write pbs NSServicesStatus -dict-add 'com.apple.Terminal - Search man Page Index in Terminal - searchManPages' "$disable_mac_os_shortcuts"
+defaults write pbs NSServicesStatus -dict-add 'com.apple.Safari - Search With Google - searchWithGoogle' "$disable_mac_os_shortcuts"
+
 # Show dot files in finder.
 defaults write com.apple.Finder AppleShowAllFiles true
 killall Finder
