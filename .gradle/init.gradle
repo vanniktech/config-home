@@ -1,6 +1,6 @@
 initscript {
   repositories {
-     gradlePluginPortal()
+    gradlePluginPortal()
   }
 
   dependencies {
@@ -27,6 +27,18 @@ rootProject {
 
       def regex = /^[0-9,.v-]+(-r)?$/
       return (!stableKeyword && !(version ==~ regex) && !currentAlphaBeta) || (version == "2.71828") || isJacoco
+    }
+  }
+}
+
+gradle.projectsLoaded {
+  rootProject.allprojects { project ->
+    project.afterEvaluate {
+      project.configurations.configureEach { configuration ->
+        configuration.resolutionStrategy {
+          cacheDynamicVersionsFor(30, "days")
+        }
+      }
     }
   }
 }
