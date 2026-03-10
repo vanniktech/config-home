@@ -209,14 +209,27 @@ fi
 alias l="fc -ln -1 | sed '1s/^[[:space:]]*//' | awk 1 ORS=\"\" | pbcopy"
 
 function clean {
-  echo "$(tput setaf 2)Nuking all files in ~/.m2 that have not been accessed in the last 180 days$(tput sgr0)"
-  find ~/.m2 -type "f" -atime +180 -delete
+  echo "$(tput setaf 2)Nuking all files in ~/.m2 that have not been accessed in the last 30 days$(tput sgr0)"
+  find ~/.m2 -type "f" -atime +30 -delete
 
   echo "$(tput setaf 2)Nuking all empty directories in ~/.m2/$(tput sgr0)"
   find ~/.m2 -mindepth 1 -type d -empty -delete
 
   echo "$(tput setaf 2)Nuking all files in ~/Library/Developer/Xcode/Archives/$(tput sgr0)"
   rm -rf ~/Library/Developer/Xcode/Archives/
+
+  echo "$(tput setaf 2)Nuking all files in ~/Library/Application\ Support/JetBrains/$(tput sgr0)"
+  rm -rf ~/Library/Application\ Support/JetBrains/
+
+  echo "$(tput setaf 2)Nuking all files in ~/Library/Caches/JetBrains/$(tput sgr0)"
+  rm -rf ~/Library/Caches/JetBrains/
+
+  echo "$(tput setaf 2)Clean up old Android Studio versions$(tput sgr0)"
+  find ~/Library/Caches/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
+  find ~/Library/Application\ Support/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
+
+  echo "$(tput setaf 2)Clean up iOS Simulators that have not been accessed in the last 30 days$(tput sgr0)"
+  find ~/Library/Developer/CoreSimulator/Devices -type d -atime +30 -depth 1 -delete
 
   echo "$(tput setaf 2)Nuking all dSYM files in ~/dev/$(tput sgr0)"
   find ~/dev/ -type "f" -name "*.dSYM.zip" -delete
