@@ -499,7 +499,15 @@ alias ai="ack --ios"
 alias et="chmod +x t && ./t"
 
 alias yt="yt-dlp -S \"res:1080,fps\""
-alias yts="yt-dlp --write-subs --sub-langs \"es,en,zh-Hans\" -S \"res:1080,fps\""
+
+function yts {
+  for lang in zh zh-Hans es en; do
+    yt-dlp --write-subs --sub-langs "$lang" --skip-download --no-overwrites "$1" && break
+  done
+
+  yt-dlp -S "res:1080,fps" "$1"
+}
+
 function yt-mp3 {
   yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail "$1"
 }
