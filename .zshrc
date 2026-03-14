@@ -226,6 +226,7 @@ function clean {
 
   echo "$(tput setaf 2)Clean up old Android Studio versions$(tput sgr0)"
   find ~/Library/Caches/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
+  find ~/Library/Logs/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
   find ~/Library/Application\ Support/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
 
   echo "$(tput setaf 2)Clean up iOS Simulators that have not been accessed in the last 30 days$(tput sgr0)"
