@@ -2,14 +2,15 @@
 *
 
 # But not these files.
-!.gitignore
-!.gitconfig
 !.ackrc
-!.zshrc
-!.gitignore_global
 !.gitattributes_global
+!.gitconfig
+!.gitignore
+!.gitignore_global
+!.sqliterc
 !.travis.yml
 !.vimrc
+!.zshrc
 !README.md
 
 # And those folders.
