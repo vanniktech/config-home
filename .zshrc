@@ -225,9 +225,9 @@ function clean {
   rm -rf ~/Library/Caches/JetBrains/
 
   echo "$(tput setaf 2)Clean up old Android Studio versions$(tput sgr0)"
-  find ~/Library/Caches/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
-  find ~/Library/Logs/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
-  find ~/Library/Application\ Support/Google -type d -depth 1 -name "AndroidStudio*" | sort -z | tail -n +2 | xargs -I {} rm -rf {};
+  find ~/Library/Caches/Google -type d -depth 1 -name "AndroidStudio*" | sort | ghead -n -1 | xargs -I {} rm -rf {};
+  find ~/Library/Logs/Google -type d -depth 1 -name "AndroidStudio*" | sort | ghead -n -1 | xargs -I {} rm -rf {};
+  find ~/Library/Application\ Support/Google -type d -depth 1 -name "AndroidStudio*" | sort | ghead -n -1 | xargs -I {} rm -rf {};
 
   echo "$(tput setaf 2)Clean up iOS Simulators that have not been accessed in the last 30 days$(tput sgr0)"
   find ~/Library/Developer/CoreSimulator/Devices -type d -atime +30 -depth 1 -delete
