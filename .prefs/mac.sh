@@ -283,6 +283,9 @@ duti -s org.videolan.vlc .webm all
 # Cleaning up.
 brew cleanup
 
+# Disable Liquid Glass.
+defaults write -g com.apple.SwiftUI.DisableSolarium -bool YES
+
 # Disable shadow when taking a screenshot.
 defaults write com.apple.screencapture disable-shadow -bool TRUE
 
