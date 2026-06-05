@@ -639,7 +639,7 @@ function androidscreenshotmodeenter() {
   adball shell "am broadcast -a com.android.systemui.demo -e command enter"
   adball shell "am broadcast -a com.android.systemui.demo -e command notifications -e visible false"
   adball shell "am broadcast -a com.android.systemui.demo -e command status -e bluetooth hidden -e volume hidden -e speakerphone false -e location false -e mute false -e alarm false -e eri false -e sync false -e tty false"
-  adball shell "am broadcast -a com.android.systemui.demo -e command network -e wifi show -e level 4 -e mobile false -e datatype hidden -e airplane false -e carriernetworkchange false"
+  adball shell "am broadcast -a com.android.systemui.demo -e command network -e wifi show -e level 4 -e fully true -e mobile false -e datatype hidden -e airplane false -e carriernetworkchange false"
   adball shell "am broadcast -a com.android.systemui.demo -e command battery -e level 100 -e plugged false -e powersave false"
   adball shell "am broadcast -a com.android.systemui.demo -e command clock -e hhmm 1100"
 }
