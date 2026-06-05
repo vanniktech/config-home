@@ -278,6 +278,7 @@ duti -s com.sublimetext.4 .xml all
 duti -s com.sublimetext.4 .yml all
 duti -s org.mozilla.thunderbird .eml all
 duti -s org.videolan.vlc .m4a all
+duti -s org.videolan.vlc .m4v all
 duti -s org.videolan.vlc .mp3 all
 duti -s org.videolan.vlc .mp4 all
 duti -s org.videolan.vlc .webm all
