@@ -120,8 +120,50 @@ brew install eye-d3
 # https://github.com/odlp/bluesnooze/pull/14
 brew install bluesnooze
 
-# Fonts (Chinese for Feature Grahpic Generation).
-noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSansSC*.otf" | wc -l | sed 's/^ *//g')
+# Fonts.
+noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSans-.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_sc_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSans."
+else
+  echo "Installing NotoSans."
+  curl https://fonts.google.com/download?family=Noto%20Sans > "$HOME/Downloads/Noto-Sans.zip"
+  unzip "$HOME/Downloads/Noto-Sans.zip" -d "$HOME/Downloads/Noto-Sans/"
+  cp "$HOME"/Downloads/Noto-Sans/**/*.ttf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans/"
+fi
+
+# Arabic.
+noto_sans_arabic_count=$(find /Library/Fonts/ -name "NotoSansArabic-*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_arabic_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansArabic."
+else
+  echo "Installing NotoSansArabic."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20Arabic > "$HOME/Downloads/Noto-Sans-Arabic.zip"
+  unzip "$HOME/Downloads/Noto-Sans-Arabic.zip" -d "$HOME/Downloads/Noto-Sans-Arabic/"
+  cp "$HOME"/Downloads/Noto-Sans-Arabic/**/*.ttf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-Arabic.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-Arabic/"
+fi
+
+# Hebrew.
+noto_sans_hebrew_count=$(find /Library/Fonts/ -name "NotoSansHebrew-*.otf" | wc -l | sed 's/^ *//g')
+
+if [[ $noto_sans_hebrew_count -gt 0 ]]; then
+  echo "Already downloaded and installed NotoSansHebrew."
+else
+  echo "Installing NotoSansHebrew."
+  curl https://fonts.google.com/download?family=Noto%20Sans%20Hebrew > "$HOME/Downloads/Noto-Sans-Hebrew.zip"
+  unzip "$HOME/Downloads/Noto-Sans-Hebrew.zip" -d "$HOME/Downloads/Noto-Sans-Hebrew/"
+  cp "$HOME"/Downloads/Noto-Sans-Hebrew/**/*.ttf /Library/Fonts/
+  rm -f "$HOME/Downloads/Noto-Sans-Hebrew.zip"
+  rm -rf "$HOME/Downloads/Noto-Sans-Hebrew/"
+fi
+
+# Chinese simplified.
+noto_sans_sc_count=$(find /Library/Fonts/ -name "NotoSansSC-*.otf" | wc -l | sed 's/^ *//g')
 
 if [[ $noto_sans_sc_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansSC."
@@ -134,7 +176,8 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-SC/"
 fi
 
-noto_sans_tc_count=$(find /Library/Fonts/ -name "NotoSansTC*.otf" | wc -l | sed 's/^ *//g')
+# Chinese traditional.
+noto_sans_tc_count=$(find /Library/Fonts/ -name "NotoSansTC-*.otf" | wc -l | sed 's/^ *//g')
 
 if [[ $noto_sans_tc_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansTC."
@@ -147,7 +190,8 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-TC/"
 fi
 
-noto_sans_jp_count=$(find /Library/Fonts/ -name "NotoSansJP*.otf" | wc -l | sed 's/^ *//g')
+# Japanese.
+noto_sans_jp_count=$(find /Library/Fonts/ -name "NotoSansJP-*.otf" | wc -l | sed 's/^ *//g')
 
 if [[ $noto_sans_jp_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansJP."
@@ -160,7 +204,8 @@ else
   rm -rf "$HOME/Downloads/Noto-Sans-JP/"
 fi
 
-noto_sans_kr_count=$(find /Library/Fonts/ -name "NotoSansKR*.ttf" | wc -l | sed 's/^ *//g')
+# Korean.
+noto_sans_kr_count=$(find /Library/Fonts/ -name "NotoSansKR-*.ttf" | wc -l | sed 's/^ *//g')
 
 if [[ $noto_sans_kr_count -gt 0 ]]; then
   echo "Already downloaded and installed NotoSansKR."
