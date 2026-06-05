@@ -14,3 +14,4 @@ Simulator Screen Shot -*.png
 nul
 .jira.d/
 *.developerprofile
+gradle-daemon-jvm.properties
