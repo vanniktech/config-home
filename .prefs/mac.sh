@@ -62,7 +62,9 @@ brew install z
 brew install ruby
 
 # Speedtest.
-brew install speedtest-cli
+brew tap teamookla/speedtest
+brew trust teamookla/speedtest
+brew install speedtest
 
 # Shellcheck.
 brew install shellcheck
