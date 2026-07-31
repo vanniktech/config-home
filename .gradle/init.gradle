@@ -1,17 +1,21 @@
+import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+
 initscript {
   repositories {
     gradlePluginPortal()
   }
 
   dependencies {
-    classpath "com.github.ben-manes:gradle-versions-plugin:0.54.0"
+    classpath "io.github.ben-manes:gradle-versions-plugin:0.57.0"
   }
 }
 
-rootProject {
-  apply plugin: com.github.benmanes.gradle.versions.VersionsPlugin
+beforeSettings { settings ->
+  settings.pluginManager.apply(com.github.benmanes.gradle.versions.VersionsSettingsPlugin)
+}
 
-  tasks.named("dependencyUpdates").configure {
+gradle.rootProject {
+  tasks.withType(DependencyUpdatesTask).configureEach {
     rejectVersionIf {
       def version = it.candidate.version
       def module = it.candidate.module
