@@ -500,16 +500,25 @@ alias et="chmod +x t && ./t"
 
 alias yt="yt-dlp -S \"res:1080,fps\""
 
-function yts {
-  for lang in zh zh-Hans es en; do
-    yt-dlp --write-subs --sub-langs "$lang" --skip-download --no-overwrites "$1" && break
-  done
+function ytv {
+  yt-dlp \
+    --sub-langs "zh-CN,zh-Hans,zh,es,en" \
+    --write-subs \
+    --no-embed-subs \
+    --sub-format "best" \
+    --no-write-auto-subs \
+    --skip-download \
+    --cookies-from-browser "chrome" \
+    "$@" | grep "\[download\]" | grep vtt | tail -n +2 | awk '{$1=""; $2=""; sub(/^ +/, ""); print}' | xargs -I {} rm {};
+}
 
-  yt-dlp -S "res:1080,fps" "$1"
+function yts {
+  ytv "$1"
+  yt-dlp --cookies-from-browser "chrome" -S "res:1080,fps" "$1"
 }
 
 function yt-mp3 {
-  yt-dlp -x --audio-format mp3 --audio-quality 0 --embed-thumbnail "$1"
+  yt-dlp --cookies-from-browser "chrome" -x --audio-format mp3 --audio-quality 0 --embed-thumbnail "$1"
 }
 
 # Print Version.
