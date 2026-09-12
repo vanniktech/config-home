@@ -6,7 +6,7 @@ initscript {
   }
 
   dependencies {
-    classpath "io.github.ben-manes:gradle-versions-plugin:0.57.0"
+    classpath "io.github.ben-manes:gradle-versions-plugin:0.62.0"
   }
 }
 
